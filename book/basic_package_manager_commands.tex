@@ -69,6 +69,32 @@
 	пакет mediinfo не установлен
 \end{verbatim}
 
+\section{Просмотр файлов пакета, установленного в системе}
+Чтобы получить список файлов пакета, введите следующую команду:
+\begin{verbatim}
+	$ rpm -ql ИМЯ_ПАКЕТА ...
+\end{verbatim}
+
+В этой команде используется ключ <<\Sys{-l}>> (list).
+
+\marginalia{ex_sign_col}{Для развернутой информации укажите ключ <<\Sys{-i}>>.}
+
+Пример использования:
+\begin{verbatim}
+	$ rpm -ql admc /usr/bin/admc /usr/lib64/libadldap.so /usr/share/applications/admc.desktop /usr/share/doc/admc-0.11.2 /usr/share/doc/admc-0.11.2/CHANGELOG.txt /usr/share/doc/admc-0.11.2/CHANGELOG_ru.txt /usr/share/doc/admc-0.11.2/README.md /usr/share/icons/hicolor/scalable/apps/admc.svg /usr/share/man/man1/admc.1.xz
+\end{verbatim}
+
+Чтобы узнать содержимое неустановленного \Sys{rpm}-пакета, используйте команду:
+\begin{verbatim}
+	$ rpm -qlp ИМЯ_ПАКЕТА ...
+\end{verbatim}
+
+Пример выполнения команды:
+\begin{verbatim}
+	$ rpm -qlp udisks2-2.9.4-alt1.1.src.rpm
+	udisks-2.9.4.tar.bz2 udisks2.control udisks2.spec 
+\end{verbatim}
+
 \section{Просмотр недавно установленных пакетов}\label{view-recently-installed-packages}
 Чтобы получить список последних установленных пакетов, введите следующую команду: 
 
