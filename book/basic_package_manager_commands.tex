@@ -126,3 +126,16 @@ libqt5-quickparticles-5.15.10-alt1.x86_64     Пт 01 дек 2023 12:35:44
 \begin{verbatim}
 rpm -qa --last | grep kernel
 \end{verbatim} 
+
+\section{Поиск пакета в системе}
+Чтобы найти в системе необходимый пакет среди уже установленных, используйте утилиту \Sys{grep}. Утилита \Sys{grep} находит строки по запросу. 
+\begin{verbatim}
+	 $ rpm -qa | grep ИМЯ_ПАКЕТА 
+\end{verbatim}
+
+Например, запрос:
+\begin{verbatim}
+	kde5-smplayer-common-22.7.0-alt1.noarch
+	smplayer-23.6.0-alt2.10169.x86_64
+\end{verbatim}
+
