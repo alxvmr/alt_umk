@@ -1,0 +1,7 @@
+*.aux
+*.block
+*.dvi
+*.log
+*.toc
+*~
+*.swp

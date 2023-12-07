@@ -1,0 +1,166 @@
+\documentclass[final,10pt,70x100,auto]{altlibrary}
+%\documentclass[draft,10pt,70x100,auto]{altlibrary}
+%\usepackage[utf8x]{inputenc}
+%\usepackage[T2A]{fontenc}
+%%\usepackage[english,russian]{babel}
+% A4 brochure (for printed docs); class options intended for automatic layout
+% \documentclass[final,a4brochure,auto]{altlibrary}
+% for ALT docs with m-k sources use additinal package:
+
+%% For m-k modules
+\usepackage{m-k} 
+
+%% For DocBook modules
+\usepackage[pdftex,%
+bookmarks=true,%
+bookmarksnumbered=true,% 
+hypertexnames=false,%
+final,%
+breaklinks=true,%
+colorlinks=true,%
+linkcolor=blue,%
+unicode]{hyperref}
+\usepackage{memhfixc}
+\usepackage{graphicx}
+\usepackage{theorem}
+% \usepackage{dbsimple}
+% \usepackage{tabulary}
+\usepackage{longtable}
+\usepackage{multirow}
+% \usepackage{supertabular}
+\usepackage{amsmath}
+\usepackage{amssymb}
+% \usepackage{array}
+\usepackage{color}
+\usepackage{enumerate}
+%\usepackage{lmodern}
+\usepackage[final]{listings}
+\usepackage[status=draft,layout=footnote,marginclue,innerlayout={layout=marginnote}]{fixme}
+% local setup and definitions
+%\input{local}
+\fxusetheme{color}
+\graphicspath{{img/}}
+\DeclareFontShape{OT1}{cmtt}{bx}{n}{<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>cmttb10}{}
+%\DeclareFontShape{T2A}{cmtt}{m}{n}{<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>cmttb10}{}
+
+\lstloadlanguages{XML,HTML}
+\lstset{
+    language=XML,
+%    columns=fixed,
+    otherkeywords={},
+    basicstyle=\usefont{T2A}{cmtt}{m}{n},
+    keywordstyle=\usefont{OT1}{cmtt}{bx}{n},
+    escapechar=`,
+%    basicstyle=\small,
+%    commentstyle=\itshape\small
+}
+
+{\theorembodyfont{\normalfont\fontshape{ui}\selectfont}
+ \newtheorem{tasko}{Пример задачи}}
+
+{\theorembodyfont{\normalfont\selectfont
+        \addtocounter{tasko}{-1}}
+ \newtheorem{solvo}[tasko]{Решение задачи}}
+
+{\theorembodyfont{\normalfont\fontshape{ui}\selectfont}
+    \newtheorem{problemo}{Задание}}
+
+\newcommand{\erf}{\mathrm{erf}}
+\newcommand{\erfc}{\mathrm{erfc}}
+\newcommand{\len}{\mathrm{len}}
+
+%----------первые и последние страницы------------------
+\series{Библиотека ALT}
+
+\booktitle{Альт Платформа}
+\booksubtitle{Руководство по сборке rpm-пакетов}
+%\booksubtitleanot{ВМК МГУ \& Базальт СПО}
+\coverauthors{Валентин Соколов, Мария Фоканова}
+\bibannoteauthors{Соколов В.\,А., Фоканова М.\,А.}
+% Фамилия Имя Отчество первых трёх авторов полностью
+\fullauthors{Соколов Валентин Андреевич\par Фоканова Мария Алексеевна}
+
+% Произвольный текст в конце биб. описания:
+%\bibnote{}
+
+\publisher{Базальт СПО}
+%\bpublisher{Базальт СПО; МАКС Пресс}
+\pagecount{48~с.}
+\pubaddress{М.}{Москва}
+\pubyear{2023}
+%\classify{УДК}{ББК}{авторский знак}
+\classify{004.91}{32.972.1}{С59}%
+\small{
+%\isbn{978-5-317-06336-8}
+}
+\annotation{%
+Книга содержит руководство по сборке \Sys{rpm}-пакетов по технологиям ALT Linux Team.
+Создано по заказу ООО <<Базальт СПО>>. 
+
+\smallskip
+\noindent Сайт книги: \url{http://www.altlinux.org/Books:alt-pkg-guide}\\
+Сайт продукта: \url{http://www.basealt.ru/alt-platform}
+
+%Ключевые слова: ИТ-образование, цифровизация, цифровые навыки, компетенции, 
+%\smallskip
+}
+%\maineditor{%
+%Ответственный редактор: В.\,Л.\,Черный
+%}
+\edutype{%Научное издание\\
+Версия 1.0}
+\team{%
+  Ответственный редактор: В.\,Л.\,Черный%\\
+%  Оформление обложки: А.\,В.\,Кононова\\
+%  Вёрстка: В.\,Л.\,Черный\\
+%  Редактура: И.\,В.\,Захаров
+}
+
+%\sales{По вопросам приобретения обращаться:
+%ООО <<Базальт СПО>> (495)123-47-99
+%E-mail: sales@basealt.ru
+%\url{http://basealt.ru}}
+
+%\rsciurl{Издание доступно в РИНЦ по адресу: \url{https://elibrary.ru}}
+
+\makeatletter
+\legalnotice{Материалы, составляющие данную книгу, распространяются на условиях лицензии GNU FDL.
+    Книга содержит следующий текст,
+    помещаемый на первую страницу обложки: <<\inseries\space
+    ``\@series''>>. Название: <<%\@fullbooktitle
+Альт Платформа. Руководство по сборке rpm-пакетов>>
+
+Книга не содержит
+    неизменяемых разделов.
+%    Linux ---
+%    торговая марка Линуса Торвальдса. Прочие встречающиеся названия
+%    могут являться торговыми марками соответствующих владельцев.
+}
+\copyleft{\@bibannoteauthors, \@pubyear\par Basealt,}% \@pubyear}
+\makeatother
+%\pubtype{Научное издание}
+% make block.stat генерит нужный файл
+%\newcommand{\izdlist}{\IfFileExists{\jobname.stat}{Уч.-изд. л. \input{\jobname.stat}{}}}
+%\signed{Подписано в печать 03.02.20. Формат 70x100/16.\\
+%Гарнитура Computer Modern. Печать офсетная. Бумага офсетная.\\
+%Усл. печ. л. 14.95. \izdlist{}%. - точку надо добавить в конец block.stat иначе перед точкой пробел. 
+%Тираж 999 экз. Изд. номер. 021\\Издательство ООО <<МАКС Пресс>>\\Лицензия ИД N 00510 от 01.12.99 г.\\
+%119992, ГСП-2, Москва, Ленинские горы, МГУ имени М.\,В.\,Ломоносова, 2-й~учебный корпус, 527~к.\\
+%Тел. 8(495)939-3890/91. Тел./Факс 8(495)939-3891.}
+
+\fullpublishers{ООО <<Базальт СПО>>\\
+Адрес для переписки: 127015, Москва, а/я 21\\
+Телефон: (495) 123-47-99. E-mail: sales@basealt.ru\\
+\url{https://www.basealt.ru}}
+%----------------конец первые и последние страницы ------
+
+
+\begin{document}
+\mainmatter
+%\maketitlepages
+\tableofcontents*
+\clearpage
+\include{book/package_manager}
+\include{book/basic_package_manager_commands}
+%\makefinalpage
+\end{document}

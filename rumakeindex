@@ -1,0 +1,211 @@
+#!/bin/sh
+
+BASE=`basename $1 .idx`
+IDX=$BASE.idx
+IND=$BASE.ind
+ILG=$BASE.ilg
+ENC=cp1251
+
+sed '
+/^\\indexentry{/ {
+s/\\IeC {\\CYRA }/А/g
+s/\\IeC {\\cyra }/Б/g
+s/\\IeC {\\CYRB }/В/g
+s/\\IeC {\\cyrb }/Г/g
+s/\\IeC {\\CYRV }/Д/g
+s/\\IeC {\\cyrv }/Е/g
+s/\\IeC {\\CYRG }/Ж/g
+s/\\IeC {\\cyrg }/З/g
+s/\\IeC {\\CYRD }/И/g
+s/\\IeC {\\cyrd }/Й/g
+s/\\IeC {\\CYRE }/К/g
+s/\\IeC {\\cyre }/Л/g
+s/\\IeC {\\CYRYO }/М/g
+s/\\IeC {\\cyryo }/Н/g
+s/\\IeC {\\CYRZH }/О/g
+s/\\IeC {\\cyrzh }/П/g
+s/\\IeC {\\CYRZ }/Р/g
+s/\\IeC {\\cyrz }/С/g
+s/\\IeC {\\CYRI }/Т/g
+s/\\IeC {\\cyri }/У/g
+s/\\IeC {\\CYRISHRT }/Ф/g
+s/\\IeC {\\cyrishrt }/Х/g
+s/\\IeC {\\CYRK }/Ц/g
+s/\\IeC {\\cyrk }/Ч/g
+s/\\IeC {\\CYRL }/Ш/g
+s/\\IeC {\\cyrl }/Щ/g
+s/\\IeC {\\CYRM }/Ъ/g
+s/\\IeC {\\cyrm }/Ы/g
+s/\\IeC {\\CYRN }/Ь/g
+s/\\IeC {\\cyrn }/Э/g
+s/\\IeC {\\CYRO }/Ю/g
+s/\\IeC {\\cyro }/Я/g
+s/\\IeC {\\CYRP }/а/g
+s/\\IeC {\\cyrp }/б/g
+s/\\IeC {\\CYRR }/в/g
+s/\\IeC {\\cyrr }/г/g
+s/\\IeC {\\CYRS }/д/g
+s/\\IeC {\\cyrs }/е/g
+s/\\IeC {\\CYRT }/ж/g
+s/\\IeC {\\cyrt }/з/g
+s/\\IeC {\\CYRU }/и/g
+s/\\IeC {\\cyru }/й/g
+s/\\IeC {\\CYRF }/к/g
+s/\\IeC {\\cyrf }/л/g
+s/\\IeC {\\CYRH }/м/g
+s/\\IeC {\\cyrh }/н/g
+s/\\IeC {\\CYRC }/о/g
+s/\\IeC {\\cyrc }/п/g
+s/\\IeC {\\CYRCH }/р/g
+s/\\IeC {\\cyrch }/с/g
+s/\\IeC {\\CYRSH }/т/g
+s/\\IeC {\\cyrsh }/у/g
+s/\\IeC {\\CYRSHCH }/ф/g
+s/\\IeC {\\cyrshch }/х/g
+s/\\IeC {\\CYRHRDSN }/ц/g
+s/\\IeC {\\cyrhrdsn }/ч/g
+s/\\IeC {\\CYRERY }/ш/g
+s/\\IeC {\\cyrery }/щ/g
+s/\\IeC {\\CYRSFTSN }/ъ/g
+s/\\IeC {\\cyrsftsn }/ы/g
+s/\\IeC {\\CYREREV }/ь/g
+s/\\IeC {\\cyrerev }/э/g
+s/\\IeC {\\CYRYU }/ю/g
+s/\\IeC {\\cyryu }/я/g
+s/\\IeC {\\CYRYA }/ё/g
+s/\\IeC {\\cyrya }/є/g
+}' $IDX | makeindex -i -t $ILG | sed '
+s/А/{\\CYRA }/g
+s/Б/{\\cyra }/g
+s/В/{\\CYRB }/g
+s/Г/{\\cyrb }/g
+s/Д/{\\CYRV }/g
+s/Е/{\\cyrv }/g
+s/Ж/{\\CYRG }/g
+s/З/{\\cyrg }/g
+s/И/{\\CYRD }/g
+s/Й/{\\cyrd }/g
+s/К/{\\CYRE }/g
+s/Л/{\\cyre }/g
+s/М/{\\CYRYO }/g
+s/Н/{\\cyryo }/g
+s/О/{\\CYRZH }/g
+s/П/{\\cyrzh }/g
+s/Р/{\\CYRZ }/g
+s/С/{\\cyrz }/g
+s/Т/{\\CYRI }/g
+s/У/{\\cyri }/g
+s/Ф/{\\CYRISHRT }/g
+s/Х/{\\cyrishrt }/g
+s/Ц/{\\CYRK }/g
+s/Ч/{\\cyrk }/g
+s/Ш/{\\CYRL }/g
+s/Щ/{\\cyrl }/g
+s/Ъ/{\\CYRM }/g
+s/Ы/{\\cyrm }/g
+s/Ь/{\\CYRN }/g
+s/Э/{\\cyrn }/g
+s/Ю/{\\CYRO }/g
+s/Я/{\\cyro }/g
+s/а/{\\CYRP }/g
+s/б/{\\cyrp }/g
+s/в/{\\CYRR }/g
+s/г/{\\cyrr }/g
+s/д/{\\CYRS }/g
+s/е/{\\cyrs }/g
+s/ж/{\\CYRT }/g
+s/з/{\\cyrt }/g
+s/и/{\\CYRU }/g
+s/й/{\\cyru }/g
+s/к/{\\CYRF }/g
+s/л/{\\cyrf }/g
+s/м/{\\CYRH }/g
+s/н/{\\cyrh }/g
+s/о/{\\CYRC }/g
+s/п/{\\cyrc }/g
+s/р/{\\CYRCH }/g
+s/с/{\\cyrch }/g
+s/т/{\\CYRSH }/g
+s/у/{\\cyrsh }/g
+s/ф/{\\CYRSHCH }/g
+s/х/{\\cyrshch }/g
+s/ц/{\\CYRHRDSN }/g
+s/ч/{\\cyrhrdsn }/g
+s/ш/{\\CYRERY }/g
+s/щ/{\\cyrery }/g
+s/ъ/{\\CYRSFTSN }/g
+s/ы/{\\cyrsftsn }/g
+s/ь/{\\CYREREV }/g
+s/э/{\\cyrerev }/g
+s/ю/{\\CYRYU }/g
+s/я/{\\cyryu }/g
+s/ё/{\\CYRYA }/g
+s/є/{\\cyrya }/g
+' | sed '
+s/{\\CYRA }/А/g
+s/{\\cyra }/а/g
+s/{\\CYRB }/Б/g
+s/{\\cyrb }/б/g
+s/{\\CYRV }/В/g
+s/{\\cyrv }/в/g
+s/{\\CYRG }/Г/g
+s/{\\cyrg }/г/g
+s/{\\CYRD }/Д/g
+s/{\\cyrd }/д/g
+s/{\\CYRE }/Е/g
+s/{\\cyre }/е/g
+s/{\\CYRYO }/Ё/g
+s/{\\cyryo }/ё/g
+s/{\\CYRZH }/Ж/g
+s/{\\cyrzh }/ж/g
+s/{\\CYRZ }/З/g
+s/{\\cyrz }/з/g
+s/{\\CYRI }/И/g
+s/{\\cyri }/и/g
+s/{\\CYRISHRT }/Й/g
+s/{\\cyrishrt }/й/g
+s/{\\CYRK }/К/g
+s/{\\cyrk }/к/g
+s/{\\CYRL }/Л/g
+s/{\\cyrl }/л/g
+s/{\\CYRM }/М/g
+s/{\\cyrm }/м/g
+s/{\\CYRN }/Н/g
+s/{\\cyrn }/н/g
+s/{\\CYRO }/О/g
+s/{\\cyro }/о/g
+s/{\\CYRP }/П/g
+s/{\\cyrp }/п/g
+s/{\\CYRR }/Р/g
+s/{\\cyrr }/р/g
+s/{\\CYRS }/С/g
+s/{\\cyrs }/с/g
+s/{\\CYRT }/Т/g
+s/{\\cyrt }/т/g
+s/{\\CYRU }/У/g
+s/{\\cyru }/у/g
+s/{\\CYRF }/Ф/g
+s/{\\cyrf }/ф/g
+s/{\\CYRH }/Х/g
+s/{\\cyrh }/х/g
+s/{\\CYRC }/Ц/g
+s/{\\cyrc }/ц/g
+s/{\\CYRCH }/Ч/g
+s/{\\cyrch }/ч/g
+s/{\\CYRSH }/Ш/g
+s/{\\cyrsh }/ш/g
+s/{\\CYRSHCH }/Щ/g
+s/{\\cyrshch }/щ/g
+s/{\\CYRHRDSN }/Ъ/g
+s/{\\cyrhrdsn }/ъ/g
+s/{\\CYRERY }/Ы/g
+s/{\\cyrery }/ы/g
+s/{\\CYRSFTSN }/Ь/g
+s/{\\cyrsftsn }/ь/g
+s/{\\CYREREV }/Э/g
+s/{\\cyrerev }/э/g
+s/{\\CYRYU }/Ю/g
+s/{\\cyryu }/ю/g
+s/{\\CYRYA }/Я/g
+s/{\\cyrya }/я/g
+'  > $IND
