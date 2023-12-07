@@ -54,6 +54,20 @@
 \end{itemize}
 
 
+\section{Проверка установки пакета в системе}\label{verifying-package}
+Чтобы проверить, установлен ли пакет, введите следующую команду: 
+\begin{verbatim}
+	$ rpm -q ИМЯ_ПАКЕТА 
+\end{verbatim}
+
+Пример: 
+\begin{verbatim}
+	$ rpm -q gpupdate
+	gpupdate-0.9.12.2-alt2.noarch
+	
+	$ rpm -q mediinfo
+	пакет mediinfo не установлен
+\end{verbatim}
 
 \section{Просмотр недавно установленных пакетов}\label{view-recently-installed-packages}
 Чтобы получить список последних установленных пакетов, введите следующую команду: 
