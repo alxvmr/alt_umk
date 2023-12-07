@@ -139,3 +139,18 @@ rpm -qa --last | grep kernel
 	smplayer-23.6.0-alt2.10169.x86_64
 \end{verbatim}
 
+\section{Проверка файла, относящегося к пакету}
+Чтобы определить, какому пакету принадлежит указанный файл, используйте команду: 
+\begin{verbatim}
+	$ rpm -qf ФАЙЛ
+\end{verbatim}
+
+Например, запрос: 
+\begin{verbatim}
+	$ rpm -qf /usr/share/FBReader/help
+\end{verbatim}
+Предоставит вывод:
+\begin{verbatim}
+	fbreader-0.99.5-alt6.x86_64
+\end{verbatim}}
+
