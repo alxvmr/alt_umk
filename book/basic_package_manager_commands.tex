@@ -4,7 +4,9 @@
 	rpm [options]
 \end{verbatim}
 
-Пакетный менеджер \Sys{RPM} предоставляет базовые возможности для управления пакетами. Основной набор команд\footnote{\href{https://wiki.altlinux.ru/Команды_RPM}{https://wiki.altlinux.ru/Команды\_RPM}} позволяет установить, удалить, обновить пакеты, получить разнообразную информацию о самих пакетах и их содержимом:
+Пакетный менеджер \Sys{RPM} предоставляет базовые возможности для управления пакетами. Основной набор команд%
+\footnote{\href{https://wiki.altlinux.ru/\%D0\%9A\%D0\%BE\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B4\%D1\%8B_RPM}{https://wiki.altlinux.ru/Команды\_RPM}} 
+позволяет установить, удалить, обновить пакеты, получить разнообразную информацию о самих пакетах и их содержимом:
 
 \begin{itemize}
 	\item \textbf{Информация о пакете}: \Sys{rpm -qi ИМЯ\_ПАКЕТА \dots}\\
@@ -81,7 +83,16 @@
 
 Пример использования:
 \begin{verbatim}
-	$ rpm -ql admc /usr/bin/admc /usr/lib64/libadldap.so /usr/share/applications/admc.desktop /usr/share/doc/admc-0.11.2 /usr/share/doc/admc-0.11.2/CHANGELOG.txt /usr/share/doc/admc-0.11.2/CHANGELOG_ru.txt /usr/share/doc/admc-0.11.2/README.md /usr/share/icons/hicolor/scalable/apps/admc.svg /usr/share/man/man1/admc.1.xz
+	$ rpm -ql admc 
+	/usr/bin/admc 
+	/usr/lib64/libadldap.so 
+	/usr/share/applications/admc.desktop 
+	/usr/share/doc/admc-0.11.2 
+	/usr/share/doc/admc-0.11.2/CHANGELOG.txt 
+	/usr/share/doc/admc-0.11.2/CHANGELOG_ru.txt 
+	/usr/share/doc/admc-0.11.2/README.md 
+	/usr/share/icons/hicolor/scalable/apps/admc.svg 
+	/usr/share/man/man1/admc.1.xz
 \end{verbatim}
 
 Чтобы узнать содержимое неустановленного \Sys{rpm}-пакета, используйте команду:
@@ -154,3 +165,14 @@ rpm -qa --last | grep kernel
 	fbreader-0.99.5-alt6.x86_64
 \end{verbatim}}
 
+\section{Вопросы для самопроверки}
+
+\begin{enumerate}
+	\item С помощью какого ключа к \Sys{rpm} можно получить информацию об установленном \Sys{rpm}-пакете?
+	\item Как получить информацию об \Sys{rpm}-пакете, если он еще не установлен в системе, но у вас есть файл.
+	\item Как получить список всех файлов \Sys{rpm}-пакета?
+	\item Верно ли что команда \Sys{rpm -Uvh} обновит пакет, а если его нет, то установит его?
+		Какой параметр отвечает за обновление/установку? Что означают другие параметры?
+	\item Как проверить установлен ли пакет с именем \Sys{foo} в вашей системе? Напишите такую команду.
+	\item Что делает команда \verb!rpm -qi mate-text-editor |grep License!?
+\end{enumerate}
