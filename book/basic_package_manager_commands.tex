@@ -207,7 +207,7 @@ rpm -qa --last | grep kernel
 \end{verbatim}}
 
 \section{Вывод информации о пакете}
-Чтобы получить вывод подробной информации о конкретном установленном пакете\footnote{\href{https://www.inp.nsk.su/~bolkhov/teach/inpunix/make_rpm.ru.html}{https://www.inp.nsk.su/~bolkhov/teach/inpunix/make\_rpm.ru.html}}  --- название, версию и прочее --- используйте команду:
+Чтобы получить вывод подробной информации о конкретном установленном пакете\footnote{\href{https://www.inp.nsk.su/~bolkhov/teach/inpunix/make_rpm.ru.html}{https://www.inp.nsk.su/~bolkhov/teach/inpunix/make\_rpm.ru.html}} --- название, версию и прочее --- используйте команду:
 \begin{verbatim}
 	$ rpm -qi ИМЯ_ПАКЕТА ...
 \end{verbatim}
@@ -272,6 +272,36 @@ rpm -qa --last | grep kernel
 	Description :
 	Simple screen recorder with a minimal interface.
 \end{verbatim}
+
+\section{Обновление пакета}
+Чтобы обновить пакет до новой версии, используйте команду:
+\begin{verbatim}
+	rpm -U ФАЙЛ_ПАКЕТА ...
+\end{verbatim}
+
+Для обновления пакетов в пакетном менеджере \Sys{RPM} используют запрос с двумя типами ключей\footnote{\href{https://wiki.altlinux.ru/QuickStart/PkgManagment}{https://wiki.altlinux.ru/QuickStart/PkgManagment}}: 
+\begin{enumerate}
+	\item \Sys{rpm -U} --- может устанавливать и обновлять пакеты;
+	\item \Sys{rpm -F} --- только обновляет уже установленные пакеты.
+\end{enumerate}
+	
+\begin{verbatim}
+	rpm {-U|--upgrade} [install-options] ФАЙЛ_ПАКЕТА ...
+\end{verbatim}}
+
+Команда \Sys{rpm -U} (Upgrade) обновляет пакеты до новых версий. Если установлена старая версия пакета, \Sys{rpm -U} заменит старую версию на новую, обновив пакет. Если пакет не установлен, команда \Sys{rpm -U} установит его.
+
+\begin{verbatim}
+	rpm {-F|--freshen} [install-options] ФАЙЛ_ПАКЕТА ...
+\end{verbatim}
+
+Команда \Sys{rpm -F} (Freshen) обновляет только те пакеты, которые уже установлены в системе. Если установлена старая версия пакета, \Sys{rpm -F} заменит старую версию на новую, обновив пакет. Если пакет не установлен, команда \Sys{rpm -F} ничего не сделает с этим пакетом\footnote{\href{https://access.redhat.com/solutions/1189}{https://access.redhat.com/solutions/1189}}.
+
+Пример установки пакета:
+\begin{verbatim}
+	# rpm -U foo-1.0-i586.rpm
+\end{verbatim}
+
 
 
 \section{Вопросы для самопроверки}
