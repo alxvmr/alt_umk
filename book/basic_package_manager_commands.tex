@@ -206,6 +206,74 @@ rpm -qa --last | grep kernel
 	fbreader-0.99.5-alt6.x86_64
 \end{verbatim}}
 
+\section{Проверка файла, относящегося к пакету}
+Чтобы получить вывод подробной информации о конкретном установленном пакете\footnote{\href{https://www.inp.nsk.su/~bolkhov/teach/inpunix/make_rpm.ru.html}{https://www.inp.nsk.su/~bolkhov/teach/inpunix/make\_rpm.ru.html}}  --- название, версию и прочее --- используйте команду:
+\begin{verbatim}
+	$ rpm -qi ИМЯ_ПАКЕТА ...
+\end{verbatim}
+
+\marginalia{ex_sign_col}{В запросе указывается имя пакета из списка уже установленных в системе, либо путь к загруженному пакету.}
+
+Пример выполнения команды для установленного пакета в системе:
+\begin{verbatim}
+	$ rpm -qi gpupdate
+	
+	Name        : gpupdate
+	Version     : 0.9.12.6
+	Release     : alt1
+	DistTag     : p10+323062.200.4.1
+	Architecture: noarch
+	Install Date: Ср 12 июл 2023 13:26:50
+	Group       : Other
+	Size        : 951193
+	License     : GPLv3+
+	Signature   : RSA/SHA512, Сб 08 июл 2023 22:59:22, Key ID 42f343a2c7eb80f9
+	Source RPM  : gpupdate-0.9.12.6-alt1.src.rpm
+	Build Date  : Сб 08 июл 2023 22:59:21
+	Build Host  : greh-p10.hasher.altlinux.org
+	Relocations : (not relocatable)
+	Packager    : Valery Sinelnikov (ALT) <greh@altlinux.org>
+	Vendor      : ALT Linux Team
+	URL         : https://github.com/altlinux/gpupdate
+	Summary     : GPT applier
+	Description :
+	gpupdate is the facility to apply various GPO/GPT settings retrieved
+	from Active Directory domain in UNIX environment.
+\end{verbatim}
+
+Пример выполнения команды для \Sys{rpm}-пакета, расположенного на диске, но неустановленного в системе:
+\begin{verbatim}
+	$ rpm -qip /путь/к/пакету/foo-1.0-i586.rpm
+\end{verbatim}
+
+Пример выполнения:
+\begin{verbatim}
+	$ rpm -qip kooha-2.2.4-alt1.x86_64.rpm
+	
+	Name        : kooha
+	Epoch       : 1
+	Version     : 2.2.4
+	Release     : alt1
+	DistTag     : sisyphus+330279.100.2.2
+	Architecture: x86_64
+	Install Date: (not installed)
+	Group       : Video
+	Size        : 2261140
+	License     : GPL-3.0+
+	Signature   : RSA/SHA512, Пн 25 сен 2023 15:28:07, Key ID ff979dedda2773bb
+	Source RPM  : kooha-2.2.4-alt1.src.rpm
+	Build Date  : Пн 25 сен 2023 15:28:01
+	Build Host  : lvol-sisyphus.hasher.altlinux.org
+	Relocations : (not relocatable)
+	Packager    : Leontiy Volodin <lvol@altlinux.org>
+	Vendor      : ALT Linux Team
+	URL         : https://github.com/SeaDve/Kooha
+	Summary     : Simple screen recorder with a minimal interface
+	Description :
+	Simple screen recorder with a minimal interface.
+\end{verbatim}
+
+
 \section{Вопросы для самопроверки}
 
 \begin{enumerate}
