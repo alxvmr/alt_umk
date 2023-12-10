@@ -38,3 +38,41 @@
 \end{verbatim}
 
 При этом в системе имя установленного пакета будет отличаться: в командной строке можно обратиться за информацией по пакету, указывая только его имя, если установлена одна версия пакета, и указывая \Sys{имя-версию-релиз}, если установлено больше версий\footnote{\href{https://www.opennet.ru/docs/RUS/rpm_guide/13.html}{https://www.opennet.ru/docs/RUS/rpm\_guide/13.html}}.
+
+
+\section{Описание SPEC-файла}
+\Emph{SPEC-файл} --- RPM Specification File --- это текстовый файл, который описывает процесс сборки и конфигурацию пакета, служит инструкцией для утилиты \Sys{rpmbuild}. Он содержит метаданные, такие как имя пакета, версию, лицензию, а также разделы с инструкциями для сборки, установки и упаковки программного обеспечения, журнал изменений пакета \footnote{\href{https://wiki.mageia.org.ru/index.php?title=\%D0\%A1\%D1\%82\%D1\%80\%D1\%83\%D0\%BA\%D1\%82\%D1\%83\%D1\%80\%D0\%B0_RPM_SPEC-\%D1\%84\%D0\%B0\%D0\%B9\%D0\%BB\%D0\%B0}{https://wiki.mageia.org.ru/index.php?title=Структура\_RPM\_SPEC-файла}}. \Sys{SPEC}-файл можно рассматривать как <<инструкцию>>, которую утилита \Sys{rpmbuild} использует для сборки \Sys{RPM}-пакета.
+
+\Sys{Spec}-файл состоит из трех разделов: Header (Заголовок/Преамбула), Body (Тело) и Сhangelog(Журнал изменений).
+\begin{enumerate}
+	\item \textbf{Header} (Заголовок) --- этот раздел содержит метаданные о пакете, такие как его имя (Name), версия (Version), релиз (Release), краткое описание (Summary), лицензия (License) и другие параметры, которые идентифицируют и характеризуют пакет.
+	
+	\item \textbf{Body} (Тело) --- этот раздел содержит инструкции для процесса сборки пакета. В нем определяются различные секции, такие как \Sys{BuildRequires} (зависимости для сборки), \Sys{\%build} (инструкции для сборки), \Sys{\%install} (инструкции для установки), \Sys{\%files} (список файлов, включенных в пакет), и другие.
+	
+	\item \textbf{Changelog} (Журнал изменений) --- этот раздел содержит историю изменений пакета. Он включает записи о внесённых изменениях, включая дату изменения, автора и краткое описание того, что было изменено.
+\end{enumerate}
+
+\paragraph{Преамбула (Заголовок)}
+Заголовок \Sys{SPEC}-файла содержит информацию о пакете: версию, исходный код, патчи, зависимости.
+
+Рекомендуемый порядок заголовочных тэгов:
+\begin{itemize}
+	\item Name, Version, Release, Serial
+	\item далее Summary, License, Group, Url, Packager, BuildArch
+	\item потом Source*, Patch*
+	\item далее PreReqs, Requires, Provides, Conflicts
+	\item и, наконец, Prefix, BuildPreReqs, BuildRequires.
+\end{itemize}
+
+Ниже приведен пример части \Sys{SPEC}-файла \Sys{notepadqq}:
+\begin{verbatim}
+	Summary:	A Linux clone of Notepad++
+	Name:		notepadqq
+	Version:	1.4.8
+	Release:	alt2
+	License:	GPLv3
+	Group:		Editors
+	URL:		http://notepadqq.altervista.org/wp/
+	Source0:	%name-%version.tar
+	Source1:	codemirror.tar
+\end{verbatim}
