@@ -182,3 +182,207 @@
 	Source0:	%name-%version.tar
 	Source1:	codemirror.tar
 \end{verbatim}
+
+
+\section{Пример \Sys{.spec}-файла}
+\Emph{SPEC-файл} --- RPM Specification File --- это текстовый файл, который описывает процесс сборки и конфигурацию пакета. \Sys{SPEC}-файл можно рассматривать как <<инструкцию>>, которую утилита \Sys{rpmbuild} использует для сборки \Sys{RPM}-пакета. Он содержит метаданные, такие как имя пакета, версию, лицензию, а также разделы с инструкциями для сборки, установки и упаковки программного обеспечения, журнал изменений пакета.
+
+Представим образцы \Sys{SPEC}-файлов\footnote{\href{https://www.altlinux.org/SampleSpecs}{https://www.altlinux.org/SampleSpecs}} --- шаблонный образец, образец для программы на \Sys{autotools}, образец для программы на \Sys{cmake} и образец модуля для \Sys{Python 3}.
+
+\paragraph{Примеры \Sys{SPEC}-файла}
+\begin{enumerate}
+	\item Пустой \Sys{SPEC}
+	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-2.95cm]
+		Name: <имя-пакета>
+		Version: <версия-пакета>
+		Release: alt<релиз-пакета>
+		
+		Summary: <однострочное описание>
+		License: <лицензия>
+		Group: <группа>
+		
+		Url: <URL>
+		Source: %name-%version.tar
+		Patch1:
+		
+		PreReq:
+		Requires:
+		Provides:
+		Conflicts:
+		
+		BuildPreReq:
+		BuildRequires:
+		%{?!_without_test:%{?!_disable_test:%{?!_without_check:%{?!_disable_check:BuildRequires: }}}}
+		BuildArch:
+		
+		%description
+		<многострочное
+		описание>
+		
+		%prep
+		%setup
+		%patch1 -p1
+		
+		%build
+		%configure
+		%make_build
+		
+		%install
+		%makeinstall_std
+		
+		%check
+		%make_build check
+		
+		%files
+		%_bindir/*
+		%_man1dir/*
+		%doc AUTHORS NEWS README
+		
+		%changelog
+		* <дата> <ваше имя> <$login@altlinux.org> <версия_пакета>-<релиз_пакета>
+		- initial build for ALT Linux Sisyphus
+	\end{Verbatim}
+	
+	\item Для программы (на \Sys{autotools})
+	Название GNU Autotools обычно относится к программным пакетам Autoconf, Automake, Libtool и Gnulib. Вместе они составляют систему сборки GNU. Этот \Sys{SPEC}-файл является примером пакета с программой.
+	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-2.95cm]
+		Name: sampleprog
+		Version: 1.0
+		Release: alt1
+		
+		Summary: Sample program specfile
+		Summary(ru_RU.UTF-8): Пример спек-файла для программы
+		
+		License: GPLv2+
+		Group: Development/Other
+		Url: http://www.altlinux.org/SampleSpecs/program
+		
+		Source: %name-%version.tar
+		Patch0: %name-1.0-alt-makefile-fixes.patch
+		
+		%description
+		This specfile is provided as sample specfile for packages with programs.
+		It contains most of usual tags and constructions used in such specfiles.
+		
+		%description -l ru_RU.UTF-8
+		
+		%prep
+		%setup
+		%patch0 -p1
+		
+		%build
+		%configure
+		%make_build
+		
+		%install
+		%makeinstall_std
+		%find_lang %name
+		
+		%files -f %name.lang
+		%doc AUTHORS ChangeLog NEWS README THANKS TODO contrib/ manual/
+		%_bindir/*
+		%_man1dir/*
+		
+		%changelog
+		* Sat Sep 33 3001 Sample Packager <sample@altlinux.org> 1.0-alt1
+		- initial build
+	\end{Verbatim}
+	
+	\item Для программы на \Sys{cmake}
+	\Emph{CMake} --- это кроссплатформенный инструмент с открытым исходным кодом, который использует независимые от компилятора и платформы файлы конфигурации для создания собственных файлов инструментов сборки, специфичных для вашего компилятора и платформы. Является стандартом де-факто для сборки кода на \Sys{C++}.
+	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-2.95cm]
+		Name: sampleprog
+		Version: 1.0
+		Release: alt1
+		
+		Summary: Sample program specfile
+		License: GPLv2+
+		Group: Development/Other
+		
+		Url: http://www.altlinux.org/SampleSpecs/cmakeprogram
+		Source: %name-%version.tar.bz2
+		
+		BuildRequires(pre): cmake rpm-macros-cmake
+		
+		%description
+		This specfile is provided as a sample specfile
+		for a package built with cmake.
+		
+		%prep
+		%setup
+		
+		%build
+		%cmake_insource
+		%make_build # VERBOSE=1
+		
+		%install
+		%makeinstall_std
+		%find_lang %name
+		
+		%files -f %name.lang
+		%doc AUTHORS ChangeLog NEWS README THANKS TODO contrib/ manual/
+		%_bindir/*
+		%_man1dir/*
+		
+		%changelog
+		* Sat Jan 33 3001 Example Packager <example@altlinux.org> 1.0-alt1
+		- initial build
+	\end{Verbatim}
+	
+	\item Модуль для \Sys{Python 3}
+	Макросы для сборки модулей \Sys{python3} содержатся в пакете \Sys{rpm-build-python3} и аналогичны тем, что используются в ALT для \Sys{python}\footnote{\href{https://www.altlinux.org/Python3}{https://www.altlinux.org/Python3}}.
+	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-2.95cm]
+		%define pypi_name @NAME@
+		%define mod_name %pypi_name
+		
+		%def_with check
+		
+		Name: python3-module-%pypi_name
+		Version: 0.0.0
+		Release: alt1
+		Summary: @TEMPLATE@
+		License: MIT
+		Group: Development/Python3
+		Url: https://pypi.org/project/@NAME@
+		Vcs: @SOURCE_GIT@
+		BuildArch: noarch
+		Source: %name-%version.tar
+		Source1: %pyproject_deps_config_name
+		Patch: %name-%version-alt.patch
+		
+		# mapping of PyPI name to distro name
+		Provides: python3-module-%{pep503_name %pypi_name} = %EVR
+		
+		%pyproject_runtimedeps_metadata
+		BuildRequires(pre): rpm-build-pyproject
+		%pyproject_builddeps_build
+		%if_with check
+		%pyproject_builddeps_metadata
+		%endif
+		
+		%description
+		@DESCR@
+		
+		%prep
+		%setup
+		%autopatch -p1
+		%pyproject_deps_resync_build
+		%pyproject_deps_resync_metadata
+		
+		%build
+		%pyproject_build
+		
+		%install
+		%pyproject_install
+		
+		%check
+		%pyproject_run_pytest
+		
+		%files
+		%doc README.*
+		%python3_sitelibdir/%mod_name/
+		%python3_sitelibdir/%{pyproject_distinfo %pypi_name}
+		
+		%changelog
+	\end{Verbatim}
+\end{enumerate}
