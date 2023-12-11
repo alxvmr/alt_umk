@@ -34,26 +34,6 @@
 		\Sys{hasher} или \Sys{rpmbuild}.
 \end{itemize}
 
-\section{Инструменты для сборки RPM-пакетов}
-\Emph{Инструменты сборки \Sys{rpm}-пакета} --- это пакеты и программы, с помощью которых из набора исходных файлов можно получить специальный архив в формате \Sys{rpm}-пакета. Приведём список этих инструментов\footnote{\href{https://www.altlinux.org/\%D0\%A1\%D0\%B1\%D0\%BE\%D1\%80\%D0\%BA\%D0\%B0_\%D0\%BF\%D0\%B0\%D0\%BA\%D0\%B5\%D1\%82\%D0\%B0_\%D1\%81_\%D0\%BD\%D1\%83\%D0\%BB\%D1\%8F}{https://www.altlinux.org/Сборка\_пакета\_с\_нуля}}: \Sys{rpmdevtools}, \Sys{rpmdev-setuptree}, \Sys{rpmbuild}, \Sys{rpmspec}, \Sys{rpmlint}. 
-
-\begin{itemize}
-	\item \textbf{rpmdevtools} --- пакет с набором программ для сборки пакетов; 
-	
-	\begin{itemize}
-		\item \textbf{rpmdev-setuptree} --- утилита для создания структуры рабочих каталогов;
-		\item \textbf{rpmdev-newspec} --- утилита для создания \Sys{spec}-файла;
-	\end{itemize}
-	
-	\item \textbf{rpmspec} --- утилита работы с файлами спецификации --- текстовыми файлами с расширением \Sys{.spec}. Служит для проверки подготовленного \Sys{spec}-файла;
-	
-	\item \textbf{rpmbuild} --- утилита сборки \Sys{rpm}-пакета из набора подготовленных файлов;
-	
-	\item \textbf{rpmlint} --- утилита для тестирования собранного \Sys{rpm}-пакета;
-	
-	\item \textbf{rpm-utils} --- пакет с набором программ для работы с \Sys{rpm}-пакетами.
-\end{itemize}
-
 
 \section{Описание RPM-пакета}
 \Emph{RPM-пакет} --- это специальный архив с файлами. Сам файл пакета состоит из четырёх секций --- 
@@ -87,6 +67,28 @@
 При этом в системе имя установленного пакета будет отличаться: в командной строке можно обратиться за информацией 
 по пакету, указывая только его имя, если установлена одна версия пакета, и указывая \Sys{имя-версию-релиз}, если 
 установлено больше версий\footnote{\href{https://www.opennet.ru/docs/RUS/rpm_guide/13.html}{https://www.opennet.ru/docs/RUS/rpm\_guide/13.html}}.
+
+
+\section{Инструменты для сборки RPM-пакетов}
+\Emph{Инструменты сборки \Sys{rpm}-пакета} --- это пакеты и программы, с помощью которых из набора исходных файлов можно получить специальный архив в формате \Sys{rpm}-пакета. Приведём список этих инструментов\footnote{\href{https://www.altlinux.org/\%D0\%A1\%D0\%B1\%D0\%BE\%D1\%80\%D0\%BA\%D0\%B0_\%D0\%BF\%D0\%B0\%D0\%BA\%D0\%B5\%D1\%82\%D0\%B0_\%D1\%81_\%D0\%BD\%D1\%83\%D0\%BB\%D1\%8F}{https://www.altlinux.org/Сборка\_пакета\_с\_нуля}}: \Sys{rpmdevtools}, \Sys{rpmdev-setuptree}, \Sys{rpmbuild}, \Sys{rpmspec}, \Sys{rpmlint}. 
+
+\begin{itemize}
+	\item \textbf{rpmdevtools} --- пакет с набором программ для сборки пакетов; 
+	
+	\begin{itemize}
+		\item \textbf{rpmdev-setuptree} --- утилита для создания структуры рабочих каталогов;
+		\item \textbf{rpmdev-newspec} --- утилита для создания \Sys{spec}-файла;
+	\end{itemize}
+	
+	\item \textbf{rpmspec} --- утилита работы с файлами спецификации --- текстовыми файлами с расширением \Sys{.spec}. Служит для проверки подготовленного \Sys{spec}-файла;
+	
+	\item \textbf{rpmbuild} --- утилита сборки \Sys{rpm}-пакета из набора подготовленных файлов;
+	
+	\item \textbf{rpmlint} --- утилита для тестирования собранного \Sys{rpm}-пакета;
+	
+	\item \textbf{rpm-utils} --- пакет с набором программ для работы с \Sys{rpm}-пакетами.
+\end{itemize}
+
 
 \section{Описание SPEC-файла}
 \Emph{SPEC-файл} --- RPM Specification File --- это текстовый файл, который описывает процесс сборки и конфигурацию 
