@@ -47,7 +47,7 @@
 		скомпилированные под определённую процессорную архитектуру исполняемые файлы и библиотеки. 
 		На системах с разной процессорной архитектурой не получится использовать один и тот же 
 		скомпилированный бинарный \Sys{rpm}-пакет.
-	\item \Emph{\Sys{noarch}-пакет} --- платформо-независимый бинарный пакет.
+	\item \Emph{noarch-пакет} --- платформо-независимый бинарный пакет.
 	\item \Emph{SRPM-пакет} (source RPM, пакет с исходным кодом) --- это архив с расширением \Sys{.src.rpm}. 
 		\Sys{SRPM} содержит исходный код, патчи, если необходимо, и \Sys{SPEC}-файл. Эти пакеты содержат 
 		всю информацию для сборки пакета.
@@ -70,42 +70,46 @@
 
 
 \section{Инструменты для сборки RPM-пакетов}
-\Emph{Инструменты сборки \Sys{rpm}-пакета} --- это пакеты и программы, с помощью которых из набора исходных файлов можно получить специальный архив в формате \Sys{rpm}-пакета. Приведём список этих инструментов\footnote{\href{https://www.altlinux.org/\%D0\%A1\%D0\%B1\%D0\%BE\%D1\%80\%D0\%BA\%D0\%B0_\%D0\%BF\%D0\%B0\%D0\%BA\%D0\%B5\%D1\%82\%D0\%B0_\%D1\%81_\%D0\%BD\%D1\%83\%D0\%BB\%D1\%8F}{https://www.altlinux.org/Сборка\_пакета\_с\_нуля}}: \Sys{rpmdevtools}, \Sys{rpmdev-setuptree}, \Sys{rpmbuild}, \Sys{rpmspec}, \Sys{rpmlint}. 
+\Emph{Инструменты сборки \Sys{rpm}-пакета} --- это пакеты и программы, с помощью которых из набора исходных файлов 
+можно получить специальный архив в формате \Sys{rpm}-пакета. Приведём список этих инструментов%
+\footnote{\href{https://www.altlinux.org/\%D0\%A1\%D0\%B1\%D0\%BE\%D1\%80\%D0\%BA\%D0\%B0_\%D0\%BF\%D0\%B0\%D0\%BA\%D0\%B5\%D1\%82\%D0\%B0_\%D1\%81_\%D0\%BD\%D1\%83\%D0\%BB\%D1\%8F}%
+{https://www.altlinux.org/Сборка\_пакета\_с\_нуля}}: \Sys{rpmdevtools}, \Sys{rpmdev-setuptree}, \Sys{rpmbuild}, \Sys{rpmspec}, \Sys{rpmlint}. 
 
 \begin{itemize}
-	\item \textbf{rpmdevtools} --- пакет с набором программ для сборки пакетов; 
-	
+	\item \Emph{rpmdevtools} --- пакет с набором программ для сборки пакетов; 
 	\begin{itemize}
-		\item \textbf{rpmdev-setuptree} --- утилита для создания структуры рабочих каталогов;
-		\item \textbf{rpmdev-newspec} --- утилита для создания \Sys{spec}-файла;
+		\item \Emph{rpmdev-setuptree} --- утилита для создания структуры рабочих каталогов;
+		\item \Emph{rpmdev-newspec} --- утилита для создания \Sys{spec}-файла;
 	\end{itemize}
-	
-	\item \textbf{rpmspec} --- утилита работы с файлами спецификации --- текстовыми файлами с расширением \Sys{.spec}. Служит для проверки подготовленного \Sys{spec}-файла;
-	
-	\item \textbf{rpmbuild} --- утилита сборки \Sys{rpm}-пакета из набора подготовленных файлов;
-	
-	\item \textbf{rpmlint} --- утилита для тестирования собранного \Sys{rpm}-пакета;
-	
-	\item \textbf{rpm-utils} --- пакет с набором программ для работы с \Sys{rpm}-пакетами.
+	\item \Emph{rpmspec} --- утилита работы с файлами спецификации --- текстовыми файлами с расширением 
+		\Sys{.spec}. Служит для проверки подготовленного \Sys{spec}-файла;
+	\item \Emph{rpmbuild} --- утилита сборки \Sys{rpm}-пакета из набора подготовленных файлов;
+	\item \Emph{rpmlint} --- утилита для тестирования собранного \Sys{rpm}-пакета;
+	\item \Emph{rpm-utils} --- пакет с набором программ для работы с \Sys{rpm}-пакетами.
 \end{itemize}
 
 
 \section{Рабочее пространство для сборки RPM-пакетов}
-\Emph{Рабочая область упаковки \Sys{RPM}-пакета} --- это структура файлов и каталогов. Эту структуру можно создать двумя способами --- вручную или через утилиту \Sys{rpmdev-setuptree}.
+\Emph{Рабочая область упаковки \Sys{RPM}-пакета} --- это структура файлов и каталогов. Эту структуру 
+можно создать двумя способами --- вручную или через утилиту \Sys{rpmdev-setuptree}.
 
 Для подготовки ручным способом структуры каталогов выполните команду:
 \begin{verbatim}
 	mkdir -p ~/RPM/{BUILD,SRPMS,RPMS,SOURCES,SPECS}
 \end{verbatim}
 
-Альтернативный способ подготовки рабочей среды --- утилита \Sys{rpmdev-setuptree}. Утилита входит в состав пакета \Sys{rpmdevtools} (см.\,\hyperlink{1.3}{раздел 1.3}). Для подготовки структуры каталогов через утилиту \Sys{rpmdev-setuptree} выполните команду:
+Альтернативный способ подготовки рабочей среды --- утилита \Sys{rpmdev-setuptree}. Утилита входит в 
+состав пакета \Sys{rpmdevtools} (см.\,\hyperlink{1.3}{раздел 1.3}). Для подготовки структуры каталогов 
+через утилиту \Sys{rpmdev-setuptree} выполните команду:
 \begin{verbatim}
 	$ rpmdev-setuptree
 \end{verbatim}
 
 Утилита создаст базовую структуру каталогов и файл \Sys{~/.rpmmacros}, если его не существовало.
 
-Для системы ALT расположение структуры каталогов\footnote{\href{https://rpm-packaging-guide-ru.github.io/\#rpm-packaging-workspace}{https://rpm-packaging-guide-ru.github.io/\#rpm-packaging-workspace}} по умолчанию определятся в файле \Sys{~/.rpmmacros} и находится в каталоге \Sys{~/RPM}:
+Для системы ALT расположение структуры каталогов%
+%\footnote{\href{https://rpm-packaging-guide-ru.github.io/\#rpm-packaging-workspace}{https://rpm-packaging-guide-ru.github.io/\#rpm-packaging-workspace}} 
+по умолчанию определятся в файле \Sys{~/.rpmmacros} и находится в каталоге \Sys{~/RPM}:
 \begin{verbatim}
 	$ tree ~/RPM
 	/home/tefst/RPM
@@ -119,20 +123,22 @@
 \end{verbatim}
 
 \begin{enumerate}
-	\item \textbf{BUILD} --- в каталог попадают распакованные исходные файлы из SOURCES c уже применёнными патчами --- стадия \Sys{\%prep}. В каталоге BUILD происходит сборка программного обеспечения.
-	
-	\item \textbf{RPMS} --- в каталог RPMS бинарные \Sys{RPM}-пакеты после сборки, в соответствии с подкаталогами для поддерживаемых архитектур.
-	
-	\item \textbf{SOURCES} --- в каталоге размещают архивы исходных данных и патчи.
-	
-	\item \textbf{SPECS} --- в каталоге размещают\Sys{spec}-файлы пакетов для сборки.
-	
-	\item \textbf{SRPMS} --- в каталог SRPMS попадают результаты сборки SRPM пакетов.
+	\item \Emph{BUILD} --- в каталог попадают распакованные исходные файлы из 
+		\Sys{SOURCES} c уже применёнными патчами --- стадия \Sys{\%prep}. 
+		В каталоге \Sys{BUILD} происходит сборка программного обеспечения.
+	\item \Emph{RPMS} --- в каталог \Sys{RPMS} бинарные \Sys{RPM}-пакеты после 
+		сборки, в соответствии с подкаталогами для поддерживаемых архитектур.
+	\item \Emph{SOURCES} --- в каталоге размещают архивы исходных данных и патчи.
+	\item \Emph{SPECS} --- в каталоге размещают\Sys{spec}-файлы пакетов для сборки.
+	\item \Emph{SRPMS} --- в каталог SRPMS попадают результаты сборки SRPM пакетов.
 \end{enumerate}
 
 Созданная структура каталогов становится рабочей областью упаковки \Sys{RPM}-пакета.
 
-\marginalia{ex_sign_col}{В структуре сборочного окружения \Sys{RPM} существует понятие \Sys{buildroot}. Это каталог \Sys{/TMP}, в который попадают служебные файлы в ходе сборки пакета и уже подготовленные бинарные данные для упаковки в соответствии со структурой каталогов. По умолчанию создается во временном системном каталоге. Может быть переназначен.}
+\marginalia{ex_sign_col}{В структуре сборочного окружения \Sys{RPM} существует понятие 
+\Sys{buildroot}. Это каталог \Sys{/TMP}, в который попадают служебные файлы в ходе сборки 
+пакета и уже подготовленные бинарные данные для упаковки в соответствии со структурой 
+каталогов. По умолчанию создаётся во временном системном каталоге. Может быть переназначен.}
 
 
 \section{Описание SPEC-файла}
@@ -144,7 +150,7 @@
 {https://wiki.mageia.org.ru/index.php?title=Структура\_RPM\_SPEC-файла}}. %
 \Sys{SPEC}-файл можно рассматривать как <<инструкцию>>, которую утилита \Sys{rpmbuild} использует для сборки \Sys{RPM}-пакета.
 
-\Sys{Spec}-файл состоит из трёх разделов: Header (Заголовок/Преамбула), Body (Тело) и Сhangelog(Журнал изменений).
+\Sys{Spec}-файл состоит из трёх разделов: Header (Заголовок/Преамбула), Body (Тело) и Сhangelog (Журнал изменений).
 \begin{enumerate}
 	\item \Emph{Header} (Заголовок) --- этот раздел содержит метаданные о пакете, такие как его имя (Name), 
 		версия (Version), релиз (Release), краткое описание (Summary), лицензия (License) и другие 
@@ -158,7 +164,8 @@
 		описание того, что было изменено.
 \end{enumerate}
 
-\paragraph{Преамбула (Заголовок)}
+\Emph{Преамбула (Заголовок)}
+
 Заголовок \Sys{SPEC}-файла содержит информацию о пакете: версию, исходный код, патчи, зависимости.
 
 Рекомендуемый порядок заголовочных тэгов:
@@ -185,213 +192,230 @@
 
 
 \section{Пример \Sys{.spec}-файла}
-\Emph{SPEC-файл} --- RPM Specification File --- это текстовый файл, который описывает процесс сборки и конфигурацию пакета. \Sys{SPEC}-файл можно рассматривать как <<инструкцию>>, которую утилита \Sys{rpmbuild} использует для сборки \Sys{RPM}-пакета. Он содержит метаданные, такие как имя пакета, версию, лицензию, а также разделы с инструкциями для сборки, установки и упаковки программного обеспечения, журнал изменений пакета.
+\Emph{SPEC-файл} --- RPM Specification File --- это текстовый файл, который описывает 
+процесс сборки и конфигурацию пакета. \Sys{SPEC}-файл можно рассматривать как <<инструкцию>>, 
+которую утилита \Sys{rpmbuild} использует для сборки \Sys{RPM}-пакета. Он содержит метаданные, 
+такие как имя пакета, версию, лицензию, а также разделы с инструкциями для сборки, установки 
+и упаковки программного обеспечения, журнал изменений пакета.
 
-Представим образцы \Sys{SPEC}-файлов\footnote{\href{https://www.altlinux.org/SampleSpecs}{https://www.altlinux.org/SampleSpecs}} --- шаблонный образец, образец для программы на \Sys{autotools}, образец для программы на \Sys{cmake} и образец модуля для \Sys{Python 3}.
+Представим образцы \Sys{SPEC}-файлов%
+\footnote{\href{https://www.altlinux.org/SampleSpecs}{https://www.altlinux.org/SampleSpecs}} 
+--- шаблонный образец, образец для программы на \Sys{autotools}, образец для программы на 
+\Sys{cmake} и образец модуля для \Sys{Python 3}.
 
-\paragraph{Примеры \Sys{SPEC}-файла}
-\begin{enumerate}
-	\item Пустой \Sys{SPEC}
-	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-0.25\textwidth]
-		Name: <имя-пакета>
-		Version: <версия-пакета>
-		Release: alt<релиз-пакета>
-		
-		Summary: <однострочное описание>
-		License: <лицензия>
-		Group: <группа>
-		
-		Url: <URL>
-		Source: %name-%version.tar
-		Patch1:
-		
-		PreReq:
-		Requires:
-		Provides:
-		Conflicts:
-		
-		BuildPreReq:
-		BuildRequires:
-		%{?!_without_test:%{?!_disable_test:%{?!_without_check:%{?!_disable_check:BuildRequires: }}}}
-		BuildArch:
-		
-		%description
-		<многострочное
-		описание>
-		
-		%prep
-		%setup
-		%patch1 -p1
-		
-		%build
-		%configure
-		%make_build
-		
-		%install
-		%makeinstall_std
-		
-		%check
-		%make_build check
-		
-		%files
-		%_bindir/*
-		%_man1dir/*
-		%doc AUTHORS NEWS README
-		
-		%changelog
-		* <дата> <ваше имя> <$login@altlinux.org> <версия_пакета>-<релиз_пакета>
-		- initial build for ALT Linux Sisyphus
-	\end{Verbatim}
+\subsection*{Примеры \Sys{SPEC}-файлов}
+
+\Emph{Пример 1.} Пустой \Sys{SPEC}
+\begin{Verbatim}[breaklines=true,breakanywhere=true,fontsize=\scriptsize]
+Name: <имя-пакета>
+Version: <версия-пакета>
+Release: alt<релиз-пакета>
 	
-	\item Для программы (на \Sys{autotools})
+Summary: <однострочное описание>
+License: <лицензия>
+Group: <группа>
+
+Url: <URL>
+Source: %name-%version.tar
+Patch1:
 	
-	Название GNU Autotools обычно относится к программным пакетам Autoconf, Automake, Libtool и Gnulib. Вместе они составляют систему сборки GNU. Этот \Sys{SPEC}-файл является примером пакета с программой.
-	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-0.25\textwidth]
-		Name: sampleprog
-		Version: 1.0
-		Release: alt1
-		
-		Summary: Sample program specfile
-		Summary(ru_RU.UTF-8): Пример спек-файла для программы
-		
-		License: GPLv2+
-		Group: Development/Other
-		Url: http://www.altlinux.org/SampleSpecs/program
-		
-		Source: %name-%version.tar
-		Patch0: %name-1.0-alt-makefile-fixes.patch
-		
-		%description
-		This specfile is provided as sample specfile for packages with programs.
-		It contains most of usual tags and constructions used in such specfiles.
-		
-		%description -l ru_RU.UTF-8
-		
-		%prep
-		%setup
-		%patch0 -p1
-		
-		%build
-		%configure
-		%make_build
-		
-		%install
-		%makeinstall_std
-		%find_lang %name
-		
-		%files -f %name.lang
-		%doc AUTHORS ChangeLog NEWS README THANKS TODO contrib/ manual/
-		%_bindir/*
-		%_man1dir/*
-		
-		%changelog
-		* Sat Sep 33 3001 Sample Packager <sample@altlinux.org> 1.0-alt1
-		- initial build
-	\end{Verbatim}
+PreReq:
+Requires:
+Provides:
+Conflicts:
 	
-	\item Для программы на \Sys{cmake}
+BuildPreReq:
+BuildRequires:
+%{?!_without_test:%{?!_disable_test:%{?!_without_check:%{?!_disable_check:BuildRequires: }}}}
+BuildArch:
 	
-	\Emph{CMake} --- это кроссплатформенный инструмент с открытым исходным кодом, который использует независимые от компилятора и платформы файлы конфигурации для создания собственных файлов инструментов сборки, специфичных для вашего компилятора и платформы. Является стандартом де-факто для сборки кода на \Sys{C++}.
-	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-0.25\textwidth]
-		Name: sampleprog
-		Version: 1.0
-		Release: alt1
-		
-		Summary: Sample program specfile
-		License: GPLv2+
-		Group: Development/Other
-		
-		Url: http://www.altlinux.org/SampleSpecs/cmakeprogram
-		Source: %name-%version.tar.bz2
-		
-		BuildRequires(pre): cmake rpm-macros-cmake
-		
-		%description
-		This specfile is provided as a sample specfile
-		for a package built with cmake.
-		
-		%prep
-		%setup
-		
-		%build
-		%cmake_insource
-		%make_build # VERBOSE=1
-		
-		%install
-		%makeinstall_std
-		%find_lang %name
-		
-		%files -f %name.lang
-		%doc AUTHORS ChangeLog NEWS README THANKS TODO contrib/ manual/
-		%_bindir/*
-		%_man1dir/*
-		
-		%changelog
-		* Sat Jan 33 3001 Example Packager <example@altlinux.org> 1.0-alt1
-		- initial build
-	\end{Verbatim}
+%description
+<многострочное
+описание>
 	
-	\item Модуль для \Sys{Python 3}
+%prep
+%setup
+%patch1 -p1
+
+%build
+%configure
+%make_build
+		
+%install
+%makeinstall_std
 	
-	Макросы для сборки модулей \Sys{python3} содержатся в пакете \Sys{rpm-build-python3} и аналогичны тем, что используются в ALT для \Sys{python}\footnote{\href{https://www.altlinux.org/Python3}{https://www.altlinux.org/Python3}}.
-	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-0.25\textwidth]
-		%define pypi_name @NAME@
-		%define mod_name %pypi_name
+%check
+%make_build check
 		
-		%def_with check
+%files
+%_bindir/*
+%_man1dir/*
+%doc AUTHORS NEWS README
 		
-		Name: python3-module-%pypi_name
-		Version: 0.0.0
-		Release: alt1
-		Summary: @TEMPLATE@
-		License: MIT
-		Group: Development/Python3
-		Url: https://pypi.org/project/@NAME@
-		Vcs: @SOURCE_GIT@
-		BuildArch: noarch
-		Source: %name-%version.tar
-		Source1: %pyproject_deps_config_name
-		Patch: %name-%version-alt.patch
+%changelog
+* <дата> <ваше имя> <$login@altlinux.org> <версия_пакета>-<релиз_пакета>
+- initial build for ALT Linux Sisyphus
+\end{Verbatim}
+
+\Emph{Пример 2.} Для программы (на \Sys{autotools})
+	
+		Название \Sys{GNU Autotools} обычно относится к программным пакетам \Sys{Autoconf}, 
+		\Sys{Automake}, \Sys{Libtool} и \Sys{Gnulib}. Вместе они составляют систему сборки 
+		\Sys{GNU}. Этот \Sys{SPEC}-файл является примером пакета с программой.
+	\begin{Verbatim}[breaklines=true,breakanywhere=true,fontsize=\scriptsize]
+Name: sampleprog
+Version: 1.0
+Release: alt1
+	
+Summary: Sample program specfile
+Summary(ru_RU.UTF-8): Пример spec-файла для программы
+	
+License: GPLv2+
+Group: Development/Other
+Url: http://www.altlinux.org/SampleSpecs/program
 		
-		# mapping of PyPI name to distro name
-		Provides: python3-module-%{pep503_name %pypi_name} = %EVR
+Source: %name-%version.tar
+Patch0: %name-1.0-alt-makefile-fixes.patch
 		
-		%pyproject_runtimedeps_metadata
-		BuildRequires(pre): rpm-build-pyproject
-		%pyproject_builddeps_build
-		%if_with check
-		%pyproject_builddeps_metadata
-		%endif
+%description
+This specfile is provided as sample specfile for packages with programs.
+It contains most of usual tags and constructions used in such specfiles.
 		
-		%description
-		@DESCR@
+%description -l ru_RU.UTF-8
 		
-		%prep
-		%setup
-		%autopatch -p1
-		%pyproject_deps_resync_build
-		%pyproject_deps_resync_metadata
+%prep
+%setup
+%patch0 -p1
+	
+%build
+%configure
+%make_build
 		
-		%build
-		%pyproject_build
+%install
+%makeinstall_std
+%find_lang %name
 		
-		%install
-		%pyproject_install
+%files -f %name.lang
+%doc AUTHORS ChangeLog NEWS README THANKS TODO contrib/ manual/
+%_bindir/*
+%_man1dir/*
 		
-		%check
-		%pyproject_run_pytest
+%changelog
+* Sat Sep 33 3001 Sample Packager <sample@altlinux.org> 1.0-alt1
+- initial build
+\end{Verbatim}
+	
+	\Emph{Пример 3.} Для программы на \Sys{cmake}
+	
+	\Emph{CMake} --- это кроссплатформенный инструмент с открытым исходным кодом, который использует 
+	независимые от компилятора и платформы файлы конфигурации для создания собственных файлов 
+	инструментов сборки, специфичных для вашего компилятора и платформы. Является стандартом 
+	де-факто для сборки кода на \Sys{C++}.
+\begin{Verbatim}[breaklines=true,breakanywhere=true,fontsize=\scriptsize]
+Name: sampleprog
+Version: 1.0
+Release: alt1
 		
-		%files
-		%doc README.*
-		%python3_sitelibdir/%mod_name/
-		%python3_sitelibdir/%{pyproject_distinfo %pypi_name}
+Summary: Sample program specfile
+License: GPLv2+
+Group: Development/Other
 		
-		%changelog
-	\end{Verbatim}
-\end{enumerate}
+Url: http://www.altlinux.org/SampleSpecs/cmakeprogram
+Source: %name-%version.tar.bz2
+		
+BuildRequires(pre): cmake rpm-macros-cmake
+		
+%description
+This specfile is provided as a sample specfile
+for a package built with cmake.
+		
+%prep
+%setup
+		
+%build
+%cmake_insource
+%make_build # VERBOSE=1
+		
+%install
+%makeinstall_std
+%find_lang %name
+		
+%files -f %name.lang
+%doc AUTHORS ChangeLog NEWS README THANKS TODO contrib/ manual/
+%_bindir/*
+%_man1dir/*
+		
+%changelog
+* Sat Jan 33 3001 Example Packager <example@altlinux.org> 1.0-alt1
+- initial build
+\end{Verbatim}
+	
+\Emph{Пример 4.} Модуль для \Sys{Python 3}
+	
+	Макросы для сборки модулей \Sys{python3} содержатся в пакете \Sys{rpm-build-python3} и 
+	аналогичны тем, что используются в ALT для \Sys{python}\footnote{\href{https://www.altlinux.org/Python3}{https://www.altlinux.org/Python3}}.
+\begin{Verbatim}[breaklines=true,breakanywhere=true,fontsize=\scriptsize]
+%define pypi_name @NAME@
+%define mod_name %pypi_name
+		
+%def_with check
+		
+Name: python3-module-%pypi_name
+Version: 0.0.0
+Release: alt1
+Summary: @TEMPLATE@
+License: MIT
+Group: Development/Python3
+Url: https://pypi.org/project/@NAME@
+Vcs: @SOURCE_GIT@
+BuildArch: noarch
+Source: %name-%version.tar
+Source1: %pyproject_deps_config_name
+Patch: %name-%version-alt.patch
+		
+# mapping of PyPI name to distro name
+Provides: python3-module-%{pep503_name %pypi_name} = %EVR
+		
+%pyproject_runtimedeps_metadata
+BuildRequires(pre): rpm-build-pyproject
+%pyproject_builddeps_build
+%if_with check
+%pyproject_builddeps_metadata
+%endif
+		
+%description
+@DESCR@
+	
+%prep
+%setup
+%autopatch -p1
+%pyproject_deps_resync_build
+%pyproject_deps_resync_metadata
+		
+%build
+%pyproject_build
+		
+%install
+%pyproject_install
+		
+%check
+%pyproject_run_pytest
+		
+%files
+%doc README.*
+%python3_sitelibdir/%mod_name/
+%python3_sitelibdir/%{pyproject_distinfo %pypi_name}
+		
+%changelog
+\end{Verbatim}
 
 \section{Составляющие основной части}
-\Emph{SPEC-файл} --- RPM Specification File --- это текстовый файл, который описывает процесс сборки и конфигурацию пакета, служит инструкцией для утилиты \Sys{rpmbuild}. Он содержит метаданные, такие как имя пакета, версию, лицензию, а также разделы с инструкциями для сборки, установки и упаковки программного обеспечения, журнал изменений пакета. \Sys{SPEC}-файл можно рассматривать как <<инструкцию>>, которую утилита \Sys{rpmbuild} использует для сборки \Sys{RPM}-пакета. 
+\Emph{SPEC-файл} --- RPM Specification File --- это текстовый файл, который описывает 
+процесс сборки и конфигурацию пакета, служит инструкцией для утилиты \Sys{rpmbuild}. 
+Он содержит метаданные, такие как имя пакета, версию, лицензию, а также разделы с 
+инструкциями для сборки, установки и упаковки программного обеспечения, журнал изменений 
+пакета. \Sys{SPEC}-файл можно рассматривать как <<инструкцию>>, которую утилита \Sys{rpmbuild} 
+использует для сборки \Sys{RPM}-пакета. 
 
 \Sys{SPEC}-файл состоит из трёх разделов:
 \begin{enumerate}
@@ -400,23 +424,32 @@
 	\item Сhangelog(Журнал изменений).
 \end{enumerate}
 
-\paragraph{Тело SPEC-файла}отвечает за выполнение сборки, установки или очистки пакета.
+\Emph{Тело SPEC-файла} отвечает за выполнение сборки, установки или очистки пакета.
 
-Описание структуры\footnote{\href{https://alt-packaging-guide.github.io/\#body-items}{https://alt-packaging-guide.github.io/\#body-items}}: 
+Описание структуры%\footnote{\href{https://alt-packaging-guide.github.io/\#body-items}{https://alt-packaging-guide.github.io/\#body-items}}: 
 \begin{itemize}
-	\item В секции \Sys{\%prep} производится распаковка архивов с исходными кодами и формируется директория с исходниками\footnote{\href{https://www.opennet.ru/docs/RUS/rpm_guide/48.html}{https://www.opennet.ru/docs/RUS/rpm\_guide/48.html}}. 
+	\item В секции \Sys{\%prep} производится распаковка архивов с исходными кодами и 
+		формируется директория с исходниками\footnote{\href{https://www.opennet.ru/docs/RUS/rpm_guide/48.html}{https://www.opennet.ru/docs/RUS/rpm\_guide/48.html}}. 
 	\begin{itemize}
-		\item Макрос \Sys{\%setup} этой секции выполняет смену рабочего каталога на каталог сборки и распаковку в него архивов с исходными кодами.
-		
+		\item Макрос \Sys{\%setup} этой секции выполняет смену рабочего 
+			каталога на каталог сборки и распаковку в него архивов с исходными кодами.
 		\item Макрос \Sys{\%patch1} будет описывать применение патча.
 	\end{itemize}
-	
-	\item В секции \Sys{\%build} внутри ранее подготовленной директории производится сборка программы. Если это компилируемый язык, то исходники компилируются в бинарные файлы. Если это интерпретируемый язык, то процесс может не подразумевать компиляцию. Обычно за процесс сборки отвечают системы сборки, отличающиеся для разных языков программирования. Для \Sys{C/C++} обычно используется \Sys{automake/autoconf} и макросы \Sys{\%configure} и \Sys{\%make\_build}. Есть и другие системы сборки с другими макросами --- \Sys{CMake}, \Sys{meson}, \Sys{pyproject} и~т.\,д.
-	
-	\item В секции \Sys{\%install} подготавливается новая директория с теми файлами, которые будут помещены в \Sys{RPM} пакет в конце процесса сборки. Эта директория обозначается макросом \Sys{\%buildroot}. Из текущей директории подготовленные на предыдущем этапе файлы (бинарные файлы, файлы документации, конфигурационные файлы и~т.\,д.) нужно перенести в \Sys{\%buildroot}. Например файл \Sys{build/application.bin} нужно перенести в \Sys{\%buildroot/usr/bin/application.bin}. За это в некоторых случаях может также отвечать система сборки. Например, \Sys{automake/autoconf} так умеет. Запускается через макрос \Sys{\%makeinstall\_std}. Для других систем сборки есть другие макросы.
-	
+	\item В секции \Sys{\%build} внутри ранее подготовленной директории производится 
+		сборка программы. Если это компилируемый язык, то исходники компилируются в бинарные 
+		файлы. Если это интерпретируемый язык, то процесс может не подразумевать компиляцию. 
+		Обычно за процесс сборки отвечают системы сборки, отличающиеся для разных языков 
+		программирования. Для \Sys{C/C++} обычно используется \Sys{automake/autoconf} и макросы 
+		\Sys{\%configure} и \Sys{\%make\_build}. Есть и другие системы сборки с другими 
+		макросами --- \Sys{CMake}, \Sys{meson}, \Sys{pyproject} и~т.\,д.
+	\item В секции \Sys{\%install} подготавливается новая директория с теми файлами, которые будут 
+		помещены в \Sys{RPM} пакет в конце процесса сборки. Эта директория обозначается макросом 
+		\Sys{\%buildroot}. Из текущей директории подготовленные на предыдущем этапе файлы (бинарные 
+		файлы, файлы документации, конфигурационные файлы и~т.\,д.) нужно перенести в \Sys{\%buildroot}. 
+		Например файл \Sys{build/application.bin} нужно перенести в \Sys{\%buildroot/usr/bin/application.bin}. 
+		За это в некоторых случаях может также отвечать система сборки. Например, \Sys{automake/autoconf} 
+		так умеет. Запускается через макрос \Sys{\%makeinstall\_std}. Для других систем сборки есть другие макросы.
 	\item Возможно добавление секции \Sys{\%clean}. Её задача --- очистить дерево сборки и каталог установки.
-	
 	\item Если разработчик добавляет в \Sys{SPEC}-файл собственные скрипты, их следует распределять в секции: 
 	\begin{itemize}
 		\item \Sys{\%pre} (выполнение перед установкой)
@@ -424,22 +457,30 @@
 		\item \Sys{\%preun} (перед удалением пакета)
 		\item \Sys{\%postun} (после удаления пакета)
 	\end{itemize}
-	
-	\item Секция \Sys{\%files} содержит список путей и файлов, которые будут упакованы в \Sys{RPM}-пакет и в дальнейшем установлены в систему.
+	\item Секция \Sys{\%files} содержит список путей и файлов, которые будут упакованы в \Sys{RPM}-пакет 
+		и в дальнейшем установлены в систему.
 	\begin{itemize}
-		\item В этой секции можно создать каталог (\Sys{\%dir}), отметить, что файл является документацией (\Sys{\%doc}) или файлом конфигурации (\Sys{\%config}), или файл не относится к пакету, но необходим в начале работы приложения (\Sys{\%gost}).
+		\item В этой секции можно создать каталог (\Sys{\%dir}), отметить, что файл является 
+			документацией (\Sys{\%doc}) или файлом конфигурации (\Sys{\%config}), или файл не 
+			относится к пакету, но необходим в начале работы приложения (\Sys{\%gost}).
 	\end{itemize} 
 \end{itemize}
 
-\marginalia{ex_sign_col}{Сборка \Sys{rpm}-пакета выполняет все инструкции, указанные в \Sys{SPEC}-файле. В процессе сборки утилита \Sys{rpmbuild} выводит на экран информацию о процессе сборки. С помощью этой информации можно отследить возможные ошибки описания \Sys{SPEC}-файла.}
+\marginalia{ex_sign_col}{Сборка \Sys{rpm}-пакета выполняет все инструкции, указанные в \Sys{SPEC}-файле. 
+В процессе сборки утилита \Sys{rpmbuild} выводит на экран информацию о процессе сборки. 
+С помощью этой информации можно отследить возможные ошибки описания \Sys{SPEC}-файла.}
 
 \section{RPM макросы}
-\Emph{Макрос RPM} --- это именованная переменная, которая напрямую подставляет текст в \Sys{SPEC}-файл во время сборки \Sys{rpm}-пакета. Имена макросов начинаются с символа \%. Имена макросов --- это сокращённые псевдонимы для часто используемых фрагментов текста. 
+\Emph{Макрос RPM} --- это именованная переменная, которая напрямую подставляет текст в \Sys{SPEC}-файл 
+во время сборки \Sys{rpm}-пакета. Имена макросов начинаются с символа \%. Имена макросов --- это 
+сокращённые псевдонимы для часто используемых фрагментов текста. 
 	
-Ниже приведены примеры макросов\footnote{\href{https://www.altlinux.org/Spec/\%D0\%9F\%D1\%80\%D0\%B5\%D0\%B4\%D0\%BE\%D0\%BF\%D1\%80\%D0\%B5\%D0\%B4\%D0\%B5\%D0\%BB\%D0\%B5\%D0\%BD\%D0\%BD\%D1\%8B\%D0\%B5_\%D0\%BC\%D0\%B0\%D0\%BA\%D1\%80\%D0\%BE\%D1\%81\%D1\%8B}{https://www.altlinux.org/Spec/Предопределенные\_макросы}}:
+Ниже приведены примеры макросов\footnote{\href{https://www.altlinux.org/Spec/\%D0\%9F\%D1\%80\%D0\%B5\%D0\%B4\%D0\%BE\%D0\%BF\%D1\%80\%D0\%B5\%D0\%B4\%D0\%B5\%D0\%BB\%D0\%B5\%D0\%BD\%D0\%BD\%D1\%8B\%D0\%B5_\%D0\%BC\%D0\%B0\%D0\%BA\%D1\%80\%D0\%BE\%D1\%81\%D1\%8B}{https://www.altlinux.org/Spec/Предопределённые\_макросы}}:
 \begin{enumerate}
-	\item \textbf{Пример макроса, содержащего значение.}
-	Если во время сборки некоторым командам необходимо передать имя собираемого пакета, то можно передавать им макрос \Sys{\%name}. Во время сборки этот макрос подставляет имя пакета, объявленное в начале \Sys{SPEC}-файла:
+	\item \Emph{Пример макроса, содержащего значение.}
+	Если во время сборки некоторым командам необходимо передать имя собираемого пакета, 
+		то можно передавать им макрос \Sys{\%name}. Во время сборки этот макрос подставляет 
+		имя пакета, объявленное в начале \Sys{SPEC}-файла:
 	\begin{verbatim}
 		%define some_macro foo
 		....
@@ -449,8 +490,9 @@
 		%dune_build -p %some_macro
 	\end{verbatim} 
 	
-	\item \textbf{Пример макроса с набором команд.}
-	\Sys{\%cmake\_build} --- макрос необходимый для сборки пакетов с помощью cmake. Он подставляет следующую последовательность команд: 
+	\item \Emph{Пример макроса с набором команд.}
+	\Sys{\%cmake\_build} --- макрос необходимый для сборки пакетов с помощью cmake. 
+		Он подставляет следующую последовательность команд: 
 	\begin{verbatim}
 		mkdir -p x86_64-alt-linux-gnu; 
 		cmake \
@@ -475,24 +517,24 @@
 	\item унификация \Sys{SPEC}-файлов;
 	\item подбор шаблонов для создания \Sys{SPEC}-файлов;
 	\item сокращение размера \Sys{SPEC}-файлов позволяет упростить отладку;
-	\item использование макросов обеспечивает гибкость в настройке и конфигурации пакетов, позволяя быстро изменять параметры сборки.
+	\item использование макросов обеспечивает гибкость в настройке и конфигурации 
+		пакетов, позволяя быстро изменять параметры сборки.
 \end{itemize}
 
 Где объявлены \Sys{RPM}-макросы:
 \begin{itemize}
 	\item Стандартные макросы объявляет установка пакета \Sys{rpmbuild (librpm)}.
-	 
-	 Информацию о них можно получить из файла \Sys{/usr/lib/rpm/macros} или выполнив команду: \Sys{rpm --showrc};
-	 
+	 Информацию о них можно получить из файла \Sys{/usr/lib/rpm/macros} или выполнив 
+		команду: \Sys{rpm --showrc};
 	 \item Макросы можно объявить самостоятельно, добавив в \Sys{SPEC}-файл;
-	 
 	 \item Макросы можно объявить в отдельных файлах.
-	 
 	 Команда \Sys{\%include} позволяет загрузить специальные файлы с объявленными макросами;
-	 
 	 \item Макросы, объявленные в файлах, поставляемые с другими пакетами.
-	 
-	 Файлы с объявленными \Sys{RPM}-макросами хранятся в каталоге \Sys{/usr/lib/rpm/macros.d}.
+
+	 Файлы с объявленными \Sys{RPM}-макросами хранятся в каталоге
+
+		\Sys{/usr/lib/rpm/macros.d}.
+
 	 Например, пакет \Sys{rpm-build-ruby} содержит готовые макросы для сборки пакетов с программами, написанными на языке \Sys{Ruby}.
 	 Для того чтобы использовать эти макросы, необходимо этот пакет добавить в зависимости:
 	 \Sys{BuildRequires(pre): rpm-build-ruby}.
@@ -501,3 +543,33 @@
 \marginalia{ex_sign_col}{Команда получения значения макроса: \Sys{rpm --eval {<имя\_макроса>}}}
 
 \marginalia{ex_sign_col}{Некоторые макросы могут быть вложенными.}
+
+\section{Вопросы для самопроверки}
+
+\begin{enumerate}
+\item Какие пакеты используются для сборки \Sys{rpm}-пакетов?
+\item Какая утилита используется для непосредственной сборки бинарного пакета?
+\item Верно ли что \Sys{hasher} обеспечивает воспроизводимую сборку в контроллируемой среде?
+\item Каково внутреннее устройство \Sys{RPM}-пакета?
+\item У вас есть пакет \Sys{admc-0.15.0-alt1.x86\_64.rpm}. 
+	\begin{enumerate}
+		\item[а)] можно ли его установить на компьтер с процессором Байкал-М? 
+		\item[b)] А на компьютер с процессором Эльбрус 16С? 
+		\item[c)] Какой пакет нужно взять, чтобы собрать тот же пакет под другую целевую архитектуру?
+	\end{enumerate}
+\item Какая структура каталогов необходима для сборки \Sys{rpm}-пакета?
+\item В чём смысл понятия \Sys{buildroot}?
+\item Для чего служит \Sys{SPEC}-файл?
+\item Из каких обязательных частей состоит \Sys{SPEC}-файл?
+	\begin{enumerate}
+                \item[а)] В какой части \Sys{SPEC}-файла указывается имя пакета?
+                \item[b)] В какой части \Sys{SPEC}-файла указывается лицензия под которой распространяется пакет?
+                \item[c)] В какой части \Sys{SPEC}-файла указывается история изменений пакета?
+        \end{enumerate}
+\item Что такое \Sys{RPM}-макрос?
+	\begin{enumerate}
+                \item[а)] Какие преимущества даёт использование макросов?
+                \item[b)] Как найти стандартные макросы?
+                \item[c)] Где в системе находтся макросы, поставляемые сторонними пакетами?
+        \end{enumerate}
+\end{enumerate}
