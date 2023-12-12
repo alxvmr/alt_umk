@@ -15,3 +15,116 @@
 
 Для удобства сборки пакетов \Sys{gear} интегрирован с инструментами \Sys{rpm-build} и \Sys{hasher}: из \Sys{gear}-репозитория можно одной командой собрать пакет при помощи \Sys{rpmbuild} или \Sys{hsh}. Подробнее об этом можно прочитать далее в разделе <<Быстрый старт>>. 
 
+
+\section{Быстрый старт Gear}
+\paragraph{Установка gear}
+
+В разделе \hyperlink{1.3}{1.3 <<Установка необходимых пакетов для процесса сборки>>} также упоминается инструмент \Sys{gear}. Для отдельной установки используйте команду: 
+\begin{verbatim}
+	#apt-get install gear
+\end{verbatim}
+
+\paragraph{Импорт .src.rpm }
+
+Пакет в формате \Sys{source RPM} можно импортировать в \Sys{gear}-репозиторий командой \Sys{gear-srpmimport}:
+\begin{verbatim}
+	mkdir package_name
+	cd package_name
+	git init -b sisyphus
+	gear-srpmimport /путь/к/package_name.src.rpm
+\end{verbatim}
+
+\paragraph{Получение готового репозитория с внешнего git-сервера}
+
+Достаточно клонировать репозиторий: 
+\begin{verbatim}
+	git clone <repository url> package_name
+	cd package_name
+\end{verbatim}
+
+Никаких дополнительных настроек не требуется.
+
+\paragraph{Сборка пакета}
+
+Основным инструментом экспорта и сборки пакетов является команда \Sys{gear}. На практике удобно использовать предоставляемые команды-обёртки, а к самой команде \Sys{gear} прибегать только в самых сложных случаях. Командной обертке можно передавать опции как утилиты \Sys{gear}, так и вложенной утилиты.
+
+Командная оберка \Sys{gear} для \Sys{rpmbuild} --- \Sys{gear-rpm}. Для сборки пакета используйте команду: 
+\begin{verbatim}
+	gear-rpm --verbose -ba
+\end{verbatim}
+
+
+Собрать пакет при помощи \Sys{hsh} (установка и настройка \Sys{hasher} описана в следующих главах): 
+\begin{verbatim}
+	gear-hsh --verbose
+\end{verbatim}
+
+Команде \Sys{gear-hsh} можно передать как аргументы \Sys{gear}, так и аргументы \Sys{hsh}.
+
+Если не указана опция \Sys{--tree-ish}, \Sys{gear} в качестве главного коммита использует текущий коммит (HEAD). Если хочется проверить свежие изменения без создания коммита, можно использовать опцию \Sys{--commit}, доступную и для \Sys{gear}, и для \Sys{gear-rpm}, и для \Sys{gear-hsh}. В таком случае будет создан временный коммит (аналогично \Sys{git commit -a}), и пакет будет собран уже из него. Стоит отметить, что, аналогично \Sys{git commit -a}, в таком коммите не будет новых файлов, если они ещё не были добавлены в \Sys{git} командой \Sys{git add}; если они нужны для сборки, то их стоит добавить. 
+
+\paragraph{Сборка пакета из репозитория разработчиков}
+Для примера возьмём конкретный пакет, который уже есть в репозитории Сизиф -- \Sys{pixz} -- и представим себе, что хотим собрать его с нуля.
+
+Для начала клонируем репозиторий. Сразу зададим имя удалённого репозитория: 
+\begin{verbatim}
+	git clone https://github.com/vasi/pixz -o upstream
+	cd pixz
+\end{verbatim}
+
+Перейдём в ветку, из которой будем собирать пакет: 
+\begin{verbatim}
+	git checkout -b sisyphus upstream/master
+\end{verbatim}
+
+Переместимся на тег(тег --- это ссылка, указывающие на определенный \Sys{git}-коммит в репозитории), соответствующий версии, которую мы будем собирать. На данный момент это последний тег: 
+\begin{verbatim}
+	git reset --hard v1.0.7
+\end{verbatim}
+
+Определим правила экспорта: 
+\begin{verbatim}
+	mkdir .gear
+	vim .gear/rules
+\end{verbatim}
+
+Правила зададим следующие: 
+\begin{itemize}
+	\item \Sys{SPEC}-файл перенесём в каталог \Sys{.gear}, чтобы он не путался с основными исходными текстами;
+	\item исходники будем забирать из тега \Sys{GEAR}, соответствующего апстримному;
+	\item сразу создадим патч, включающий все наши изменения, каталог \Sys{.gear} в этот патч мы включать не будем.
+\end{itemize}
+
+Получаем следующий файл \Sys{.gear/rules}:
+\begin{verbatim}
+	spec: .gear/pixz.spec
+	tar: v@version@:.
+	diff: v@version@:. . exclude=.gear/**
+\end{verbatim}
+
+Создадим соответствующий версии тег \Sys{GEAR}:
+\begin{verbatim}
+	gear-store-tags v1.0.7
+\end{verbatim} 
+
+Напишем \Sys{SPEC}-файл:
+\begin{verbatim}
+	vim .gear/pixz.spec
+\end{verbatim} 
+
+Важно, что версия в спеке --- \Sys{1.0.7}, поэтому конструкция \Sys{v@version@}, которую мы использовали в \Sys{.gear/rules}, раскроется в строку \Sys{v1.0.7} --- именно такой тег \Sys{GEAR} мы создали. 
+
+Добавим каталог \Sys{.gear} в \Sys{git}:
+\begin{verbatim}
+	git add .gear
+\end{verbatim} 
+
+Можно попробовать собрать пакет: 
+\begin{verbatim}
+	gear-rpm --verbose --commit -ba
+\end{verbatim}
+
+При необходимости, можно поправить \Sys{spec}, добавить нужные зависимости. Когда пакет собирается и всем устраивает, можно зафиксировать все изменения: 
+\begin{verbatim}
+	gear-commit -a
+\end{verbatim}
