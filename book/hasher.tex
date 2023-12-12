@@ -6,3 +6,34 @@
 Для подготовки сборочного окружения \Sys{hasher} берет пакеты как из удалённых репозиториев, настроенных в основной системы, так и из локального репозитория (\Sys{~/hasher/repo/}), в который попадают ранее собранные пакеты.
 
 Так же \Sys{hasher} удобен для отладки процесса сборки. Если сборка пакета прервалась, выполните команду \Sys{hsh-shell}, чтобы попасть в терминал \Sys{chroot}, исправьте ошибку и продолжайте сборку с прерванного этапа.
+
+
+\section{Справочная страница hasher}
+Возможности \Sys{Hasher} задокументированы в инструкциях\footnote{\href{http://uneex.ru/static/AltlinuxOrg_Hasher/}{http://uneex.ru/static/AltlinuxOrg\_Hasher/}} к пакетам \Sys{hasher} и \Sys{hasher-priv}. Для вызова справочной информации по \Sys{hasher} наберите в консоли \Sys{man package}:
+\begin{verbatim}
+	$ man hsh
+	
+	HASHER(7)                          ALT Linux                         HASHER(7)
+	
+	NAME
+	hasher - modern safe package building technology
+	
+	SYNOPSIS
+	hsh [options] <path-to-workdir> <package>...
+	...
+\end{verbatim} 
+
+\begin{verbatim}
+	$ man hasher-priv
+	
+	HASHER-PRIV(8)          System Administration Utilities         HASHER-PRIV(8)
+	
+	NAME
+	hasher-priv - privileged helper for the hasher project
+	
+	SYNOPSIS
+	hasher-priv [options] <args>
+	...
+\end{verbatim}
+
+Это достаточно подробная инструкция по использованию утилиты \Sys{hasher}. Здесь вы найдёте полное описание, опции и флаги, содержимое рабочего каталога. 
