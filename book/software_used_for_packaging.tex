@@ -192,7 +192,7 @@
 \paragraph{Примеры \Sys{SPEC}-файла}
 \begin{enumerate}
 	\item Пустой \Sys{SPEC}
-	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-2.95cm]
+	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-0.25\textwidth]
 		Name: <имя-пакета>
 		Version: <версия-пакета>
 		Release: alt<релиз-пакета>
@@ -246,7 +246,7 @@
 	\item Для программы (на \Sys{autotools})
 	
 	Название GNU Autotools обычно относится к программным пакетам Autoconf, Automake, Libtool и Gnulib. Вместе они составляют систему сборки GNU. Этот \Sys{SPEC}-файл является примером пакета с программой.
-	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-2.95cm]
+	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-0.25\textwidth]
 		Name: sampleprog
 		Version: 1.0
 		Release: alt1
@@ -292,7 +292,7 @@
 	\item Для программы на \Sys{cmake}
 	
 	\Emph{CMake} --- это кроссплатформенный инструмент с открытым исходным кодом, который использует независимые от компилятора и платформы файлы конфигурации для создания собственных файлов инструментов сборки, специфичных для вашего компилятора и платформы. Является стандартом де-факто для сборки кода на \Sys{C++}.
-	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-2.95cm]
+	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-0.25\textwidth]
 		Name: sampleprog
 		Version: 1.0
 		Release: alt1
@@ -334,7 +334,7 @@
 	\item Модуль для \Sys{Python 3}
 	
 	Макросы для сборки модулей \Sys{python3} содержатся в пакете \Sys{rpm-build-python3} и аналогичны тем, что используются в ALT для \Sys{python}\footnote{\href{https://www.altlinux.org/Python3}{https://www.altlinux.org/Python3}}.
-	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-2.95cm]
+	\begin{Verbatim}[breaklines=true,breakanywhere=true,xleftmargin=-0.25\textwidth]
 		%define pypi_name @NAME@
 		%define mod_name %pypi_name
 		
@@ -432,3 +432,5 @@
 \end{itemize}
 
 \marginalia{ex_sign_col}{Сборка \Sys{rpm}-пакета выполняет все инструкции, указанные в \Sys{SPEC}-файле. В процессе сборки утилита \Sys{rpmbuild} выводит на экран информацию о процессе сборки. С помощью этой информации можно отследить возможные ошибки описания \Sys{SPEC}-файла.}
+
+
