@@ -8,7 +8,7 @@
 Так же \Sys{hasher} удобен для отладки процесса сборки. Если сборка пакета прервалась, выполните команду \Sys{hsh-shell}, чтобы попасть в терминал \Sys{chroot}, исправьте ошибку и продолжайте сборку с прерванного этапа.
 
 
-\section{Описание системы hasher}
+\section{Описание системы Hasher}
 Опишем структуру каталогов в \Sys{hasher}.
 
 \begin{itemize}
@@ -70,6 +70,90 @@
 \end{itemize}
 
 
+\section{Настройка Hasher}
+В разделе \hyperlink{1.3}{1.3 <<Установка необходимых пакетов для процесса сборки>>}  упоминалась установка пакета \Sys{hasher}. Для отдельной установки используйте команду: 
+\begin{verbatim}
+	# apt-get install hasher
+\end{verbatim}
+
+Добавьте пользователя в группу \Sys{rpm}:
+\begin{itemize}
+	\item для локального пользователя:
+	\begin{verbatim}
+		# usermod -aG rpm <user>
+	\end{verbatim}
+	
+	\item для доменного пользователя: 
+	\begin{verbatim}
+		# gpasswd -a <username> rpm
+	\end{verbatim}
+\end{itemize} 
+
+Запустите демон \Sys{hasher-priv}:
+\begin{verbatim}
+	# systemctl enable --now hasher-privd.service
+\end{verbatim} 
+
+Укажите учетную запись для работы с \Sys{hasher}. Добавьте учетные записи для работы с \Sys{hasher} в группу \Sys{hashman}:
+\begin{verbatim}
+	# hasher-useradd <user>
+\end{verbatim} 
+
+Заново авторизуйтесь, чтобы изменения вступили в силу. 
+
+Укажите расположение сборочной среды (каталоги настроек и их инициализации):
+\begin{verbatim}
+	$ mkdir ~/hasher
+	$ mkdir ~/.hasher
+\end{verbatim}}
+
+При создании каталога \Sys{.hasher} следует учитывать два правила: 
+\begin{enumerate}
+	\item права доступа соответствуют \Sys{drwxr-xr-x}, то есть каталог доступен на запись;
+	
+	\item на файловой системе, смонтированной с \Sys{noexec} или \Sys{nodev}, каталог располагать нельзя\footnote{\href{
+			https://serverfault.com/questions/547237/explanation-of-nodev-and-nosuid-in-fstab}{
+			https://serverfault.com/questions/547237/explanation-of-nodev-and-nosuid-in-fstab}};
+	\begin{itemize}
+		\item \Sys{noexec} устанавливается, если в системе есть файлы с правами \Sys{rwsr-xr-x} (запустить исполняемые файлы с правами владельца или группы) и владельцем \Sys{root}. Запустить файл \Sys{rwxr-xr-x} на такой файловой системы невозможно. а следовательно, и создать корректное сборочное окружение. \Sys{Hasher} не зависит от пользовательского окружения.
+		
+		\item \Sys{nodev} говорит о том, что на файловой системе не будут созданы файлы устройств. Это не соответствует функциональности \Sys{hasher} (см.~\hyperlink{5.7}{раздел 6.7 <<Монтирование файловых систем внутри \Sys{Hasher}>>}). 
+	\end{itemize} 
+\end{enumerate}
+
+Создайте конфигурационный файл: 
+\begin{verbatim}
+	packager="`rpm --eval %packager`"
+	no_sisyphus_check="packager,buildhost,gpg"
+	allowed_mountpoints=/dev/pts,/proc,/dev/shm
+	lazy_cleanup=1
+	# share_ipc=1
+	# Необходимо в случае, когда требуется разрешить доступ в сеть из Hasher chroot.
+	# Данная опция не должна применяться без особой необходимости.
+	# share_network=1
+	# нужен для сборки с репозиториями отличающимися от системного:
+	# apt_config="$HOME/.hasher/apt.conf"
+\end{verbatim}}
+
+Создадим сборочное окружение: 
+\begin{verbatim}
+	$ hsh --initroot-only 
+	#путь ~/hasher является параметром по умолчанию. Полностью команда выглядит так:
+	$ hsh --initroot-only ~/hasher
+	$ ls -al ~/hasher
+\end{verbatim}
+
+Если сборочное окружение не создано, оно построится при первой сборке пакета. 
+
+Чем больше пакет, тем больше времени понадобится на его сборку. В конфигурационном файле \Sys{hasher-priv} прописываются ограничения на ресурсы, выделяемые на сборку (CPU, память, общее время исполнения и другие). Чтобы увеличить время бездействия утилиты \Sys{hasher-priv}, требуется отредактировать файл \Sys{/etc/hasher-priv/system/}:
+\begin{verbatim}
+	wlimit_time_elapsed=360000
+	wlimit_time_idle=360000
+\end{verbatim} 
+
+Сборочная среда строится по умолчанию на источниках для основной системы (пользователя/хост-системы).
+
+
 \section{Справочная страница Hasher}
 Возможности \Sys{Hasher} задокументированы в инструкциях\footnote{\href{http://uneex.ru/static/AltlinuxOrg_Hasher/}{http://uneex.ru/static/AltlinuxOrg\_Hasher/}} к пакетам \Sys{hasher} и \Sys{hasher-priv}. Для вызова справочной информации по \Sys{hasher} наберите в консоли \Sys{man package}:
 \begin{verbatim}
@@ -101,7 +185,7 @@
 Это достаточно подробная инструкция по использованию утилиты \Sys{hasher}. Здесь вы найдёте полное описание, опции и флаги, содержимое рабочего каталога. 
 
 
-\section{Монтирование файловых систем внутри Hasher}
+\hypertarget{1.3}{\section{Монтирование файловых систем внутри Hasher}}
 \Sys{Hasher} умеет монтировать внутрь \Sys{hasher}-контейнера точки монтирования и виртуальные файловые системы из основной машины\footnote{\href{https://www.altlinux.org/Hasher/\%D0\%A0\%D1\%83\%D0\%BA\%D0\%BE\%D0\%B2\%D0\%BE\%D0\%B4\%D1\%81\%D1\%82\%D0\%B2\%D0\%BE\#\%D0\%9C\%D0\%BE\%D0\%BD\%D1\%82\%D0\%B8\%D1\%80\%D0\%BE\%D0\%B2\%D0\%B0\%D0\%BD\%D0\%B8\%D0\%B5_\%D1\%84\%D0\%B0\%D0\%B9\%D0\%BB\%D0\%BE\%D0\%B2\%D1\%8B\%D1\%85_\%D1\%81\%D0\%B8\%D1\%81\%D1\%82\%D0\%B5\%D0\%BC_\%D0\%B2\%D0\%BD\%D1\%83\%D1\%82\%D1\%80\%D0\%B8_hasher}{https://www.altlinux.org/Hasher/Руководство}}. Этот механизм применяется в тех случаях, когда собираемому приложению для сборки требуется доступ к ресурсам основной машины, которые \Sys{Hasher} не предоставляет по умолчанию. Например, виртуальная файловая система \Sys{/proc} или \Sys{/dev/pts}, которых по умолчанию нет в \Sys{hasher}-контейнере. Файловая система \Sys{/proc} получает информацию о состоянии и конфигурации ядра и системы.
 
 Для монтирования файловой системы следует:
