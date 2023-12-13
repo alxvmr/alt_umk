@@ -3,9 +3,56 @@
 
 \Sys{Hasher} облегчает поддержание сборочных зависимостей и позволяет собирать пакеты для разных дистрибутивов. \Sys{Hasher} проверяет пакеты с помощью утилиты \Sys{sisyphus\_check} и создает локальный \Sys{APT}-репозиторий с результатами сборки.
 
-Для подготовки сборочного окружения \Sys{hasher} берет пакеты как из удалённых репозиториев, настроенных в основной системы, так и из локального репозитория (\Sys{~/hasher/repo/}), в который попадают ранее собранные пакеты.
+Для подготовки сборочного окружения \Sys{hasher} берет пакеты как из удалённых репозиториев, настроенных в основной системы, так и из локального репозитория (\Sys{$\sim$/hasher/repo/}), в который попадают ранее собранные пакеты.
 
 Так же \Sys{hasher} удобен для отладки процесса сборки. Если сборка пакета прервалась, выполните команду \Sys{hsh-shell}, чтобы попасть в терминал \Sys{chroot}, исправьте ошибку и продолжайте сборку с прерванного этапа.
+
+
+\section{Описание системы hasher}
+Опишем структуру каталогов в \Sys{hasher}.
+
+\begin{itemize}
+	\item \Sys{hasher}
+	
+	\begin{itemize}
+		\item \Sys{chroot} --- само минимальное окружение. в этом каталоге находится корневое дерево содержащее минимальный набор пакетов, \Sys{rpmbuild} и сборочные зависимости.
+		
+		\item \Sys{aptbox} --- набор утилит для установки, обновления и удаления пакетов \Sys{chroot}. Например, тут лежит модифицированный \Sys{apt-get}, с помощью которого происходит установка пакетов в \Sys{chroot}.
+		
+		\item \Sys{cache} --- в этом каталоге кэшируются файлы, необходимые для создания \Sys{chroot}.
+		\begin{itemize}
+			\item каталог \Sys{$\sim$/hasher/chroot/usr/src/RPM}, который содержит подкаталоги для \Sys{rpmbuild}:
+			\begin{itemize}
+				\item \Sys{BUILD}
+				\item \Sys{RPMS}
+				\item \Sys{SOURCES}
+				\item \Sys{SPECS}
+				\item \Sys{SRPMS}
+			\end{itemize} 
+		\end{itemize}
+		
+		\item \Sys{repo}, который содержит подкаталоги:
+		\begin{itemize}
+			\item \Sys{SRPMS.hasher} --- исходники (sources) пакета.
+			\item \Sys{<платформа>/RPMS.hasher/} --- каталог с пакетами, собранными под конкретную архитектуру.
+			В этот каталог можно добавить необходимые сборочные зависимости, когда пакета ещё нет в репозитории и оценить сборку.
+		\end{itemize}
+	\end{itemize}
+	
+	\item \Sys{$\sim$/.hasher}
+	\begin{itemize}
+		\item \Sys{apt.config} --- конфигурация для \Sys{apt-get} из \Sys{$\sim$/hasher/aptbox/}
+		
+		\item \Sys{config} --- конфигурация самого \Sys{hasher}
+	\end{itemize}
+	
+	\item \Sys{/etc/hasher-priv/} каталог с конфигурацией для вспомогательной утилиты \Sys{hasher-priv}
+	\begin{itemize}
+		\item \Sys{./user.d}
+		\item \Sys{fstab} --- информация о точках монтирования вспомогательной программы \Sys{hasher-priv}
+		\Sys{system} --- конфигурация вспомогательной программы \Sys{hasher-priv}
+	\end{itemize} 
+\end{itemize} 
 
 
 \section{Справочная страница Hasher}
@@ -46,6 +93,6 @@
 \begin{enumerate}
 	\item В файле \Sys{/etc/hasher-priv/fstab} описать файловую систему.
 	\item В файле \Sys{/etc/hasher-priv/system} указать файловую систему с помощью опции \Sys{allowed\_mointpoints}.
-	\item Указать файловую систему либо при запуске \Sys{Hasher} в опции \Sys{--mountpoints}, либо в конфигурационном файле \Sys{~/.hasher/config} в ключе \Sys{known\_mountpoints}.
-	\item Прописать необх/одимую файловую систему в \Sys{SPEC}-файле в теге \Sys{BuildReq}, либо в списке зависимостей.
+	\item Указать файловую систему либо при запуске \Sys{Hasher} в опции \Sys{--mountpoints}, либо в конфигурационном файле \Sys{$\sim$/.hasher/config} в ключе \Sys{known\_mountpoints}.
+	\item Прописать необходимую файловую систему в \Sys{SPEC}-файле в теге \Sys{BuildReq}, либо в списке зависимостей.
 \end{enumerate} 
