@@ -70,7 +70,7 @@
 \end{itemize}
 
 
-\section{Настройка Hasher}
+\hypertarget{5.3}{\section{Настройка Hasher}}
 В разделе \hyperlink{1.3}{1.3 <<Установка необходимых пакетов для процесса сборки>>}  упоминалась установка пакета \Sys{hasher}. Для отдельной установки используйте команду: 
 \begin{verbatim}
 	# apt-get install hasher
@@ -152,6 +152,43 @@
 \end{verbatim} 
 
 Сборочная среда строится по умолчанию на источниках для основной системы (пользователя/хост-системы).
+
+
+\section{Сборка в Hasher}
+Сборка в \Sys{hasher} предполагает два возможных сценария\footnote{\href{https://www.basealt.ru/fileadmin/user_upload/manual/Alt_Server_V_life_cicle_p10.pdf}{https://www.basealt.ru/fileadmin/user\_upload/manual/Alt\_Server\_V\_life\_cicle\_p10.pdf}}: 
+\begin{enumerate}
+	\item \textbf{Сборка из \Sys{.src.rpm}}.
+	
+	Этот сценарий подходит, если у нас уже есть \Sys{.src.rpm} (см.~\hyperlink{3.1}{раздел 3.1 <<Описание \Sys{RPM}-пакета>>}).
+	
+	Команда сборки выполняется от обычного пользователя, так как он добавлен в группу \Sys{hashman} (см.~\hyperlink{5.3}{раздел 5.3 <<Настройка \Sys{Hasher}>>}): 
+	
+	\begin{verbatim}
+		hsh /home/work/rpm/package.src.rpm
+	\end{verbatim}
+	
+	Собранный пакет появляется в директории \Sys{$\sim$/.hasher/repo/<платформа>/RPMS.hasher/}. 
+	
+	Если сборка завершилась неудачей, информация об ошибках будет выведена в терминале. Следует ознакомиться с выводом в терминале для понимания, на каком этапе сборки возникают ошибки, и на основе этого вносить необходимые исправления в \Sys{SPEC}-файл.
+	
+	\item  \textbf{Сборка в связке с \Sys{GEAR}}.
+	
+	Этот сценарий подходит, если у нас есть готовый \Sys{gear}-репозиторий (см. \hyperlink{4}{глава 4 <<Инструмент Gear>>}).
+	
+	 Команда выполняется внутри \Sys{gear}-репозитория и выглядит следующим образом:
+	 \begin{verbatim}
+	 	gear-hsh
+	 \end{verbatim}
+	 
+	 Эта команда часто используется с параметрами: 
+	 \begin{itemize}
+	 	\item \Sys{-v} --- сделать подробный вывод;
+	 	\item \Sys{--no-sisyphus-check} отключить проверки.
+	 \end{itemize}
+	 Так же в строке запуска \Sys{gear-hsh} можно передавать параметры для самого \Sys{hasher}. 
+\end{enumerate}
+
+В обоих сценариях при успешном выполнении сборки новые пакеты будут находиться в каталоге \Sys{$\sim$/hasher/repo/<архитектура>}. 
 
 
 \section{Справочная страница Hasher}
