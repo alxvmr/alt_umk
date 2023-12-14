@@ -69,3 +69,37 @@
 		HelloUniverse-1.0-alt1.x86_64.rpm
 	\end{verbatim}
 \end{itemize} 
+
+
+\section{Подготовка пространства}
+Соберем в \Sys{rpm}-пакет собственную программу. В каталоге сохраним файлы с исходным кодом --- \Sys{HelloUniverse.cpp} и \Sys{Makefile}.
+\begin{verbatim}
+	$ ls -la
+	HelloUniverse.cpp
+	Makefile
+\end{verbatim}
+
+\Emph{Подготовка окружения}
+
+Инструменты, необходимые для сборки: 
+\begin{itemize}
+	\item система контроля версий Git;
+	\item текстовый редактор (Vim, Emacs, MC);
+	\item \Sys{rpmbuild};
+	\item \Sys{Hasher};
+	\item \Sys{Gear}.
+\end{itemize}
+
+Для работы с \Sys{rpmbuild} установите также сборочные зависимости:
+\begin{itemize}
+	\item make;
+	\item gcc-c++.
+\end{itemize} 
+
+После установки программ: 
+\begin{enumerate}
+	\item Настройте Git;
+	\item Создайте \Sys{gpg}-ключ подписи для работы с \Sys{gear};
+	\item Настройте окружение \Sys{RPM};
+	\item Настройте окружение \Sys{Hasher}.
+\end{enumerate}
