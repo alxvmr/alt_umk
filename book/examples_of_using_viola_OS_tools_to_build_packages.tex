@@ -103,3 +103,72 @@
 	\item Настройте окружение \Sys{RPM};
 	\item Настройте окружение \Sys{Hasher}.
 \end{enumerate}
+
+
+\section{Написание \Sys{SPEC}-файла и правил \Sys{Gear}}
+Подготовка \Sys{gear}-репозитория.
+
+Перейдите в каталог с исходным кодом и проинициализируйте репозиторий: 
+\begin{verbatim}
+	$ cd HelloUniverse/
+	$ git init	
+\end{verbatim}
+
+Создайте каталог \Sys{.gear}, перейдите в него и создайте файлы \Sys{HelloUniverse.spec} и \Sys{rules}:
+\begin{verbatim}
+	$ mkdir .gear
+	$ cd .gear
+	$ touch HelloUniverse.spec
+	$ touch rules
+\end{verbatim} 
+
+Заполните \Sys{SPEC}-файл \Sys{HelloUniverse.spec}:
+\begin{verbatim}
+	%define _unpackaged_files_terminate_build 1
+	
+	Name:       HelloUniverse
+	Version:    1.0
+	Release:    alt1
+	Summary:    Most simple RPM package
+	License:    no
+	Group:	Development/Other
+	Source: %name-%version.tar
+	BuildRequires: gcc-c++
+	%description
+	This is my first RPM
+	
+	%prep
+	%setup
+	
+	%build
+	%make_build HelloUniverse
+	
+	%install
+	mkdir -p %{buildroot}%_sbindir
+	install -m 755 HelloUniverse %{buildroot}%_sbindir
+	
+	%files
+	%_sbindir/%name
+	
+	%changelog
+\end{verbatim} 
+
+В файл \Sys{rules} пропишите:
+\begin{verbatim}
+	tar: . name=@name@-@version@ base=@name@-@version@
+	spec: .gear/HelloUniverse.spec
+\end{verbatim} 
+
+Перейдите на уровень выше, в корневой каталог проекта, и сделайте первый коммит: 
+\begin{verbatim}
+	$ cd ../ 
+	$ git add HelloUniverse.cpp
+	$ git add Makefile
+	$ git add .gear/HelloUniverse.spec
+	$ git add .gear/rules
+	$ git commit -m "first commit"
+\end{verbatim}
+
+Теперь у нас есть готовая к сборке в \Sys{RPM}-пакет программа. 
+
+После того, как мы убедимся, что программа собирается в пакет и работает, рекомендуется написать \Sys{changelog}, сделать новый коммит с релизом и поставить тег. 
