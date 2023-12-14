@@ -1,0 +1,71 @@
+\chapter{Примеры использования инструментов ОС Альт для сборки пакетов}
+
+В текущих разделах представлен материал с практическими примерами по сборке пакетов. Простыми шагами разберём подготовку системы к работе с инструментами, описанными в предыдущих главах пособия. Ниже следуют примеры подготовки и сборки \Sys{rpm}-пакета инструментами \Sys{rpmbild}, \Sys{gear} и \Sys{hasher}.
+
+\begin{itemize}
+	\item \textbf{Пример №1. Сборка пакета с помощью \Sys{rpmbuild}}.
+	
+	Подготовьте дерево каталогов для сборки пакета с помощью \Sys{rpmbuild}. Сформируйте \Sys{.tar} архив с исходным кодом программы и загрузите в каталог \Sys{SOURCES}. Назовите архив в соответствии с именем \Sys{SPEC}-файла. В каталог \Sys{SPECS} загрузите \Sys{SPEC}-файл. 
+	
+	\begin{verbatim}
+		$ cd ~/RPM
+		$ tree
+		.
+		|-- BUILD
+		|   `-- HelloUniverse-1.0
+		|-- RPMS
+		|   |-- noarch
+		|   `-- x86_64
+		|-- SOURCES
+		|   `-- HelloUniverse-1.0.tar
+		|-- SPECS
+		|   `-- HelloUniverse.spec
+		`-- SRPMS
+	\end{verbatim}
+	
+	Для сборки \Sys{RPM}-пакета выполните команду: 
+	\begin{verbatim}
+		$ rpmbuild -bb ./SPECS/HelloUniverse.spec 
+		...
+		$ ls ./RPMS/x86_64/
+		HelloUniverse-1.0-alt1.x86_64.rpm
+		HelloUniverse-debuginfo-1.0-alt1.x86_64.rpm
+	\end{verbatim}
+	
+	\item \textbf{Пример №2. Сборка из \Sys{.src.rpm} с помощью \Sys{hasher}.}
+	
+	Возьмите готовый файл \Sys{.src.rpm} и выполните команду:
+	\begin{verbatim}
+		$ hsh -v HelloUniverse-1.0-alt1.src.rpm  --no-sisyphus-check
+	\end{verbatim} 
+	
+	Результат успешного завершения сборки: 
+	\begin{verbatim}
+		$ ls ~/hasher/repo/x86_64/RPMS.hasher/
+		HelloUniverse-1.0-alt1.x86_64.rpm
+		HelloUniverse-debuginfo-1.0-alt1.x86_64.rpm
+	\end{verbatim}
+	
+	\item \textbf{Пример №3. Сборка с помощью \Sys{gear-hsh}.}
+	
+	Выполните команду: 
+	\begin{verbatim}
+		$ gear-hsh -v --no-sisyphus-check 
+	\end{verbatim}
+	
+	Результат успешного завершения сборки --- собранный \Sys{RPM}-пакет и \Sys{.src.rpm}:
+	\begin{verbatim}
+		$ ls ~/hasher/repo/x86_64/RPMS.hasher/
+		HelloUniverse-1.0-alt1.x86_64.rpm
+		HelloUniverse-debuginfo-1.0-alt1.x86_64.rpm
+		
+		$ ls ~/hasher/repo/SRPMS.hasher/
+		HelloUniverse-1.0-alt1.src.rpm
+	\end{verbatim} 
+	
+	Установите собранный пакет командой: 
+	\begin{verbatim}
+		$ sudo apt-get install ~/hasher/repo/x86_64/RPMS.hasher/\
+		HelloUniverse-1.0-alt1.x86_64.rpm
+	\end{verbatim}
+\end{itemize} 
