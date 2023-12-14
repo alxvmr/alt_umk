@@ -172,3 +172,23 @@
 Теперь у нас есть готовая к сборке в \Sys{RPM}-пакет программа. 
 
 После того, как мы убедимся, что программа собирается в пакет и работает, рекомендуется написать \Sys{changelog}, сделать новый коммит с релизом и поставить тег. 
+
+
+\section{Описание пакета с исходными текстами на \Sys{C++}}
+Содержимое файла \Sys{HelloUniverse.cpp}.
+\begin{verbatim}
+	#include <iostream>
+	int main()
+	{
+		std::cout << "Hello Universe\n";
+		return 0;
+	}
+\end{verbatim} 
+
+Содержимое файла \Sys{Makefile}.
+\begin{verbatim}
+	HelloUniverse: HelloUniverse.cpp
+	g++ ./HelloUniverse.cpp -o HelloUniverse
+	clear:
+	rm ./HelloUniverse
+\end{verbatim}} 
