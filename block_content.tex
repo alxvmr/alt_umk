@@ -1,0 +1,93 @@
+\documentclass[final,10pt,70x100,auto]{altlibrary}
+%\documentclass[draft,10pt,70x100,auto]{altlibrary}
+%\usepackage[utf8x]{inputenc}
+%\usepackage[T2A]{fontenc}
+%%\usepackage[english,russian]{babel}
+% A4 brochure (for printed docs); class options intended for automatic layout
+% \documentclass[final,a4brochure,auto]{altlibrary}
+% for ALT docs with m-k sources use additinal package:
+
+%% For m-k modules
+\usepackage{m-k} 
+
+
+%% For DocBook modules
+\usepackage[%pdftex,%
+bookmarks=true,%
+bookmarksnumbered=true,% 
+hypertexnames=false,%
+final,%
+breaklinks=true,%
+colorlinks=true,%
+linkcolor=blue,%
+unicode]{hyperref}
+\usepackage{fancyvrb}
+\usepackage{fvextra}
+\usepackage{pmboxdraw}
+\usepackage{memhfixc}
+\usepackage{graphicx}
+\usepackage{theorem}
+% \usepackage{dbsimple}
+% \usepackage{tabulary}
+\usepackage{longtable}
+\usepackage{multirow}
+% \usepackage{supertabular}
+\usepackage{amsmath}
+\usepackage{amssymb}
+% \usepackage{array}
+\usepackage{color}
+\usepackage{enumerate}
+%\usepackage{lmodern}
+\usepackage[final]{listings}
+\usepackage[status=draft,layout=footnote,marginclue,innerlayout={layout=marginnote}]{fixme}
+% local setup and definitions
+%\input{local}
+\fxusetheme{color}
+\graphicspath{{img/}}
+\DeclareFontShape{OT1}{cmtt}{bx}{n}{<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>cmttb10}{}
+%\DeclareFontShape{T2A}{cmtt}{m}{n}{<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>cmttb10}{}
+
+\lstloadlanguages{XML,HTML}
+\lstset{
+    language=XML,
+%    columns=fixed,
+    otherkeywords={},
+    basicstyle=\usefont{T2A}{cmtt}{m}{n},
+    keywordstyle=\usefont{OT1}{cmtt}{bx}{n},
+    escapechar=`,
+    basicstyle=\small,
+%    commentstyle=\itshape\small
+}
+
+{\theorembodyfont{\normalfont\fontshape{ui}\selectfont}
+ \newtheorem{tasko}{Пример задачи}}
+
+{\theorembodyfont{\normalfont\selectfont
+        \addtocounter{tasko}{-1}}
+ \newtheorem{solvo}[tasko]{Решение задачи}}
+
+{\theorembodyfont{\normalfont\fontshape{ui}\selectfont}
+    \newtheorem{problemo}{Задание}}
+
+\newcommand{\erf}{\mathrm{erf}}
+\newcommand{\erfc}{\mathrm{erfc}}
+\newcommand{\len}{\mathrm{len}}
+
+
+\newbox\bwk\edef\tempd#1pt{#1\string p\string t}\tempd\def\nbextr#1pt{#1}
+\def\npts#1{\expandafter\nbextr\the#1\space}
+\def\ttwplink#1#2{\special{ps:1 0 0 setrgbcolor}#2\special{ps:0 0 0 setrgbcolor}\setbox\bwk=\hbox{#2}\special{ps:( linkto #1)\space\npts{\wd\bwk} \npts{\dp\bwk} -\npts{\ht\bwk} true\space Cpos}}
+\begin{document}
+\mainmatter
+\include{book/titlepage}
+\tableofcontents*
+\clearpage
+\include{book/intro}
+\include{book/package_manager}
+\include{book/basic_package_manager_commands}
+\include{book/software_used_for_packaging}
+\include{book/gear}
+\include{book/hasher}
+\include{book/examples_of_using_viola_OS_tools_to_build_packages}
+\include{book/conclusion}
+\end{document}
