@@ -1,33 +1,33 @@
 \chapter{Основные команды пакетного менеджера RPM}\label{basic-package-manager-commands}
 Управлять пакетами можно из командной строки при помощи программы \Sys{rpm}, которая имеет следующий синтаксис:
 \begin{verbatim}
-	rpm [options]
+    rpm [options]
 \end{verbatim}
 
 Пакетный менеджер \Sys{RPM} предоставляет базовые возможности для управления пакетами. Основной набор команд%
-\footnote{\href{https://wiki.altlinux.ru/\%D0\%9A\%D0\%BE\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B4\%D1\%8B_RPM}{https://wiki.altlinux.ru/Команды\_RPM}} 
+\footnote{\href{https://wiki.altlinux.ru/\%D0\%9A\%D0\%BE\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B4\%D1\%8B_RPM}{https://wiki.altlinux.ru/Команды\_RPM}}
 позволяет установить, удалить, обновить пакеты, получить разнообразную информацию о самих пакетах и их содержимом:
 
 \begin{itemize}
 	\item \textbf{Проверка установки пакета в системе}: \Sys{rpm -q ИМЯ\_ПАКЕТА \dots}\\
-	Эта команда проверяет установлен ли пакет в системе. \Sys{rpm -q} означает <<query>> .
+	Эта команда проверяет установлен ли пакет в системе. \Sys{rpm -q} означает <<query>>.
 	Используется с дополнительными ключмами для выполнения запросов различного назначеня.
 
 	\item \textbf{Информация о пакете}: \Sys{rpm -qi ИМЯ\_ПАКЕТА \dots}\\
 	\Sys{rpm -qi} выводит подробную информацию о конкретном установленном пакете. \Sys{rpm -qi} означает <<query information>>
 	(запросить информацию). Но в случае \Sys{rpm -i <имя пакета>}, \Sys{-i} означает инструкцию \Sys{install} (установи).
-	
+
 	\item \textbf{Просмотр установленных пакетов}: \Sys{rpm -qa}\\
 	Эта команда выводит список всех установленных пакетов в системе. \Sys{-a: all} (весь, все). \Sys{rpm -qa} означает <<query all>>.
 
 	\item \textbf{Проверка зависимостей пакета}: \Sys{rpm -qR ИМЯ\_ПАКЕТА \dots}\\
 	 \Sys{rpm -qR} выводит список зависимостей (другие пакеты), необходимых для работы указанного пакета. \Sys{-R: Requires}
 	(нуждается). Например, \Sys{rpm -qR} означает <<query requires>> (запрос небоходимого, запрос зависимостей).
-	 
+
 	\item \textbf{Проверка файла на принадлежность пакету}: \Sys{rpm -qf ФАЙЛ}\\
 	Команда \Sys{rpm -qf} определяет, к какому пакету принадлежит указанный файл. \Sys{-f: file}
 	(файл). Например, \Sys{rpm -qf} означает <<query file>> (запрос файла).
-	
+
 	\item \textbf{Просмотр файлов пакета}: \Sys{rpm -ql ИМЯ\_ПАКЕТА \dots}\\
 	 \Sys{rpm -ql} выводит список всех файлов, содержащихся в установленном пакете. \Sys{-l: list}
 	(список). Например, \Sys{rpm -ql} означает <<query list>> (запрос списка).
@@ -35,16 +35,16 @@
 	\item \textbf{Установка пакета}: \Sys{rpm -i ФАЙЛ\_ПАКЕТА}\\
 	Команда \Sys{rpm -i} используется для установки пакета из файла \Sys{.rpm}. \Sys{-i: install}
 	(инсталировать, установить). Например, \Sys{rpm -i package.rpm} установит содержимое пакета в системе.
-	
+
 	\item \textbf{Удаление пакета}: \Sys{rpm -e ФАЙЛ\_ПАКЕТА}\\
 	\Sys{rpm -e} удаляет установленный пакет. \Sys{-e: erase}
 	(стереть). Например, \Sys{rpm -e package} удалит пакет с именем \Sys{package}.
-	
+
 	\item \textbf{Обновление пакета}: \Sys{rpm -U ФАЙЛ\_ПАКЕТА} или \Sys{rpm -F ФАЙЛ\_ПАКЕТА}\\
 	Команда \Sys{rpm -U} обновляет пакет до новой версии или установит пакет, \Sys{rpm -F}
 	только обновит пакет, если он уже установлен. \Sys{-U: Update}(обновить), \Sys{-F: Freshen}(освежить).
-	
-	\item \textbf{Проверка целостности пакета}: \Sys{rpm -V ИМЯ\_ПАКЕТА|ФАЙЛ\_ПАКЕТА \dots}\\
+
+	\item \textbf{Проверка целостности пакета}: \Sys{rpm -V ИМЯ\_ПАКЕТА | ФАЙЛ\_ПАКЕТА \dots}\\
 	\Sys{rpm -V} проверяет целостность файлов в пакете, сравнивая их с информацией в базе данных \Sys{rpm}.
 
 	Дополнительные ключи:
@@ -53,32 +53,33 @@
 	 (инсталяция подробно) и используется для вывода более подробной информации в процессе установки пакета. Подробный вывод существует не для всех ключей утилиты.
 		\item \textbf{\Sys{----quiet}}: (тихо). Вывести минимальный набор сообщений если возможно. Например, \Sys{rpm -i ----quiet} означает <<install quiet>> (инсталяция тихая).
 	\end{itemize}
-	
+
 	\marginalia{ex_sign_col}{Справку по ключам можно получить, набрав в консоли команду \Sys{rpm ----help}}
-	
+
 \end{itemize}
 
 \section{Установка RPM-пакета}
 \marginalia{ex_sign_col}{В команде должен быть указан файл пакета или полный путь к нему}
 
-Для установки пакета из \Sys{rpm-файла} используйте команду: 
+Для установки пакета из \Sys{rpm-файла} используйте команду:
 \begin{verbatim}
-	# rpm -i ФАЙЛ_ПАКЕТА ...
+    # rpm -i ФАЙЛ_ПАКЕТА ...
 \end{verbatim}
 
 Синтаксим команды:
 \begin{verbatim}
-rpm {-i|--install} [опции-установки] ФАЙЛ_ПАКЕТА ...
+    # rpm {-i | --install} [опции-установки] ФАЙЛ_ПАКЕТА ...
 \end{verbatim}
 
 \marginalia{ex_sign_col}{Для работы с командой потребуются права суперпользователя. Их можно получить через команду \Sys{su-}, либо команду \Sys{sudo}}
 
-Пример выполнения команды \footnote{\href{https://wiki.altlinux.ru/\%D0\%9A\%D0\%BE\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B4\%D1\%8B_RPM}{https://wiki.altlinux.ru/Команды\_RPM}}: 
+Пример выполнения команды\footnote{\href{https://wiki.altlinux.ru/\%D0\%9A\%D0\%BE\%D0\%BC\%D0\%B0\%D0\%BD\%D0\%B4\%D1\%8B_RPM}{https://wiki.altlinux.ru/Команды\_RPM}}:
+
 \begin{verbatim}
-	[root@test-alt]# rpm -i gpupdate-0.9.12.6-alt1.src.rpm 
+    # rpm -i gpupdate-0.9.12.6-alt1.src.rpm
 \end{verbatim}
 
-В конце команды возможно указать дополнительные опции: 
+В конце команды возможно указать дополнительные опции:
 \begin{itemize}
 	\item \Sys{--nodeps} --- не проверять зависимости пакета;
 	\item \Sys{--replacepkgs} или \Sys{--reinstall} --- переустановить пакет.
@@ -93,37 +94,37 @@ rpm {-i|--install} [опции-установки] ФАЙЛ_ПАКЕТА ...
 
 Пример выполнения команды:
 \begin{verbatim}
-	rpm -ivh gpupdate-0.9.12.6-alt1.src.rpm
-	
-	Подготовка...
-	################################[100%]
-	
-	Обновление / установка...
-	
-	1: gpupdate-0.9.12.6-alt1.src.rpm 
-	################################[100%] 
+    # rpm -ivh gpupdate-0.9.12.6-alt1.src.rpm
+
+        Подготовка...
+        ################################[100%]
+
+        Обновление / установка...
+
+        1: gpupdate-0.9.12.6-alt1.src.rpm
+        ################################[100%]
 \end{verbatim}
 
 
 \section{Проверка установки пакета в системе}\label{verifying-package}
-Чтобы проверить, установлен ли пакет, введите следующую команду: 
+Чтобы проверить, установлен ли пакет, введите следующую команду:
 \begin{verbatim}
-	$ rpm -q ИМЯ_ПАКЕТА 
+    $ rpm -q ИМЯ_ПАКЕТА
 \end{verbatim}
 
-Пример: 
+Пример:
 \begin{verbatim}
-	$ rpm -q gpupdate
-	gpupdate-0.9.12.2-alt2.noarch
-	
-	$ rpm -q mediinfo
-	пакет mediinfo не установлен
+    $ rpm -q gpupdate
+        gpupdate-0.9.12.2-alt2.noarch
+
+    $ rpm -q mediinfo
+        пакет mediinfo не установлен
 \end{verbatim}
 
 \section{Просмотр файлов пакета, установленного в системе}
 Чтобы получить список файлов пакета, введите следующую команду:
 \begin{verbatim}
-	$ rpm -ql ИМЯ_ПАКЕТА ...
+    $ rpm -ql ИМЯ_ПАКЕТА ...
 \end{verbatim}
 
 В этой команде используется ключ <<\Sys{-l}>> (list).
@@ -132,34 +133,34 @@ rpm {-i|--install} [опции-установки] ФАЙЛ_ПАКЕТА ...
 
 Пример использования:
 \begin{verbatim}
-	$ rpm -ql admc 
-	/usr/bin/admc 
-	/usr/lib64/libadldap.so 
-	/usr/share/applications/admc.desktop 
-	/usr/share/doc/admc-0.11.2 
-	/usr/share/doc/admc-0.11.2/CHANGELOG.txt 
-	/usr/share/doc/admc-0.11.2/CHANGELOG_ru.txt 
-	/usr/share/doc/admc-0.11.2/README.md 
-	/usr/share/icons/hicolor/scalable/apps/admc.svg 
-	/usr/share/man/man1/admc.1.xz
+    $ rpm -ql admc
+        /usr/bin/admc
+        /usr/lib64/libadldap.so
+        /usr/share/applications/admc.desktop
+        /usr/share/doc/admc-0.11.2
+        /usr/share/doc/admc-0.11.2/CHANGELOG.txt
+        /usr/share/doc/admc-0.11.2/CHANGELOG_ru.txt
+        /usr/share/doc/admc-0.11.2/README.md
+        /usr/share/icons/hicolor/scalable/apps/admc.svg
+        /usr/share/man/man1/admc.1.xz
 \end{verbatim}
 
 Чтобы узнать содержимое неустановленного \Sys{rpm}-пакета, используйте команду:
 \begin{verbatim}
-	$ rpm -qlp ИМЯ_ПАКЕТА ...
+    $ rpm -qlp ИМЯ_ПАКЕТА ...
 \end{verbatim}
 
 Пример выполнения команды:
 \begin{verbatim}
-	$ rpm -qlp udisks2-2.9.4-alt1.1.src.rpm
-	udisks-2.9.4.tar.bz2 udisks2.control udisks2.spec 
+    $ rpm -qlp udisks2-2.9.4-alt1.1.src.rpm
+        udisks-2.9.4.tar.bz2 udisks2.control udisks2.spec
 \end{verbatim}
 
 \section{Просмотр недавно установленных пакетов}\label{view-recently-installed-packages}
-Чтобы получить список последних установленных пакетов, введите следующую команду: 
+Чтобы получить список последних установленных пакетов, введите следующую команду:
 
 \begin{verbatim}
-rpm -qa --last | head	
+    $ rpm -qa --last | head
 \end{verbatim}
 
 Вывод:
@@ -176,140 +177,139 @@ libqt5-test-5.15.10-alt1.x86_64               Пт 01 дек 2023 12:35:44
 libqt5-quickparticles-5.15.10-alt1.x86_64     Пт 01 дек 2023 12:35:44
 \end{verbatim}
 
-Команда \Sys{rpm -qa --last} используется для вывода списка всех установленных пакетов, отсортированных 
-по времени их установки. Пакеты будут отсортированы в порядке убывания времени установки --- самые 
+Команда \Sys{rpm -qa --last} используется для вывода списка всех установленных пакетов, отсортированных
+по времени их установки. Пакеты будут отсортированы в порядке убывания времени установки --- самые
 последние установленные пакеты отобразятся в верхней части списка.
 
-Фильтрация вывода: утилита \Sys{grep} отфильтрует вывод и поможет найти искомый пакет. Например, 
+Фильтрация вывода: утилита \Sys{grep} отфильтрует вывод и поможет найти искомый пакет. Например,
 следующая команда выведет информацию только о тех пакетах, название которых содержит <<\Sys{kernel}>>:
 
 \begin{verbatim}
-rpm -qa --last | grep kernel
-\end{verbatim} 
+    $ rpm -qa --last | grep kernel
+\end{verbatim}
 
 \section{Поиск пакета в системе}
-Чтобы найти в системе необходимый пакет среди уже установленных, используйте утилиту \Sys{grep}. Утилита \Sys{grep} находит строки по запросу. 
+Чтобы найти в системе необходимый пакет среди уже установленных, используйте утилиту \Sys{grep}. Утилита \Sys{grep} находит строки по запросу.
 \begin{verbatim}
-	 $ rpm -qa | grep ИМЯ_ПАКЕТА 
+     $ rpm -qa | grep ИМЯ_ПАКЕТА
 \end{verbatim}
 
 Например, запрос:
 \begin{verbatim}
-	kde5-smplayer-common-22.7.0-alt1.noarch
-	smplayer-23.6.0-alt2.10169.x86_64
+    kde5-smplayer-common-22.7.0-alt1.noarch
+    smplayer-23.6.0-alt2.10169.x86_64
 \end{verbatim}
 
 \section{Проверка файла, относящегося к пакету}
-Чтобы определить, какому пакету принадлежит указанный файл, используйте команду: 
+Чтобы определить, какому пакету принадлежит указанный файл, используйте команду:
 \begin{verbatim}
-	$ rpm -qf ФАЙЛ
+    $ rpm -qf ФАЙЛ
 \end{verbatim}
 
-Например, запрос: 
+Например, запрос:
 \begin{verbatim}
-	$ rpm -qf /usr/share/FBReader/help
+    $ rpm -qf /usr/share/FBReader/help
 \end{verbatim}
 Предоставит вывод:
 \begin{verbatim}
-	fbreader-0.99.5-alt6.x86_64
-\end{verbatim}}
+    fbreader-0.99.5-alt6.x86_64
+\end{verbatim}
 
 \section{Вывод информации о пакете}
 Чтобы получить вывод подробной информации о конкретном установленном пакете\footnote{\href{https://www.inp.nsk.su/~bolkhov/teach/inpunix/make_rpm.ru.html}{https://www.inp.nsk.su/~bolkhov/teach/inpunix/make\_rpm.ru.html}} --- название, версию и прочее --- используйте команду:
 \begin{verbatim}
-	$ rpm -qi ИМЯ_ПАКЕТА ...
+    $ rpm -qi ИМЯ_ПАКЕТА ...
 \end{verbatim}
 
 \marginalia{ex_sign_col}{В запросе указывается имя пакета из списка уже установленных в системе, либо путь к загруженному пакету.}
 
 Пример выполнения команды для установленного пакета в системе:
 \begin{verbatim}
-	$ rpm -qi gpupdate
-	
-	Name        : gpupdate
-	Version     : 0.9.12.6
-	Release     : alt1
-	DistTag     : p10+323062.200.4.1
-	Architecture: noarch
-	Install Date: Ср 12 июл 2023 13:26:50
-	Group       : Other
-	Size        : 951193
-	License     : GPLv3+
-	Signature   : RSA/SHA512, Сб 08 июл 2023 22:59:22, Key ID 42f343a2c7eb80f9
-	Source RPM  : gpupdate-0.9.12.6-alt1.src.rpm
-	Build Date  : Сб 08 июл 2023 22:59:21
-	Build Host  : greh-p10.hasher.altlinux.org
-	Relocations : (not relocatable)
-	Packager    : Valery Sinelnikov (ALT) <greh@altlinux.org>
-	Vendor      : ALT Linux Team
-	URL         : https://github.com/altlinux/gpupdate
-	Summary     : GPT applier
-	Description :
-	gpupdate is the facility to apply various GPO/GPT settings retrieved
-	from Active Directory domain in UNIX environment.
+    $ rpm -qi gpupdate
+
+        Name        : gpupdate
+        Version     : 0.9.12.6
+        Release     : alt1
+        DistTag     : p10+323062.200.4.1
+        Architecture: noarch
+        Install Date: Ср 12 июл 2023 13:26:50
+        Group       : Other
+        Size        : 951193
+        License     : GPLv3+
+        Signature   : RSA/SHA512, Сб 08 июл 2023 22:59:22, Key ID 42f343a2c7eb80f9
+        Source RPM  : gpupdate-0.9.12.6-alt1.src.rpm
+        Build Date  : Сб 08 июл 2023 22:59:21
+        Build Host  : greh-p10.hasher.altlinux.org
+        Relocations : (not relocatable)
+        Packager    : Valery Sinelnikov (ALT) <greh@altlinux.org>
+        Vendor      : ALT Linux Team
+        URL         : https://github.com/altlinux/gpupdate
+        Summary     : GPT applier
+        Description :
+        gpupdate is the facility to apply various GPO/GPT settings retrieved
+        from Active Directory domain in UNIX environment.
 \end{verbatim}
 
 Пример выполнения команды для \Sys{rpm}-пакета, расположенного на диске, но неустановленного в системе:
 \begin{verbatim}
-	$ rpm -qip /путь/к/пакету/foo-1.0-i586.rpm
+    $ rpm -qip /путь/к/пакету/foo-1.0-i586.rpm
 \end{verbatim}
 
 Пример выполнения:
 \begin{verbatim}
-	$ rpm -qip kooha-2.2.4-alt1.x86_64.rpm
-	
-	Name        : kooha
-	Epoch       : 1
-	Version     : 2.2.4
-	Release     : alt1
-	DistTag     : sisyphus+330279.100.2.2
-	Architecture: x86_64
-	Install Date: (not installed)
-	Group       : Video
-	Size        : 2261140
-	License     : GPL-3.0+
-	Signature   : RSA/SHA512, Пн 25 сен 2023 15:28:07, Key ID ff979dedda2773bb
-	Source RPM  : kooha-2.2.4-alt1.src.rpm
-	Build Date  : Пн 25 сен 2023 15:28:01
-	Build Host  : lvol-sisyphus.hasher.altlinux.org
-	Relocations : (not relocatable)
-	Packager    : Leontiy Volodin <lvol@altlinux.org>
-	Vendor      : ALT Linux Team
-	URL         : https://github.com/SeaDve/Kooha
-	Summary     : Simple screen recorder with a minimal interface
-	Description :
-	Simple screen recorder with a minimal interface.
+    $ rpm -qip kooha-2.2.4-alt1.x86_64.rpm
+
+        Name        : kooha
+        Epoch       : 1
+        Version     : 2.2.4
+        Release     : alt1
+        DistTag     : sisyphus+330279.100.2.2
+        Architecture: x86_64
+        Install Date: (not installed)
+        Group       : Video
+        Size        : 2261140
+        License     : GPL-3.0+
+        Signature   : RSA/SHA512, Пн 25 сен 2023 15:28:07, Key ID ff979dedda2773bb
+        Source RPM  : kooha-2.2.4-alt1.src.rpm
+        Build Date  : Пн 25 сен 2023 15:28:01
+        Build Host  : lvol-sisyphus.hasher.altlinux.org
+        Relocations : (not relocatable)
+        Packager    : Leontiy Volodin <lvol@altlinux.org>
+        Vendor      : ALT Linux Team
+        URL         : https://github.com/SeaDve/Kooha
+        Summary     : Simple screen recorder with a minimal interface
+        Description :
+        Simple screen recorder with a minimal interface.
 \end{verbatim}
 
 \section{Обновление пакета}
 Чтобы обновить пакет до новой версии, используйте команду:
 \begin{verbatim}
-	rpm -U ФАЙЛ_ПАКЕТА ...
+    # rpm -U ФАЙЛ_ПАКЕТА ...
 \end{verbatim}
 
-Для обновления пакетов в пакетном менеджере \Sys{RPM} используют запрос с двумя типами ключей\footnote{\href{https://wiki.altlinux.ru/QuickStart/PkgManagment}{https://wiki.altlinux.ru/QuickStart/PkgManagment}}: 
+Для обновления пакетов в пакетном менеджере \Sys{RPM} используют запрос с двумя типами ключей\footnote{\href{https://wiki.altlinux.ru/QuickStart/PkgManagment}{https://wiki.altlinux.ru/QuickStart/PkgManagment}}:
 \begin{enumerate}
 	\item \Sys{rpm -U} --- может устанавливать и обновлять пакеты;
 	\item \Sys{rpm -F} --- только обновляет уже установленные пакеты.
 \end{enumerate}
-	
+
 \begin{verbatim}
-	rpm {-U|--upgrade} [опции-установки] ФАЙЛ_ПАКЕТА ...
-\end{verbatim}}
+    # rpm {-U | --upgrade} [опции-установки] ФАЙЛ_ПАКЕТА ...
+\end{verbatim}
 
 Команда \Sys{rpm -U} (Upgrade) обновляет пакеты до новых версий. Если установлена старая версия пакета, \Sys{rpm -U} заменит старую версию на новую, обновив пакет. Если пакет не установлен, команда \Sys{rpm -U} установит его.
 
 \begin{verbatim}
-	rpm {-F|--freshen} [опции-установки] ФАЙЛ_ПАКЕТА ...
+    # rpm {-F | --freshen} [опции-установки] ФАЙЛ_ПАКЕТА ...
 \end{verbatim}
 
 Команда \Sys{rpm -F} (Freshen) обновляет только те пакеты, которые уже установлены в системе. Если установлена старая версия пакета, \Sys{rpm -F} заменит старую версию на новую, обновив пакет. Если пакет не установлен, команда \Sys{rpm -F} ничего не сделает с этим пакетом\footnote{\href{https://access.redhat.com/solutions/1189}{https://access.redhat.com/solutions/1189}}.
 
 Пример установки пакета:
 \begin{verbatim}
-	# rpm -U foo-1.0-i586.rpm
+    # rpm -U foo-1.0-i586.rpm
 \end{verbatim}
-
 
 
 \section{Вопросы для самопроверки}
@@ -319,7 +319,7 @@ rpm -qa --last | grep kernel
 	\item Как получить информацию об \Sys{rpm}-пакете, если он еще не установлен в системе, но у вас есть файл.
 	\item Как получить список всех файлов \Sys{rpm}-пакета?
 	\item Верно ли что команда \Sys{rpm -Uvh} обновит пакет, а если его нет, то установит его?
-		Какой параметр отвечает за обновление/установку? Что означают другие параметры?
+	\item	Какой параметр отвечает за обновление/установку? Что означают другие параметры?
 	\item Как проверить установлен ли пакет с именем \Sys{foo} в вашей системе? Напишите такую команду.
-	\item Что делает команда \verb!rpm -qi mate-text-editor |grep License!?
+	\item Что делает команда \verb!rpm -qi mate-text-editor | grep License!?
 \end{enumerate}
