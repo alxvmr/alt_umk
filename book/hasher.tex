@@ -117,7 +117,7 @@ $ hsh-shell
 
 \begin{itemize}
 	\item \Sys{$\sim$/hasher}
-	\begin{itemize}
+	\begin{itemize}[$\circ$]
 		\item \Sys{chroot} --- сборочное окружение. В этом каталоге находится
 			корневое дерево содержащее минимальный набор пакетов, необходимых
 			для сборки.
@@ -128,7 +128,7 @@ $ hsh-shell
 			создания \Sys{chroot}.
 	\end{itemize}
 		\item \Sys{repo}, который содержит подкаталоги:
-	\begin{itemize}
+	\begin{itemize}[$\circ$]
 		\item \Sys{SRPMS.hasher} --- пакеты с исходными данными (sources).
 		\item \Sys{<архитектура>/RPMS.hasher/} --- каталог с пакетами, собранными
 			под конкретную архитектуру.
@@ -139,12 +139,12 @@ $ hsh-shell
 	\end{itemize}
 	\item \Sys{$\sim$/.hasher} --- каталог конфигурационных файлов. Каталог может отсутсвовать,
 	в этом случае \Sys{hasher} использует конфигурацию по умолчанию.
-	\begin{itemize}
+	\begin{itemize}[$\circ$]
 		\item \Sys{apt.config} --- конфигурация для \Sys{apt-get} из \Sys{$\sim$/hasher/aptbox/}.
 		\item \Sys{config} --- конфигурация самого \Sys{hasher}.
 	\end{itemize}
 	\item \Sys{/etc/hasher-priv/} каталог с конфигурацией для вспомогательной утилиты \Sys{hasher-priv}.
-	\begin{itemize}
+	\begin{itemize}[$\circ$]
 		\item \Sys{./user.d} --- каталог содержит файлы настроенных пользователей для работы с \Sys{hasher}.
 		\item \Sys{fstab} --- информация о точках монтирования вспомогательной программы \Sys{hasher-priv}
 		\Sys{system} --- конфигурация вспомогательной программы \Sys{hasher-priv}.
@@ -206,7 +206,7 @@ $ hsh ./<имя пакета>.src.rpm
 ├── <имя пакета>.spec
 ├── <имя патча>.patch
 └── <имя пакета>-<версия из spec>.tar
-                 └── <имя пакета>-<версия из spec>  --- Имя каталога с исходными данными для пакета.
+    └── <имя пакета>-<версия из spec>  --- Имя каталога с исходными данными для пакета.
 \end{verbatim}
 
 Упрощенный пример команды для создания \Sys{.tar} архива:

@@ -329,21 +329,21 @@ Group: <группа>
 Url: <URL>
 Source: %name-%version.tar
 Patch1:
-	
+
 PreReq:
 Requires:
 Provides:
 Conflicts:
-	
+
 BuildPreReq:
 BuildRequires:
 %{?!_without_test:%{?!_disable_test:%{?!_without_check:%{?!_disable_check:BuildRequires: }}}}
 BuildArch:
-	
+
 %description
 <многострочное
 описание>
-	
+
 %prep
 %setup
 %patch1 -p1
@@ -351,18 +351,18 @@ BuildArch:
 %build
 %configure
 %make_build
-		
+
 %install
 %makeinstall_std
-	
+
 %check
 %make_build check
-		
+
 %files
 %_bindir/*
 %_man1dir/*
 %doc AUTHORS NEWS README
-		
+
 %changelog
 * <дата> <ваше имя> <$login@altlinux.org> <версия_пакета>-<релиз_пакета>
 - initial build for ALT Linux Sisyphus

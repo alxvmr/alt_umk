@@ -1,0 +1,979 @@
+make distclean
+make[1]: РІС…РѕРґ РІ РєР°С‚Р°Р»РѕРі В«/home/SMB.BASEALT.RU/alekseevamo/Desktop/СѓРјРє/alt_umkВ»
+rm -f *.png *.jpg *.dvi *.log *.toc *.aux *.eps *~
+rm -f block.pdf
+make[1]: РІС‹С…РѕРґ РёР· РєР°С‚Р°Р»РѕРіР° В«/home/SMB.BASEALT.RU/alekseevamo/Desktop/СѓРјРє/alt_umkВ»
+#make index
+make pass ||: 
+make[1]: РІС…РѕРґ РІ РєР°С‚Р°Р»РѕРі В«/home/SMB.BASEALT.RU/alekseevamo/Desktop/СѓРјРє/alt_umkВ»
+latex "\nonstopmode\input{block.tex}"
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Mageia) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18>
+(./block.tex (./altlibrary.cls
+Document Class: altlibrary 2007/11/19 Class for ALT Linux Library series books
+(/usr/share/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texmf-dist/tex/generic/babel/babel.sty
+(/usr/share/texmf-dist/tex/generic/babel/babel.def
+(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def))
+(/usr/share/texmf-dist/tex/generic/babel-english/english.ldf)
+(/usr/share/texmf-dist/tex/generic/babel-russian/russianb.ldf
+
+Package babel Warning: No Cyrillic font encoding has been loaded so far.
+(babel)                A font encoding should be declared before babel.
+(babel)                Default `T2A' encoding will be loaded  on input line 78.
+
+
+(/usr/share/texmf-dist/tex/latex/cyrillic/t2aenc.def
+(/usr/share/texmf-dist/tex/latex/base/t2aenc.dfu))))
+(/usr/share/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/share/texmf-dist/tex/latex/tools/indentfirst.sty)
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texmf-dist/tex/latex/graphics-def/dvips.def)))
+(/usr/share/texmf-dist/tex/latex/memoir/memoir.cls
+Document Class: memoir 2021/03/23 v3.7o configurable book, report, article docu
+ment class
+(/usr/share/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texmf-dist/tex/latex/memoir/mem10.clo)
+(/usr/share/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texmf-dist/tex/latex/tools/dcolumn.sty)
+(/usr/share/texmf-dist/tex/latex/tools/delarray.sty)
+(/usr/share/texmf-dist/tex/latex/tools/tabularx.sty)
+(/usr/share/texmf-dist/tex/latex/textcase/textcase.sty)) (./format.sty
+
+******************************************************
+Stock height and width: 711.3189pt by 497.92322pt
+Top and edge trims: 14.22638pt and 14.22638pt
+Page height and width: 682.86613pt by 483.69684pt
+Text height and width: 526pt by 369pt
+Spine and edge margins: 75.8667pt and 37.94432pt
+Upper and lower margins: 78.23181pt and 78.63432pt
+Headheight and headsep: 12pt and 18.06749pt
+Footskip: 25.29494pt
+Columnsep and columnseprule: 10pt and 0pt
+Marginparsep and marginparwidth: 7pt and 23.94432pt
+Sidecapsep and sidecapwidth: 7pt and 128pt
+Sidebarhsep and sidebarwidth: 7pt and 128pt
+Sidebarvsep and sidebartopsep: 12pt and 0pt
+Sidebarheight: 548.39996pt
+Sidefoothsep and sidefootwidth: 7pt and 128pt
+Sidefootvsep and sidefootheight: 12pt and 548.39996pt
+******************************************************
+
+)) (./m-k.sty (/usr/share/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texmf-dist/tex/latex/tools/xspace.sty)
+(/usr/share/texmf-dist/tex/latex/t2/citehack.sty)
+(/usr/share/texmf-dist/tex/latex/floatrow/floatrow.sty
+(/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/share/texmf-dist/tex/latex/caption/caption-memoir.sto))))
+(/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/share/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(/usr/share/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(/usr/share/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def)
+(/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texmf-dist/tex/latex/memoir/memhfixc.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/hdvips.def
+(/usr/share/texmf-dist/tex/latex/hyperref/pdfmark.def
+
+Package hyperref Warning: You have enabled option `breaklinks'.
+(hyperref)                But driver `hdvips.def' does not suppport this.
+(hyperref)                Expect trouble with the link areas of broken links.
+
+(/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))))
+(/usr/share/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty)
+(/usr/share/texmf-dist/tex/latex/fvextra/fvextra.sty
+(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texmf-dist/tex/latex/upquote/upquote.sty)
+(/usr/share/texmf-dist/tex/latex/lineno/lineno.sty))
+(/usr/share/texmf-dist/tex/latex/pmboxdraw/pmboxdraw.sty
+(/usr/share/texmf-dist/tex/latex/pmboxdraw/pmboxdrawenc.dfu))
+(/usr/share/texmf-dist/tex/latex/tools/theorem.sty
+(/usr/share/texmf-dist/tex/latex/tools/thp.sty))
+(/usr/share/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texmf-dist/tex/latex/multirow/multirow.sty)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texmf-dist/tex/latex/graphics/dvipsnam.def))
+(/usr/share/texmf-dist/tex/latex/listings/listings.sty
+(/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/share/texmf-dist/tex/latex/listings/listings.cfg))
+(/usr/share/texmf-dist/tex/latex/fixme/fixme.sty
+(/usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texmf-dist/tex/generic/xkeyval/xkvutils.tex))))
+(/usr/share/texmf-dist/tex/latex/fixme/themes/fxthemecolor.sty
+(/usr/share/texmf-dist/tex/latex/fixme/layouts/env/fxenvlayoutcolor.sty)
+(/usr/share/texmf-dist/tex/latex/fixme/layouts/target/fxtargetlayoutcolor.sty))
+ (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty)
+(/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-dvips.def)
+No file block.aux.
+(/usr/share/texmf-dist/tex/latex/cyrillic/t2acmr.fd)
+(/usr/share/texmf-dist/tex/latex/floatrow/fr-longtable.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty))
+Redoing nameref's sectioning
+Redoing nameref's label
+(./block.out) (./block.out)
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+(/usr/share/texmf-dist/tex/latex/base/textcomp.sty) (./book/titlepage.tex
+(/usr/share/texmf-dist/tex/latex/cyrillic/t2acmss.fd)) [1] [2]
+(./book/intro.tex [3] (/usr/share/texmf-dist/tex/latex/cyrillic/t2acmtt.fd)
+[4]
+Overfull \hbox (1.61191pt too wide) in paragraph at lines 75--77
+\T2A/cmr/m/n/10 М.А.Фоканова, М.О.Алексеева, А.А.Калинин, И.А.Мельников, Д.Н.Во
+ропаев,
+) [5] (./book/package_manager.tex
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd)
+Overfull \hbox (0.9985pt too wide) in paragraph at lines 21--22
+[]\T2A/cmtt/m/n/10 RPM (.rpm)\T2A/cmr/m/n/10 . Раз-ра-бо-тан ком-па-ни-ей \T2A/
+cmtt/m/n/10 Red Hat\T2A/cmr/m/n/10 . При-ме-ня-ет-ся в си-сте-ме \T2A/cmtt/m/n/
+10 <<Альт>>\T2A/cmr/m/n/10 ,
+[6] [7] [8] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 151--151
+[][] 
+
+Underfull \vbox (badness 1377) has occurred while \output is active [9]
+[10]
+Overfull \hbox (35.30516pt too wide) in paragraph at lines 196--197
+[]\T2A/cmtt/m/n/10 -o=? \T2A/cmr/m/n/10 --- из-ме-нить лю-бой из па-ра-мет-ров 
+на-строй-ки (на-при-мер: \T2A/cmtt/m/n/10 -o dir::cache=/tmp\T2A/cmr/m/n/10 ). 
+
+[11] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 228--228
+[][] 
+[12] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 268--268
+[][] 
+
+Overfull \hbox (42.01688pt too wide) in paragraph at lines 281--282
+[]\T2A/cmr/m/n/10 Вы об-на-ру-жи-ли в си-сте-ме па-кет \T2A/cmtt/m/n/10 nagios-
+domain-discovery-0.1.1-alt1.noarch.rpm\T2A/cmr/m/n/10 ,
+) [13] (./book/basic_package_manager_commands.tex [14] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 57--57
+[][] 
+<img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 62--62
+[][] 
+[15] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 74--74
+[][] 
+[16] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 132--132
+[][] 
+[17] [18] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 224--224
+[][] 
+<img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 227--227
+[][] 
+
+Overfull \hbox (18.35541pt too wide) in paragraph at lines 243--243
+[]        \T2A/cmtt/m/n/9 Signature   : RSA/SHA512, Сб 08 июл 2023 22:59:22, Ke
+y ID 42f343a2c7eb80f9[] 
+[19]
+Overfull \hbox (18.35541pt too wide) in paragraph at lines 276--276
+[]        \T2A/cmtt/m/n/9 Signature   : RSA/SHA512, Пн 25 сен 2023 15:28:07, Ke
+y ID ff979dedda2773bb[] 
+[20]) [21] (./book/software_used_for_packaging.tex [22] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 37--37
+[][] 
+[23]
+Overfull \hbox (5.45636pt too wide) in paragraph at lines 98--99
+[]\T2A/cmr/bx/n/10 gear \T2A/cmr/m/n/10 --- па-кет со-дер-жит ути-ли-ты для сбо
+р-ки па-ке-тов \T2A/cmtt/m/n/10 rpm \T2A/cmr/m/n/10 из \T2A/cmtt/m/n/10 gear\T2
+A/cmr/m/n/10 -репозитория
+[24] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 141--141
+[][] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+[]\T2A/cmr/m/n/10 Например, для про-цес-со-ров ARM имя па-ке-та бу-
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+\T2A/cmr/m/n/10 дет вы-гля-деть так: \T2A/cmtt/m/n/10 admc-0.16.0-alt1.armh.rpm
+\T2A/cmr/m/n/10 , а для
+[25]
+Overfull \hbox (14.35449pt too wide) in paragraph at lines 154--157
+[]\T2A/cmr/m/n/10 Альтернативный спо-соб под-го-тов-ки ра-бо-чей сре-ды --- ути
+-ли-та \T2A/cmtt/m/n/10 rpmdev-setuptree\T2A/cmr/m/n/10 .
+<img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 195--195
+[][] 
+[26] [27]
+Overfull \hbox (8.89145pt too wide) in paragraph at lines 262--263
+\T2A/cmr/m/n/10 ме-не-ние пат-ча с но-ме-ром(патчи опи-са-ны в пре-ам-бу-ле в т
+е-гах Patch[номер
+[28] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 297--297
+[][] 
+<img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 305--305
+[][] 
+[29] [30]
+Overfull \hbox (1.87143pt too wide) in paragraph at lines 375--378
+[]\T2A/cmr/m/n/10 Название \T2A/cmtt/m/n/10 GNU Autotools \T2A/cmr/m/n/10 обыч-
+но от-но-сит-ся к про-грамм-ным па-ке-там \T2A/cmtt/m/n/10 Autoconf\T2A/cmr/m/n
+/10 ,
+[31]
+Overfull \hbox (3.31552pt too wide) in paragraph at lines 468--470
+[]\T2A/cmr/m/n/10 Макросы для сбор-ки мо-ду-лей \T2A/cmtt/m/n/10 python3 \T2A/c
+mr/m/n/10 со-дер-жат-ся в па-ке-те \T2A/cmtt/m/n/10 rpm-build-python3
+[32] [33] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 595--595
+[][] 
+<img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 597--597
+[][] 
+[34]) [35] (./book/rpmbuild.tex [36]
+Overfull \hbox (32.60004pt too wide) in paragraph at lines 65--67
+[]\T2A/cmr/m/n/10 Архив с ис-ход-ны-ми дан-ны-ми для сбор-ки нуж-но по-ме-стить
+ в ка-та-лог \T2A/cmtt/m/n/10 ./RPM/SOURCES/\T2A/cmr/m/n/10 .
+[37]) [38] (./book/hasher.tex [39] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 48--48
+[][] 
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 91--97
+
+[41]
+Underfull \hbox (badness 10000) in paragraph at lines 112--117
+
+[42] [43]
+Overfull \hbox (98.6608pt too wide) in paragraph at lines 209--209
+[]                 [][][] \T2A/cmtt/m/n/9 <имя пакета>-<версия из spec>  --- Им
+я каталога с исходными данными для пакета.[] 
+
+Overfull \hbox (207.30927pt too wide) in paragraph at lines 214--214
+[]\T2A/cmtt/m/n/9 $ tar --create --file=pkg.tar --label=<имя пакета>.spec <имя 
+пакета>-<версия из spec>.tar <имя патча>.patch <имя пакета>.spec[] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
+
+[44]) [45] (./book/gear.tex <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 8--8
+[][] 
+[46] [47] [48]
+Overfull \hbox (19.203pt too wide) in paragraph at lines 148--151
+[]\T2A/cmr/m/n/10 Также су-ще-ству-ют ди-рек-ти-вы \T2A/cmtt/m/n/10 tar.gz, tar
+.bz2, tar.lzma, tar.xz, tar.zst\T2A/cmr/m/n/10 ,
+[49] [50] [51] [52] [53]) [54]
+(./book/examples_of_using_viola_OS_tools_to_build_packages.tex [55]
+Overfull \hbox (2.56818pt too wide) in paragraph at lines 56--57
+[]\T2A/cmr/m/n/10 Результат успеш-но-го за-вер-ше-ния сбор-ки --- со-бран-ный \
+T2A/cmtt/m/n/10 RPM\T2A/cmr/m/n/10 -пакет и \T2A/cmtt/m/n/10 .src.rpm\T2A/cmr/m
+/n/10 : 
+[56]
+Overfull \hbox (13.34196pt too wide) in paragraph at lines 117--118
+[]\T2A/cmr/m/n/10 Создайте ка-та-лог \T2A/cmtt/m/n/10 .gear\T2A/cmr/m/n/10 , пе
+-рей-ди-те в него и со-здай-те фай-лы \T2A/cmtt/m/n/10 HelloUniverse.spec
+[57] [58]
+
+LaTeX Warning: Characters dropped after `\end{verbatim}' on input line 194.
+
+) [59] (./book/conclusion.tex) [60]
+
+FiXme Summary: Number of notes: 0,
+(FiXme)        Number of warnings: 0,
+(FiXme)        Number of errors: 0,
+(FiXme)        Number of fatal errors: 0,
+(FiXme)        Total: 0.
+
+(./block.aux (./book/titlepage.aux) (./book/intro.aux)
+(./book/package_manager.aux) (./book/basic_package_manager_commands.aux)
+(./book/software_used_for_packaging.aux) (./book/rpmbuild.aux)
+(./book/hasher.aux) (./book/gear.aux)
+(./book/examples_of_using_viola_OS_tools_to_build_packages.aux)
+(./book/conclusion.aux))
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)
+Output written on block.dvi (60 pages, 290044 bytes).
+Transcript written on block.log.
+make[1]: РІС‹С…РѕРґ РёР· РєР°С‚Р°Р»РѕРіР° В«/home/SMB.BASEALT.RU/alekseevamo/Desktop/СѓРјРє/alt_umkВ»
+make pass ||:
+make[1]: РІС…РѕРґ РІ РєР°С‚Р°Р»РѕРі В«/home/SMB.BASEALT.RU/alekseevamo/Desktop/СѓРјРє/alt_umkВ»
+latex "\nonstopmode\input{block.tex}"
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Mageia) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18>
+(./block.tex (./altlibrary.cls
+Document Class: altlibrary 2007/11/19 Class for ALT Linux Library series books
+(/usr/share/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texmf-dist/tex/generic/babel/babel.sty
+(/usr/share/texmf-dist/tex/generic/babel/babel.def
+(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def))
+(/usr/share/texmf-dist/tex/generic/babel-english/english.ldf)
+(/usr/share/texmf-dist/tex/generic/babel-russian/russianb.ldf
+
+Package babel Warning: No Cyrillic font encoding has been loaded so far.
+(babel)                A font encoding should be declared before babel.
+(babel)                Default `T2A' encoding will be loaded  on input line 78.
+
+
+(/usr/share/texmf-dist/tex/latex/cyrillic/t2aenc.def
+(/usr/share/texmf-dist/tex/latex/base/t2aenc.dfu))))
+(/usr/share/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/share/texmf-dist/tex/latex/tools/indentfirst.sty)
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texmf-dist/tex/latex/graphics-def/dvips.def)))
+(/usr/share/texmf-dist/tex/latex/memoir/memoir.cls
+Document Class: memoir 2021/03/23 v3.7o configurable book, report, article docu
+ment class
+(/usr/share/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texmf-dist/tex/latex/memoir/mem10.clo)
+(/usr/share/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texmf-dist/tex/latex/tools/dcolumn.sty)
+(/usr/share/texmf-dist/tex/latex/tools/delarray.sty)
+(/usr/share/texmf-dist/tex/latex/tools/tabularx.sty)
+(/usr/share/texmf-dist/tex/latex/textcase/textcase.sty)) (./format.sty
+
+******************************************************
+Stock height and width: 711.3189pt by 497.92322pt
+Top and edge trims: 14.22638pt and 14.22638pt
+Page height and width: 682.86613pt by 483.69684pt
+Text height and width: 526pt by 369pt
+Spine and edge margins: 75.8667pt and 37.94432pt
+Upper and lower margins: 78.23181pt and 78.63432pt
+Headheight and headsep: 12pt and 18.06749pt
+Footskip: 25.29494pt
+Columnsep and columnseprule: 10pt and 0pt
+Marginparsep and marginparwidth: 7pt and 23.94432pt
+Sidecapsep and sidecapwidth: 7pt and 128pt
+Sidebarhsep and sidebarwidth: 7pt and 128pt
+Sidebarvsep and sidebartopsep: 12pt and 0pt
+Sidebarheight: 548.39996pt
+Sidefoothsep and sidefootwidth: 7pt and 128pt
+Sidefootvsep and sidefootheight: 12pt and 548.39996pt
+******************************************************
+
+)) (./m-k.sty (/usr/share/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texmf-dist/tex/latex/tools/xspace.sty)
+(/usr/share/texmf-dist/tex/latex/t2/citehack.sty)
+(/usr/share/texmf-dist/tex/latex/floatrow/floatrow.sty
+(/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/share/texmf-dist/tex/latex/caption/caption-memoir.sto))))
+(/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/share/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(/usr/share/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(/usr/share/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def)
+(/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texmf-dist/tex/latex/memoir/memhfixc.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/hdvips.def
+(/usr/share/texmf-dist/tex/latex/hyperref/pdfmark.def
+
+Package hyperref Warning: You have enabled option `breaklinks'.
+(hyperref)                But driver `hdvips.def' does not suppport this.
+(hyperref)                Expect trouble with the link areas of broken links.
+
+(/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))))
+(/usr/share/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty)
+(/usr/share/texmf-dist/tex/latex/fvextra/fvextra.sty
+(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texmf-dist/tex/latex/upquote/upquote.sty)
+(/usr/share/texmf-dist/tex/latex/lineno/lineno.sty))
+(/usr/share/texmf-dist/tex/latex/pmboxdraw/pmboxdraw.sty
+(/usr/share/texmf-dist/tex/latex/pmboxdraw/pmboxdrawenc.dfu))
+(/usr/share/texmf-dist/tex/latex/tools/theorem.sty
+(/usr/share/texmf-dist/tex/latex/tools/thp.sty))
+(/usr/share/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texmf-dist/tex/latex/multirow/multirow.sty)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texmf-dist/tex/latex/graphics/dvipsnam.def))
+(/usr/share/texmf-dist/tex/latex/listings/listings.sty
+(/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/share/texmf-dist/tex/latex/listings/listings.cfg))
+(/usr/share/texmf-dist/tex/latex/fixme/fixme.sty
+(/usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texmf-dist/tex/generic/xkeyval/xkvutils.tex))))
+(/usr/share/texmf-dist/tex/latex/fixme/themes/fxthemecolor.sty
+(/usr/share/texmf-dist/tex/latex/fixme/layouts/env/fxenvlayoutcolor.sty)
+(/usr/share/texmf-dist/tex/latex/fixme/layouts/target/fxtargetlayoutcolor.sty))
+ (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty)
+(/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-dvips.def) (./block.aux
+(./book/titlepage.aux) (/usr/share/texmf-dist/tex/latex/cyrillic/t2acmr.fd)
+(./book/intro.aux) (./book/package_manager.aux)
+(./book/basic_package_manager_commands.aux)
+(./book/software_used_for_packaging.aux) (./book/rpmbuild.aux)
+(./book/hasher.aux) (./book/gear.aux)
+(./book/examples_of_using_viola_OS_tools_to_build_packages.aux)
+(./book/conclusion.aux))
+(/usr/share/texmf-dist/tex/latex/floatrow/fr-longtable.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty))
+Redoing nameref's sectioning
+Redoing nameref's label
+(./block.out) (./block.out) (/usr/share/texmf-dist/tex/latex/base/textcomp.sty)
+(./book/titlepage.tex (/usr/share/texmf-dist/tex/latex/cyrillic/t2acmss.fd))
+[1] (./block.toc (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texmf-dist/tex/latex/cyrillic/t2acmtt.fd) [2]) [3]
+(./book/intro.tex [4] [5]
+Overfull \hbox (1.61191pt too wide) in paragraph at lines 75--77
+\T2A/cmr/m/n/10 М.А.Фоканова, М.О.Алексеева, А.А.Калинин, И.А.Мельников, Д.Н.Во
+ропаев,
+) [6] (./book/package_manager.tex
+Overfull \hbox (0.9985pt too wide) in paragraph at lines 21--22
+[]\T2A/cmtt/m/n/10 RPM (.rpm)\T2A/cmr/m/n/10 . Раз-ра-бо-тан ком-па-ни-ей \T2A/
+cmtt/m/n/10 Red Hat\T2A/cmr/m/n/10 . При-ме-ня-ет-ся в си-сте-ме \T2A/cmtt/m/n/
+10 <<Альт>>\T2A/cmr/m/n/10 ,
+[7] [8] [9] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 151--151
+[][] 
+
+Underfull \vbox (badness 1377) has occurred while \output is active [10]
+[11]
+Overfull \hbox (35.30516pt too wide) in paragraph at lines 196--197
+[]\T2A/cmtt/m/n/10 -o=? \T2A/cmr/m/n/10 --- из-ме-нить лю-бой из па-ра-мет-ров 
+на-строй-ки (на-при-мер: \T2A/cmtt/m/n/10 -o dir::cache=/tmp\T2A/cmr/m/n/10 ). 
+
+[12] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 228--228
+[][] 
+[13] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 268--268
+[][] 
+
+Overfull \hbox (42.01688pt too wide) in paragraph at lines 281--282
+[]\T2A/cmr/m/n/10 Вы об-на-ру-жи-ли в си-сте-ме па-кет \T2A/cmtt/m/n/10 nagios-
+domain-discovery-0.1.1-alt1.noarch.rpm\T2A/cmr/m/n/10 ,
+) [14] (./book/basic_package_manager_commands.tex [15] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 57--57
+[][] 
+<img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 62--62
+[][] 
+[16] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 74--74
+[][] 
+[17] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 132--132
+[][] 
+[18] [19] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 224--224
+[][] 
+<img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 227--227
+[][] 
+
+Overfull \hbox (18.35541pt too wide) in paragraph at lines 243--243
+[]        \T2A/cmtt/m/n/9 Signature   : RSA/SHA512, Сб 08 июл 2023 22:59:22, Ke
+y ID 42f343a2c7eb80f9[] 
+[20]
+Overfull \hbox (18.35541pt too wide) in paragraph at lines 276--276
+[]        \T2A/cmtt/m/n/9 Signature   : RSA/SHA512, Пн 25 сен 2023 15:28:07, Ke
+y ID ff979dedda2773bb[] 
+[21]) [22] (./book/software_used_for_packaging.tex [23] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 37--37
+[][] 
+[24]
+Overfull \hbox (5.45636pt too wide) in paragraph at lines 98--99
+[]\T2A/cmr/bx/n/10 gear \T2A/cmr/m/n/10 --- па-кет со-дер-жит ути-ли-ты для сбо
+р-ки па-ке-тов \T2A/cmtt/m/n/10 rpm \T2A/cmr/m/n/10 из \T2A/cmtt/m/n/10 gear\T2
+A/cmr/m/n/10 -репозитория
+[25] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 141--141
+[][] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+[]\T2A/cmr/m/n/10 Например, для про-цес-со-ров ARM имя па-ке-та бу-
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+\T2A/cmr/m/n/10 дет вы-гля-деть так: \T2A/cmtt/m/n/10 admc-0.16.0-alt1.armh.rpm
+\T2A/cmr/m/n/10 , а для
+[26]
+Overfull \hbox (14.35449pt too wide) in paragraph at lines 154--157
+[]\T2A/cmr/m/n/10 Альтернативный спо-соб под-го-тов-ки ра-бо-чей сре-ды --- ути
+-ли-та \T2A/cmtt/m/n/10 rpmdev-setuptree\T2A/cmr/m/n/10 .
+<img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 195--195
+[][] 
+[27] [28]
+Overfull \hbox (8.89145pt too wide) in paragraph at lines 262--263
+\T2A/cmr/m/n/10 ме-не-ние пат-ча с но-ме-ром(патчи опи-са-ны в пре-ам-бу-ле в т
+е-гах Patch[номер
+[29] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 297--297
+[][] 
+<img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 305--305
+[][] 
+[30] [31]
+Overfull \hbox (1.87143pt too wide) in paragraph at lines 375--378
+[]\T2A/cmr/m/n/10 Название \T2A/cmtt/m/n/10 GNU Autotools \T2A/cmr/m/n/10 обыч-
+но от-но-сит-ся к про-грамм-ным па-ке-там \T2A/cmtt/m/n/10 Autoconf\T2A/cmr/m/n
+/10 ,
+[32]
+Overfull \hbox (3.31552pt too wide) in paragraph at lines 468--470
+[]\T2A/cmr/m/n/10 Макросы для сбор-ки мо-ду-лей \T2A/cmtt/m/n/10 python3 \T2A/c
+mr/m/n/10 со-дер-жат-ся в па-ке-те \T2A/cmtt/m/n/10 rpm-build-python3
+[33] [34] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 595--595
+[][] 
+<img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 597--597
+[][] 
+[35]) [36] (./book/rpmbuild.tex [37]
+Overfull \hbox (32.60004pt too wide) in paragraph at lines 65--67
+[]\T2A/cmr/m/n/10 Архив с ис-ход-ны-ми дан-ны-ми для сбор-ки нуж-но по-ме-стить
+ в ка-та-лог \T2A/cmtt/m/n/10 ./RPM/SOURCES/\T2A/cmr/m/n/10 .
+[38]) [39] (./book/hasher.tex [40] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 48--48
+[][] 
+[41]
+Underfull \hbox (badness 10000) in paragraph at lines 91--97
+
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 112--117
+
+[43] [44]
+Overfull \hbox (98.6608pt too wide) in paragraph at lines 209--209
+[]                 [][][] \T2A/cmtt/m/n/9 <имя пакета>-<версия из spec>  --- Им
+я каталога с исходными данными для пакета.[] 
+
+Overfull \hbox (207.30927pt too wide) in paragraph at lines 214--214
+[]\T2A/cmtt/m/n/9 $ tar --create --file=pkg.tar --label=<имя пакета>.spec <имя 
+пакета>-<версия из spec>.tar <имя патча>.patch <имя пакета>.spec[] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
+
+[45]) [46] (./book/gear.tex <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 8--8
+[][] 
+[47] [48] [49]
+Overfull \hbox (19.203pt too wide) in paragraph at lines 148--151
+[]\T2A/cmr/m/n/10 Также су-ще-ству-ют ди-рек-ти-вы \T2A/cmtt/m/n/10 tar.gz, tar
+.bz2, tar.lzma, tar.xz, tar.zst\T2A/cmr/m/n/10 ,
+[50] [51] [52] [53] [54]) [55]
+(./book/examples_of_using_viola_OS_tools_to_build_packages.tex [56]
+Overfull \hbox (2.56818pt too wide) in paragraph at lines 56--57
+[]\T2A/cmr/m/n/10 Результат успеш-но-го за-вер-ше-ния сбор-ки --- со-бран-ный \
+T2A/cmtt/m/n/10 RPM\T2A/cmr/m/n/10 -пакет и \T2A/cmtt/m/n/10 .src.rpm\T2A/cmr/m
+/n/10 : 
+[57]
+Overfull \hbox (13.34196pt too wide) in paragraph at lines 117--118
+[]\T2A/cmr/m/n/10 Создайте ка-та-лог \T2A/cmtt/m/n/10 .gear\T2A/cmr/m/n/10 , пе
+-рей-ди-те в него и со-здай-те фай-лы \T2A/cmtt/m/n/10 HelloUniverse.spec
+[58] [59]
+
+LaTeX Warning: Characters dropped after `\end{verbatim}' on input line 194.
+
+) [60] (./book/conclusion.tex) [61]
+
+FiXme Summary: Number of notes: 0,
+(FiXme)        Number of warnings: 0,
+(FiXme)        Number of errors: 0,
+(FiXme)        Number of fatal errors: 0,
+(FiXme)        Total: 0.
+
+(./block.aux (./book/titlepage.aux) (./book/intro.aux)
+(./book/package_manager.aux) (./book/basic_package_manager_commands.aux)
+(./book/software_used_for_packaging.aux) (./book/rpmbuild.aux)
+(./book/hasher.aux) (./book/gear.aux)
+(./book/examples_of_using_viola_OS_tools_to_build_packages.aux)
+(./book/conclusion.aux))
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)
+Output written on block.dvi (61 pages, 309732 bytes).
+Transcript written on block.log.
+make[1]: РІС‹С…РѕРґ РёР· РєР°С‚Р°Р»РѕРіР° В«/home/SMB.BASEALT.RU/alekseevamo/Desktop/СѓРјРє/alt_umkВ»
+make pass ||:
+make[1]: РІС…РѕРґ РІ РєР°С‚Р°Р»РѕРі В«/home/SMB.BASEALT.RU/alekseevamo/Desktop/СѓРјРє/alt_umkВ»
+latex "\nonstopmode\input{block.tex}"
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Mageia) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18>
+(./block.tex (./altlibrary.cls
+Document Class: altlibrary 2007/11/19 Class for ALT Linux Library series books
+(/usr/share/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texmf-dist/tex/generic/babel/babel.sty
+(/usr/share/texmf-dist/tex/generic/babel/babel.def
+(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def))
+(/usr/share/texmf-dist/tex/generic/babel-english/english.ldf)
+(/usr/share/texmf-dist/tex/generic/babel-russian/russianb.ldf
+
+Package babel Warning: No Cyrillic font encoding has been loaded so far.
+(babel)                A font encoding should be declared before babel.
+(babel)                Default `T2A' encoding will be loaded  on input line 78.
+
+
+(/usr/share/texmf-dist/tex/latex/cyrillic/t2aenc.def
+(/usr/share/texmf-dist/tex/latex/base/t2aenc.dfu))))
+(/usr/share/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/share/texmf-dist/tex/latex/tools/indentfirst.sty)
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texmf-dist/tex/latex/graphics-def/dvips.def)))
+(/usr/share/texmf-dist/tex/latex/memoir/memoir.cls
+Document Class: memoir 2021/03/23 v3.7o configurable book, report, article docu
+ment class
+(/usr/share/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texmf-dist/tex/latex/memoir/mem10.clo)
+(/usr/share/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texmf-dist/tex/latex/tools/dcolumn.sty)
+(/usr/share/texmf-dist/tex/latex/tools/delarray.sty)
+(/usr/share/texmf-dist/tex/latex/tools/tabularx.sty)
+(/usr/share/texmf-dist/tex/latex/textcase/textcase.sty)) (./format.sty
+
+******************************************************
+Stock height and width: 711.3189pt by 497.92322pt
+Top and edge trims: 14.22638pt and 14.22638pt
+Page height and width: 682.86613pt by 483.69684pt
+Text height and width: 526pt by 369pt
+Spine and edge margins: 75.8667pt and 37.94432pt
+Upper and lower margins: 78.23181pt and 78.63432pt
+Headheight and headsep: 12pt and 18.06749pt
+Footskip: 25.29494pt
+Columnsep and columnseprule: 10pt and 0pt
+Marginparsep and marginparwidth: 7pt and 23.94432pt
+Sidecapsep and sidecapwidth: 7pt and 128pt
+Sidebarhsep and sidebarwidth: 7pt and 128pt
+Sidebarvsep and sidebartopsep: 12pt and 0pt
+Sidebarheight: 548.39996pt
+Sidefoothsep and sidefootwidth: 7pt and 128pt
+Sidefootvsep and sidefootheight: 12pt and 548.39996pt
+******************************************************
+
+)) (./m-k.sty (/usr/share/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texmf-dist/tex/latex/tools/xspace.sty)
+(/usr/share/texmf-dist/tex/latex/t2/citehack.sty)
+(/usr/share/texmf-dist/tex/latex/floatrow/floatrow.sty
+(/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/share/texmf-dist/tex/latex/caption/caption-memoir.sto))))
+(/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/share/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(/usr/share/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(/usr/share/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def)
+(/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texmf-dist/tex/latex/memoir/memhfixc.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/hdvips.def
+(/usr/share/texmf-dist/tex/latex/hyperref/pdfmark.def
+
+Package hyperref Warning: You have enabled option `breaklinks'.
+(hyperref)                But driver `hdvips.def' does not suppport this.
+(hyperref)                Expect trouble with the link areas of broken links.
+
+(/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))))
+(/usr/share/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty)
+(/usr/share/texmf-dist/tex/latex/fvextra/fvextra.sty
+(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texmf-dist/tex/latex/upquote/upquote.sty)
+(/usr/share/texmf-dist/tex/latex/lineno/lineno.sty))
+(/usr/share/texmf-dist/tex/latex/pmboxdraw/pmboxdraw.sty
+(/usr/share/texmf-dist/tex/latex/pmboxdraw/pmboxdrawenc.dfu))
+(/usr/share/texmf-dist/tex/latex/tools/theorem.sty
+(/usr/share/texmf-dist/tex/latex/tools/thp.sty))
+(/usr/share/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texmf-dist/tex/latex/multirow/multirow.sty)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texmf-dist/tex/latex/graphics/dvipsnam.def))
+(/usr/share/texmf-dist/tex/latex/listings/listings.sty
+(/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/share/texmf-dist/tex/latex/listings/listings.cfg))
+(/usr/share/texmf-dist/tex/latex/fixme/fixme.sty
+(/usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texmf-dist/tex/generic/xkeyval/xkvutils.tex))))
+(/usr/share/texmf-dist/tex/latex/fixme/themes/fxthemecolor.sty
+(/usr/share/texmf-dist/tex/latex/fixme/layouts/env/fxenvlayoutcolor.sty)
+(/usr/share/texmf-dist/tex/latex/fixme/layouts/target/fxtargetlayoutcolor.sty))
+ (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty)
+(/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-dvips.def) (./block.aux
+(./book/titlepage.aux) (/usr/share/texmf-dist/tex/latex/cyrillic/t2acmr.fd)
+(./book/intro.aux) (./book/package_manager.aux)
+(./book/basic_package_manager_commands.aux)
+(./book/software_used_for_packaging.aux) (./book/rpmbuild.aux)
+(./book/hasher.aux) (./book/gear.aux)
+(./book/examples_of_using_viola_OS_tools_to_build_packages.aux)
+(./book/conclusion.aux))
+(/usr/share/texmf-dist/tex/latex/floatrow/fr-longtable.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty))
+Redoing nameref's sectioning
+Redoing nameref's label
+(./block.out) (./block.out) (/usr/share/texmf-dist/tex/latex/base/textcomp.sty)
+(./book/titlepage.tex (/usr/share/texmf-dist/tex/latex/cyrillic/t2acmss.fd))
+[1] (./block.toc (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texmf-dist/tex/latex/cyrillic/t2acmtt.fd) [2]) [3]
+(./book/intro.tex [4] [5]
+Overfull \hbox (1.61191pt too wide) in paragraph at lines 75--77
+\T2A/cmr/m/n/10 М.А.Фоканова, М.О.Алексеева, А.А.Калинин, И.А.Мельников, Д.Н.Во
+ропаев,
+) [6] (./book/package_manager.tex
+Overfull \hbox (0.9985pt too wide) in paragraph at lines 21--22
+[]\T2A/cmtt/m/n/10 RPM (.rpm)\T2A/cmr/m/n/10 . Раз-ра-бо-тан ком-па-ни-ей \T2A/
+cmtt/m/n/10 Red Hat\T2A/cmr/m/n/10 . При-ме-ня-ет-ся в си-сте-ме \T2A/cmtt/m/n/
+10 <<Альт>>\T2A/cmr/m/n/10 ,
+[7] [8] [9] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 151--151
+[][] 
+
+Underfull \vbox (badness 1377) has occurred while \output is active [10]
+[11]
+Overfull \hbox (35.30516pt too wide) in paragraph at lines 196--197
+[]\T2A/cmtt/m/n/10 -o=? \T2A/cmr/m/n/10 --- из-ме-нить лю-бой из па-ра-мет-ров 
+на-строй-ки (на-при-мер: \T2A/cmtt/m/n/10 -o dir::cache=/tmp\T2A/cmr/m/n/10 ). 
+
+[12] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 228--228
+[][] 
+[13] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 268--268
+[][] 
+
+Overfull \hbox (42.01688pt too wide) in paragraph at lines 281--282
+[]\T2A/cmr/m/n/10 Вы об-на-ру-жи-ли в си-сте-ме па-кет \T2A/cmtt/m/n/10 nagios-
+domain-discovery-0.1.1-alt1.noarch.rpm\T2A/cmr/m/n/10 ,
+) [14] (./book/basic_package_manager_commands.tex [15] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 57--57
+[][] 
+<img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 62--62
+[][] 
+[16] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 74--74
+[][] 
+[17] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 132--132
+[][] 
+[18] [19] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 224--224
+[][] 
+<img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 227--227
+[][] 
+
+Overfull \hbox (18.35541pt too wide) in paragraph at lines 243--243
+[]        \T2A/cmtt/m/n/9 Signature   : RSA/SHA512, Сб 08 июл 2023 22:59:22, Ke
+y ID 42f343a2c7eb80f9[] 
+[20]
+Overfull \hbox (18.35541pt too wide) in paragraph at lines 276--276
+[]        \T2A/cmtt/m/n/9 Signature   : RSA/SHA512, Пн 25 сен 2023 15:28:07, Ke
+y ID ff979dedda2773bb[] 
+[21]) [22] (./book/software_used_for_packaging.tex [23] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 37--37
+[][] 
+[24]
+Overfull \hbox (5.45636pt too wide) in paragraph at lines 98--99
+[]\T2A/cmr/bx/n/10 gear \T2A/cmr/m/n/10 --- па-кет со-дер-жит ути-ли-ты для сбо
+р-ки па-ке-тов \T2A/cmtt/m/n/10 rpm \T2A/cmr/m/n/10 из \T2A/cmtt/m/n/10 gear\T2
+A/cmr/m/n/10 -репозитория
+[25] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 141--141
+[][] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+[]\T2A/cmr/m/n/10 Например, для про-цес-со-ров ARM имя па-ке-та бу-
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+\T2A/cmr/m/n/10 дет вы-гля-деть так: \T2A/cmtt/m/n/10 admc-0.16.0-alt1.armh.rpm
+\T2A/cmr/m/n/10 , а для
+[26]
+Overfull \hbox (14.35449pt too wide) in paragraph at lines 154--157
+[]\T2A/cmr/m/n/10 Альтернативный спо-соб под-го-тов-ки ра-бо-чей сре-ды --- ути
+-ли-та \T2A/cmtt/m/n/10 rpmdev-setuptree\T2A/cmr/m/n/10 .
+<img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 195--195
+[][] 
+[27] [28]
+Overfull \hbox (8.89145pt too wide) in paragraph at lines 262--263
+\T2A/cmr/m/n/10 ме-не-ние пат-ча с но-ме-ром(патчи опи-са-ны в пре-ам-бу-ле в т
+е-гах Patch[номер
+[29] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 297--297
+[][] 
+<img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 305--305
+[][] 
+[30] [31]
+Overfull \hbox (1.87143pt too wide) in paragraph at lines 375--378
+[]\T2A/cmr/m/n/10 Название \T2A/cmtt/m/n/10 GNU Autotools \T2A/cmr/m/n/10 обыч-
+но от-но-сит-ся к про-грамм-ным па-ке-там \T2A/cmtt/m/n/10 Autoconf\T2A/cmr/m/n
+/10 ,
+[32]
+Overfull \hbox (3.31552pt too wide) in paragraph at lines 468--470
+[]\T2A/cmr/m/n/10 Макросы для сбор-ки мо-ду-лей \T2A/cmtt/m/n/10 python3 \T2A/c
+mr/m/n/10 со-дер-жат-ся в па-ке-те \T2A/cmtt/m/n/10 rpm-build-python3
+[33] [34] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 595--595
+[][] 
+<img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 597--597
+[][] 
+[35]) [36] (./book/rpmbuild.tex [37]
+Overfull \hbox (32.60004pt too wide) in paragraph at lines 65--67
+[]\T2A/cmr/m/n/10 Архив с ис-ход-ны-ми дан-ны-ми для сбор-ки нуж-но по-ме-стить
+ в ка-та-лог \T2A/cmtt/m/n/10 ./RPM/SOURCES/\T2A/cmr/m/n/10 .
+[38]) [39] (./book/hasher.tex [40] <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 48--48
+[][] 
+[41]
+Underfull \hbox (badness 10000) in paragraph at lines 91--97
+
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 112--117
+
+[43] [44]
+Overfull \hbox (98.6608pt too wide) in paragraph at lines 209--209
+[]                 [][][] \T2A/cmtt/m/n/9 <имя пакета>-<версия из spec>  --- Им
+я каталога с исходными данными для пакета.[] 
+
+Overfull \hbox (207.30927pt too wide) in paragraph at lines 214--214
+[]\T2A/cmtt/m/n/9 $ tar --create --file=pkg.tar --label=<имя пакета>.spec <имя 
+пакета>-<версия из spec>.tar <имя патча>.patch <имя пакета>.spec[] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
+
+[45]) [46] (./book/gear.tex <img//ex_sign_col.eps>
+Overfull \hbox (19.22237pt too wide) in paragraph at lines 8--8
+[][] 
+[47] [48] [49]
+Overfull \hbox (19.203pt too wide) in paragraph at lines 148--151
+[]\T2A/cmr/m/n/10 Также су-ще-ству-ют ди-рек-ти-вы \T2A/cmtt/m/n/10 tar.gz, tar
+.bz2, tar.lzma, tar.xz, tar.zst\T2A/cmr/m/n/10 ,
+[50] [51] [52] [53] [54]) [55]
+(./book/examples_of_using_viola_OS_tools_to_build_packages.tex [56]
+Overfull \hbox (2.56818pt too wide) in paragraph at lines 56--57
+[]\T2A/cmr/m/n/10 Результат успеш-но-го за-вер-ше-ния сбор-ки --- со-бран-ный \
+T2A/cmtt/m/n/10 RPM\T2A/cmr/m/n/10 -пакет и \T2A/cmtt/m/n/10 .src.rpm\T2A/cmr/m
+/n/10 : 
+[57]
+Overfull \hbox (13.34196pt too wide) in paragraph at lines 117--118
+[]\T2A/cmr/m/n/10 Создайте ка-та-лог \T2A/cmtt/m/n/10 .gear\T2A/cmr/m/n/10 , пе
+-рей-ди-те в него и со-здай-те фай-лы \T2A/cmtt/m/n/10 HelloUniverse.spec
+[58] [59]
+
+LaTeX Warning: Characters dropped after `\end{verbatim}' on input line 194.
+
+) [60] (./book/conclusion.tex) [61]
+
+FiXme Summary: Number of notes: 0,
+(FiXme)        Number of warnings: 0,
+(FiXme)        Number of errors: 0,
+(FiXme)        Number of fatal errors: 0,
+(FiXme)        Total: 0.
+
+(./block.aux (./book/titlepage.aux) (./book/intro.aux)
+(./book/package_manager.aux) (./book/basic_package_manager_commands.aux)
+(./book/software_used_for_packaging.aux) (./book/rpmbuild.aux)
+(./book/hasher.aux) (./book/gear.aux)
+(./book/examples_of_using_viola_OS_tools_to_build_packages.aux)
+(./book/conclusion.aux)) )
+(see the transcript file for additional information)
+Output written on block.dvi (61 pages, 309732 bytes).
+Transcript written on block.log.
+make[1]: РІС‹С…РѕРґ РёР· РєР°С‚Р°Р»РѕРіР° В«/home/SMB.BASEALT.RU/alekseevamo/Desktop/СѓРјРє/alt_umkВ»
+make block.pdf
+make[1]: РІС…РѕРґ РІ РєР°С‚Р°Р»РѕРі В«/home/SMB.BASEALT.RU/alekseevamo/Desktop/СѓРјРє/alt_umkВ»
+dvips -j0 -Ppdf -o block.ps block.dvi
+ps2pdf -dPDFSETTINGS=/prepress -dAutoFilterGrayImages=false -dGrayImageFilter=/FlateEncode block.ps block.pdf
+rm block.ps
+make[1]: РІС‹С…РѕРґ РёР· РєР°С‚Р°Р»РѕРіР° В«/home/SMB.BASEALT.RU/alekseevamo/Desktop/СѓРјРє/alt_umkВ»
