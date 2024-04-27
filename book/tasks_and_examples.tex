@@ -1,0 +1,651 @@
+\chapter{Примеры и упражнения}
+
+В главе разобраны подготовленные примеры для иллюстрирования работы инструментов.
+
+\section{Базовые инструменты \Sys{rpm} \textbf{Пример №1}}
+
+Рассмотрим пример сборки пакета средствами \Sys{rpmbuild} и использование
+некоторых команд утилиты \Sys{rpm}. В сети доступен простой пример \Sys{C++}
+программы с инструкциями для сборки.
+Если окружение сборки \Sys{RPM} не настроено выполните следующие команды:
+\begin{verbatim}
+# apt-get update
+# apt-get install rpmdevtools rpm-build gcc-c++ git-core
+$ rpmdev-setuptree
+\end{verbatim}
+
+Скопируем необходимую версию примера проекта, и перейдем
+в рабочий каталог. Для однозначности точно укажем расположение рабочего
+каталога \Sys{~/ExampleFirstProject/} в команде \Sys{git}:
+\begin{verbatim}
+$ git clone --branch=rpmbuild-v1 \
+ https://gitlab.basealt.space/alt/ExampleFirstProject.git ~/ExampleFirstProject/
+$ cd ~/ExampleFirstProject/
+\end{verbatim}
+
+Сформируем \Sys{.tar} архив с исходными данными проекта. Имя архива должно
+соответствовать инструкциям в \Sys{.spec} файле:
+\begin{verbatim}
+$ tar cvf HelloUniverse-1.0.tar HelloUniverse
+\end{verbatim}
+
+Расположим архив и \Sys{.spec}-файл в соответствии правилами структуры каталогов
+\Sys{RPM}:
+\begin{verbatim}
+$ cp HelloUniverse-1.0.tar ~/RPM/SOURCES/
+$ cp HelloUniverse.spec ~/RPM/SPECS/
+\end{verbatim}
+
+Запустим сборку пакета с ключом \Sys{-ba} и передадим инструкции для сборки
+в структуре каталогов \Sys{RPM}.
+\begin{verbatim}
+$ rpmbuild -ba ~/RPM/SPECS/HelloUniverse.spec
+\end{verbatim}
+
+В ходе выполнения команда скомпилирует исходные данные и соберет
+в бинарный \Sys{.rpm}-пакет и создаст \Sys{src.rpm}-пакет с исходными данными.
+
+Проверим наличие и внутреннюю информацию собранного бинарного пакета:
+\begin{verbatim}
+$ rpm -qpi ~/RPM/RPMS/x86_64/HelloUniverse-1.0-alt1.x86_64.rpm
+\end{verbatim}
+
+Убедившись в наличии пакета, установим его в систему:
+\begin{verbatim}
+$ sudo rpm -i ~/RPM/RPMS/x86_64/HelloUniverse-1.0-alt1.x86_64.rpm
+\end{verbatim}
+
+Теперь можно запустить исполняемый файл пакета и убедиться в его
+работоспособности:
+\begin{verbatim}
+$ HelloUniverse
+\end{verbatim}
+
+К установленному в систему пакету можно обращаться по имени заданному в
+метаданных. Посмотрим информацию о пакет, список файлов пакета и удалим
+пакет из системы:
+\begin{verbatim}
+$ rpm -qi HelloUniverse
+$ rpm -ql HelloUniverse
+$ rpm -e HelloUniverse
+\end{verbatim}
+
+\section{Hasher \textbf{Пример №2}}
+
+Переходя к примеру №2 предполагается что инструмент \Sys{Hasher} настроен,
+как описано в главе \hyperlink{5}{Инструмент \Sys{Hasher}}.
+
+\Sys{Hasher} позволяет собирать пакеты в изолированном окружении по
+переданым специально подготовленным архивам \Sys{pkg.tar} и пакетам
+исходных данных \Sys{.src.rpm}. Он так же позволяет работать в ручном
+режиме. Продемонстрируем все перечисленные варианты работы с
+инструментом \Sys{Hasher}.\\
+
+\textbf{Пример №2.1 <<Ручная сборка в изолированном окружении>>}:\\
+
+Используем \textbf{Пример №1} и соберем пакет  в ручном режиме
+для знакомства с базовыми командами \Sys{Hasher}. Работу начнем в
+каталоге \Sys{~/ExampleFirstProject/}.
+
+Создадим изолироване сборочное окружение \Sys{Hasher}:
+
+\begin{verbatim}
+$ hsh --initroot-only ~/hasher/
+\end{verbatim}
+
+Уже имеющийся архив и \Sys{.spec}-файл поместим в изолированное сборочное
+окружение через служебные каталоги \Sys{~/hasher/.in}:
+
+\begin{verbatim}
+$ cp HelloUniverse-1.0.tar ~/hasher/chroot/.in/
+$ cp HelloUniverse.spec  ~/hasher/chroot/.in/
+\end{verbatim}
+
+В сборочное окружение необходимые зависимости нужно установить в ручную:
+\begin{verbatim}
+$ hsh-install gcc-c++
+\end{verbatim}
+
+Войдем в сборочное окружение \Sys{Hasher}:
+\begin{verbatim}
+$ hsh-shell
+\end{verbatim}
+
+Войдя в окружение \Sys{Hasher} мы окажемся в каталоге \Sys{/.in}.
+Скопируем архив и \Sys{.spec}-файл в уже подготовленные каталоги \Sys{RPM/}:
+\begin{verbatim}
+$  cp HelloUniverse-1.0.tar /usr/src/RPM/SOURCES/
+$  cp HelloUniverse.spec /usr/src/RPM/SPECS/
+\end{verbatim}
+
+Запустим сборку:
+\begin{verbatim}
+$  rpmbuild -bb /usr/src/RPM/SPECS/HelloUniverse.spec
+\end{verbatim}
+
+Полученный результат будет размещен в сборочной структуре \Sys{RPM}
+в каталоге \Sys{ /usr/src/RPM/RPMS/}. Выйти из сборочного окружения можно
+нажав комбинацию клавиш \Sys{Ctrl+d} или исполнив команду:
+\begin{verbatim}
+$ logout
+\end{verbatim}
+
+\textbf{Пример №2.2 <<Сборка с использованием \Sys{.src.rpm}-файла>>}:\\
+
+Пример предполагает наличие пакета с исходными данными \Sys{.src.rpm} и
+позволяет в автоматическом режиме запустить сборку в изолированном окружении
+\Sys{Hasher}.
+
+Используем полученный в примере №1 \Sys{.src.rpm}-файл и передадим на сборку:
+\begin{verbatim}
+$ hsh ~/RPM/SRPMS/HelloUniverse-1.0-alt1.src.rpm
+\end{verbatim}
+
+\Sys{Hasher} распакует пакет, установит все необходимые зависимости, исполнит
+сборочные инструкции, проведет проверки и положит результат в каталог
+\Sys{~/hasher/repo/}. Собранный в примере пакет можно найти в каталоге:
+\begin{verbatim}
+$ ls ~/hasher/repo/x86_64/RPMS.hasher/HelloUniverse-1.0-alt1.x86_64.rpm
+\end{verbatim}
+
+\textbf{Пример №2.3 <<Сборка с использованием \Sys{pkg.tar}-архива>>}:
+
+В примере создадим архив \Sys{pkg.tar} в упрощенном виде . Такой архив с более строгими
+параметрами создает инструмент \Sys{GEAR}. Этот архив можно передать на сборку в
+\Sys{Hasher}.
+
+Используем сформированный архив с исходными данными и \Sys{.spec}-файл, созданные
+в примере №1 и  упакуем в архив с указанными параметрами.
+
+Перейдем в рабочий каталог и запустим команду архивирования:
+\begin{verbatim}
+$ cd ~/ExampleFirstProject/
+$ tar -c --file=pkg.tar --label=HelloUniverse.spec HelloUniverse-1.0.tar HelloUniverse.spec
+\end{verbatim}
+Использованные ключи команды \Sys{tar}:
+\begin{itemize}
+	\item \Sys{-c} --- создать архив;
+	\item \Sys{--file=pkg.tar} --- задать имя архива(шаблонное имя архива);
+	\item \Sys{--label=HelloUniverse.spec} --- метка архива(должна совпадать с именем \Sys{.spec}-файла).
+\end{itemize}
+
+Созданный архив можно передать на сборку в изолированное сборочное
+окружение \Sys{Hasher}:
+\begin{verbatim}
+$ hsh ./pkg.tar
+\end{verbatim}
+
+Проверим наличее собранного пакета:
+\begin{verbatim}
+$ ls ~/hasher/repo/x86_64/RPMS.hasher/HelloUniverse-1.0-alt1.x86_64.rpm
+\end{verbatim}
+
+\section{GEAR \textbf{Пример №3}}
+
+Примеры №2 предполагают большое количество шагов подготовки исходных данных.
+Все шаги подготовки выполняются <<вручную>>. Продемонстрируем пример работы
+инструмента \Sys{GEAR} с набором формализованных инструкций.
+
+\begin{verbatim}
+$ git clone --branch=gear-v2 \
+ https://gitlab.basealt.space/alt/ExampleFirstProject.git ~/ExampleFirstProject-v2/
+$ cd ~/ExampleFirstProject-v2/
+\end{verbatim}
+
+Загруженный проект дополнен  инструкциями \Sys{.gear/rules}. По данным инструкциям,
+\Sys{GEAR} сам подготовит исходные данные для сборки и сформирует архив.
+\begin{verbatim}
+$ gear pkg.tar
+\end{verbatim}
+
+Продемонстрируем как \Sys{GEAR} работает в связке с инструментами \Sys{rpmbuild}
+и \Sys{Hasher}.
+
+\textbf{Пример №3.1 <<Сборка с \Sys{rpmbuild}>>}:
+Выполним сборку с использованием \Sys{gear-rpm} и передадим ключ \Sys{-bb}
+для сборки только бинарного {.rpm}-пакета:
+\begin{verbatim}
+$ gear-rpm -bb
+\end{verbatim}
+
+\Sys{GEAR} сформирует архив с исходными данными, архив и \Sys{.spec}-файл разложит в
+соответствии с определенной структурой и выполнит команду сборки в необходимом формате.
+Собранный пакет попадет в каталог \Sys{~/RPM/RPMS/}. Отобразим информацию
+о только что собранном пакете:
+\begin{verbatim}
+$ rpm -qi ~/RPM/RPMS/x86_64/HelloUniverse-2.0-alt1.x86_64.rpm
+\end{verbatim}
+
+\textbf{Пример №3.2 <<Сборка с \Sys{Hasher}>>}:
+Запустим сборку пакета с использованием \Sys{gear-hsh}. Передадим ключи вида
+\Sys{--verbose -- --verbose} для подробного вывода информации процесса выполнения
+как для \Sys{gear}, так и для вложенного \Sys{Hasher} инструментов:
+\begin{verbatim}
+gear-hsh --verbose -- --verbose
+\end{verbatim}
+
+\Sys{GEAR} подготовит исходные данные и передаст в необходимом формате на сборку в
+изолированное сборочное окружение \Sys{Hasher}.
+Собранный в примере пакет можно найти в каталоге:
+\begin{verbatim}
+$ ls ~/hasher/repo/x86_64/RPMS.hasher/HelloUniverse-2.0-alt1.x86_64.rpm
+\end{verbatim}
+
+\textbf{Пример №3.3 <<Сборка по тэгу релиза с использованием автогенерируемого патча>>}:
+
+Продемонстрируем сборку пакета по метке, связанной с ключевыми изменениями исходных
+данных. В нашем примере возьмем метку \Sys{v2.0}, и дополнительно внесем собственные
+изменения с применением механизма \Sys{GEAR} авто генерации патча.
+
+Получим подготовленные примеры инструкций \Sys{.spec}-файла и \Sys{.gear/rules}:
+
+\begin{verbatim}
+cd ~/ExampleFirstProject-v2/
+git pull origin 2.0-alt2
+\end{verbatim}
+
+Изменения в инструкциях позволяют собрать пакет с содержимым связанным с меткой
+\Sys{v2.0} в истории \Sys{git}-репозитория. Но мы дополнительно внесем изменения
+в исходные данные нашего проекта и применим их средствами автогенерируемго патча.
+
+Удобным для Вас текстовым редактором измените в файле \Sys{HelloUniverse/HelloUniverse.cpp}
+слово \Sys{New} на \Sys{Alt} или выполните команду:
+\begin{verbatim}
+$ sed -i '4 s/New/Alt/g' HelloUniverse/HelloUniverse.cpp
+\end{verbatim}
+
+Нужные изменения подготовлены, но не зафиксированы в истории \Sys{git}. Несмотря на это
+мы можем применить изменения для локальной сборки передав \Sys{GEAR} ключ \Sys{--commit}.
+Соберем пакет в изолированном окружении с  дополнительным ключом \Sys{--lazy-cleanup} для
+сохранения файлов после окончания сборки.
+Запустим сборку с перечисленными ключами:
+\begin{verbatim}
+$ gear-hsh --commit --lazy-cleanup
+\end{verbatim}
+
+Ознакомимся с автоматически созданным и примененным патчем:
+\begin{verbatim}
+$ cat ~/hasher/chroot/usr/src/RPM/SOURCES/HelloUniverse-2.0-alt2.patch
+\end{verbatim}
+
+Установим  собранный пакет пакетным менеджером \Sys{apt}:
+\begin{verbatim}
+$ sudo apt-get install ~/RPM/RPMS/x86_64/HelloUniverse-2.0-alt2.x86_64.rpm
+\end{verbatim}
+
+Запустим исполняемый файл пакета:
+\begin{verbatim}
+$ HelloUniverse
+\end{verbatim}
+
+Можем удалить пакет используя пакетный менеджер \Sys{apt}:
+\begin{verbatim}
+$ sudo apt-get remove HelloUniverse
+\end{verbatim}
+
+\section{GEAR обновление пакета \textbf{Пример №4}}
+
+В примере будет рассмотрена упрощенная процедура обновления пакета с
+использованием инструментов \Sys{Alt}.
+
+Чтобы продолжить работу необходимо добавить набор утилит \Sys{GEAR} для
+настройки и взаимодействия с удаленными репозиториями:
+\begin{verbatim}
+# apt-get install gear-remotes-utils
+\end{verbatim}
+
+Для удобства установим набор утилит \Sys{rpm}:
+\begin{verbatim}
+# apt-get install rpm-utils
+\end{verbatim}
+
+Пример упрощен и объединяет в себе внешний(upstream) источник и
+рабочий источник примера. Скопируем версию примера подготовленную для
+обновления:
+\begin{verbatim}
+$ git clone --branch=2.0-alt2 \
+https://gitlab.basealt.space/alt/ExampleFirstProject.git ~/ExampleFirstProject-v3/
+$ cd ~/ExampleFirstProject-v3/
+\end{verbatim}
+
+Назначим наш базовый-рабочий источник(origin) внешним(upstream). Такой вариант
+используется для примера и в обычной рабочей ситуации подразумевает различие источников.
+\begin{verbatim}
+gear-remotes-save origin
+\end{verbatim}
+
+Теперь возможно обращаться к нашему источнику примера как к \Sys{upstream}.
+Притянем новые изменения и проверим новые метки изменений:
+\begin{verbatim}
+git fetch upstream
+gear-remotes-watch
+\end{verbatim}
+
+Нас интересует метка \Sys{v3.0}. Притянем изменения в рабочее файловое дерево:
+\begin{verbatim}
+git merge v3.0
+\end{verbatim}
+
+Специализированная утилита поможет легко исправить инструкции
+\Sys{.gear/tags/list}.
+Обновим инструкции для сборки исходных данных с меткой \Sys{v3.0}:
+\begin{verbatim}
+gear-update-tag v3.0
+\end{verbatim}
+
+Удобным для вас текстовым редактором необходимо внести изменения в версию и релиз
+в \Sys{.spec}-файле. Пример изменений:
+\begin{verbatim}
+Name:    HelloUniverse
+Version: 3.0
+Release: alt1
+Summary: Most simple RPM package
+\end{verbatim}
+Все остальные поля остаются неизменными.
+
+Утилита \Sys{add\_changelog} дополняет секцию журнала \Sys{.spec}-файла
+списком изменений в утвержденном формате(каждую строку списка принято начинать
+с символа ''\Sys{-}''). Создадим запись в журнале для \Sys{HelloUniverse.spec}:
+\begin{verbatim}
+add_changelog -e "- Updated to new version v3.0." HelloUniverse.spec
+\end{verbatim}
+
+Добавим все изменения в историю \Sys{git} и сформируем комментарий к изменениям
+одной командой:
+\begin{verbatim}
+gear-commit -a
+\end{verbatim}
+
+Соберем пакет и проверим результат:
+\begin{verbatim}
+gear-hsh
+\end{verbatim}
+
+После проверки и окончания работы нужно поставить метку на созданные изменения.
+В случае если конфигурация \Sys{git} настраивалась для работы с \Sys{gpg}-ключом
+выполните команду:
+\begin{verbatim}
+gear-create-tag
+\end{verbatim}
+Утилита \Sys{gear-create-tag} позволяет автоматически сформировать имя метки, комментарий
+и подключить \Sys{gpg}-подпись для достоверности и дальнейшего использования в
+сборочной инфраструктуре Альт.
+
+Все изменения можно сохранить удаленно. Например, на личный репозиторий:
+\begin{verbatim}
+git remote add myrepo http://some.place/myrepo
+git push v3.0
+\end{verbatim}
+
+\section{Приложение}
+В случае отсутствия доступа к внешним сетевым ресурсам, приведена структура
+и содержимое файлов примеров. В некоторых примерах предполагается работа с
+\Sys{git}-репозиторием. Формирование репозитория в таком случае остается на
+самостоятельную работу.
+
+\textbf{Исходные данные:} Базовые инструменты \Sys{rpm} \textbf{Пример №1}
+
+Структура:
+\begin{verbatim}
+.
+├── HelloUniverse
+│   ├── HelloUniverse.cpp
+│   └── Makefile
+└── HelloUniverse.spec
+
+\end{verbatim}
+
+\Sys{HelloUniverse/HelloUniverse.cpp}
+\begin{verbatim}
+#include <iostream>
+int main()
+{
+    std::cout << "Hello Universe\n";
+    return 0;
+}
+
+\end{verbatim}
+
+\Sys{HelloUniverse/Makefile}
+\begin{verbatim}
+    g++ ./HelloUniverse.cpp -o HelloUniverse
+clear:
+    rm ./HelloUniverse
+
+\end{verbatim}
+
+\Sys{HelloUniverse.spec}
+\begin{verbatim}
+%define _unpackaged_files_terminate_build 1
+
+Name:    HelloUniverse
+Version: 1.0
+Release: alt1
+Summary: Most simple RPM package
+License: no
+Group:   Development/Other
+Source:  %name-%version.tar
+BuildRequires: gcc-c++
+
+%description
+This is my first RPM
+
+%prep
+%setup -n %name
+
+%build
+%make_build HelloUniverse
+
+%install
+mkdir -p %{buildroot}%_bindir
+install -m 755 HelloUniverse %{buildroot}%_bindir
+
+%files
+%_bindir/%name
+
+%changelog
+* Mon Apr 01 2024 Some One <someone@altlinux.org> 1.0-alt1
+- Init Build
+
+\end{verbatim}
+
+\textbf{Исходные данные:} Hasher \textbf{Пример №2}
+
+Структура:
+\begin{verbatim}
+.
+├── .gear
+│   ├── HelloUniverse.spec
+│   ├── rules
+│   └── tags
+│       └── list
+└── HelloUniverse
+    ├── HelloUniverse.cpp
+    └── Makefile
+
+\end{verbatim}
+
+\Sys{.gear/HelloUniverse.spec}
+\begin{verbatim}
+%define _unpackaged_files_terminate_build 1
+
+Name:    HelloUniverse
+Version: 2.0
+Release: alt2
+Summary: Most simple RPM package
+License: GPL-1.0
+Group:   Development/Other
+Source:  %name-%version.tar
+Patch:   %name-%version-%release.patch
+BuildRequires: gcc-c++
+
+%description
+This is my first RPM
+
+%prep
+%setup
+%autopatch -p1
+
+%build
+%make_build HelloUniverse
+
+%install
+mkdir -p %{buildroot}%_bindir
+install -m 755 HelloUniverse %{buildroot}%_bindir
+
+%files
+%_bindir/%name
+
+%changelog
+* Wed May 01 2024 Some One <someone@altlinux.org> 2.0-alt2
+- Instructions for build by release tag added.
+
+* Wed May 01 2024 Some One <someone@altlinux.org> 2.0-alt1
+- New source fiture added.
+
+* Mon Apr 01 2024 Some One <someone@altlinux.org> 1.0-alt1
+- Init Build
+
+\end{verbatim}
+
+\Sys{.gear/rules}
+\begin{verbatim}
+tar: v@version@:HelloUniverse/
+spec: .gear/HelloUniverse.spec
+diff: v@version@:HelloUniverse/ .:HelloUniverse/ exclude=.gear/**
+copy?: .gear/*.patch
+
+\end{verbatim}
+
+\Sys{.gear/tags/list}
+\begin{verbatim}
+397124774839a4aeede25b281238085716af1b16 v2.0
+
+\end{verbatim}
+
+\Sys{HelloUniverse/HelloUniverse.cpp}
+\begin{verbatim}
+#include <iostream>
+int main()
+{
+    std::cout << "Hello New Universe!\n";
+    return 0;
+}
+
+\end{verbatim}
+
+\Sys{HelloUniverse/Makefile}
+\begin{verbatim}
+HelloUniverse: HelloUniverse.cpp
+        g++ ./HelloUniverse.cpp -o HelloUniverse
+clear:
+        rm ./HelloUniverse
+
+\end{verbatim}
+
+\textbf{Исходные данные:} GEAR \textbf{Пример №3}
+
+Пример №3  использует исходные данные аналогичные примеру №2.
+
+\textbf{Исходные данные:} GEAR обновление пакета \textbf{Пример №4}
+
+Структура:
+\begin{verbatim}
+.
+├── .gear
+│   ├── HelloUniverse.spec
+│   ├── rules
+│   ├── tags
+│   │   └── list
+│   └── upstream
+│       └── remotes
+└── HelloUniverse
+    ├── HelloUniverse.cpp
+    └── Makefile
+
+\end{verbatim}
+
+\Sys{.gear/HelloUniverse.spec}
+\begin{verbatim}
+%define _unpackaged_files_terminate_build 1
+
+Name:    HelloUniverse
+Version: 3.0
+Release: alt1
+Summary: Most simple RPM package
+License: GPL-1.0
+Group:   Development/Other
+Source:  %name-%version.tar
+Patch:   %name-%version-%release.patch
+BuildRequires: gcc-c++
+
+%description
+This is my first RPM
+
+%prep
+%setup
+%autopatch -p1
+
+%build
+%make_build HelloUniverse
+
+%install
+mkdir -p %{buildroot}%_bindir
+install -m 755 HelloUniverse %{buildroot}%_bindir
+
+%files
+%_bindir/%name
+
+%changelog
+* Wed May 01 2024 Some One <someone@altlinux.org> 2.0-alt2
+- Instructions for build by release tag added.
+
+* Wed May 01 2024 Some One <someone@altlinux.org> 2.0-alt1
+- New source fiture added.
+
+* Mon Apr 01 2024 Some One <someone@altlinux.org> 1.0-alt1
+- Init Build.
+
+\end{verbatim}
+
+
+\Sys{.gear/rules}
+\begin{verbatim}
+tar: v@version@:HelloUniverse/
+spec: .gear/HelloUniverse.spec
+diff: v@version@:HelloUniverse/ .:HelloUniverse/ exclude=.gear/**
+copy?: .gear/*.patch
+
+\end{verbatim}
+
+\Sys{.gear/tags/list}
+\begin{verbatim}
+397124774839a4aeede25b281238085716af1b16 v2.0
+\end{verbatim}
+
+\Sys{.gear/upstream/remotes}
+\begin{verbatim}
+[remote "upstream"]
+        url = https://gitlab.basealt.space/alt/ExampleFirstProject.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+\end{verbatim}
+
+\Sys{HelloUniverse/HelloUniverse.cpp}
+\begin{verbatim}
+#include <iostream>
+int main()
+{
+    std::cout << "Hello Universe!\n";
+    std::cout << "Hello New Universe!\n";
+    return 0;
+}
+
+\end{verbatim}
+
+\Sys{HelloUniverse/Makefile}
+\begin{verbatim}
+HelloUniverse: HelloUniverse.cpp
+        g++ ./HelloUniverse.cpp -o HelloUniverse
+clear:
+        rm ./HelloUniverse
+\end{verbatim}
