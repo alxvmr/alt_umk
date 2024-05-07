@@ -386,7 +386,7 @@ git push v3.0
 
 \textbf{Исходные данные:} Базовые инструменты \Sys{rpm} \textbf{Пример №1}
 
-Структура:
+\noindent Структура:
 \begin{verbatim}
 .
 ├── HelloUniverse
@@ -396,7 +396,7 @@ git push v3.0
 
 \end{verbatim}
 
-\Sys{HelloUniverse/HelloUniverse.cpp}
+\noindent\underline{\Sys{HelloUniverse/HelloUniverse.cpp}:}
 \begin{verbatim}
 #include <iostream>
 int main()
@@ -407,7 +407,7 @@ int main()
 
 \end{verbatim}
 
-\Sys{HelloUniverse/Makefile}
+\noindent\underline{\Sys{HelloUniverse/Makefile}:}
 \begin{verbatim}
     g++ ./HelloUniverse.cpp -o HelloUniverse
 clear:
@@ -415,7 +415,7 @@ clear:
 
 \end{verbatim}
 
-\Sys{HelloUniverse.spec}
+\noindent\underline{\Sys{HelloUniverse.spec}:}
 \begin{verbatim}
 %define _unpackaged_files_terminate_build 1
 
@@ -452,7 +452,7 @@ install -m 755 HelloUniverse %{buildroot}%_bindir
 
 \textbf{Исходные данные:} Hasher \textbf{Пример №2}
 
-Структура:
+\noindent Структура:
 \begin{verbatim}
 .
 ├── .gear
@@ -466,7 +466,7 @@ install -m 755 HelloUniverse %{buildroot}%_bindir
 
 \end{verbatim}
 
-\Sys{.gear/HelloUniverse.spec}
+\noindent\underline{\Sys{.gear/HelloUniverse.spec}:}
 \begin{verbatim}
 %define _unpackaged_files_terminate_build 1
 
@@ -509,7 +509,7 @@ install -m 755 HelloUniverse %{buildroot}%_bindir
 
 \end{verbatim}
 
-\Sys{.gear/rules}
+\noindent\underline{\Sys{.gear/rules}:}
 \begin{verbatim}
 tar: v@version@:HelloUniverse/
 spec: .gear/HelloUniverse.spec
@@ -518,13 +518,13 @@ copy?: .gear/*.patch
 
 \end{verbatim}
 
-\Sys{.gear/tags/list}
+\noindent\underline{\Sys{.gear/tags/list}:}
 \begin{verbatim}
 397124774839a4aeede25b281238085716af1b16 v2.0
 
 \end{verbatim}
 
-\Sys{HelloUniverse/HelloUniverse.cpp}
+\noindent\underline{\Sys{HelloUniverse/HelloUniverse.cpp}:}
 \begin{verbatim}
 #include <iostream>
 int main()
@@ -535,7 +535,7 @@ int main()
 
 \end{verbatim}
 
-\Sys{HelloUniverse/Makefile}
+\noindent\underline{\Sys{HelloUniverse/Makefile}:}
 \begin{verbatim}
 HelloUniverse: HelloUniverse.cpp
         g++ ./HelloUniverse.cpp -o HelloUniverse
@@ -548,9 +548,11 @@ clear:
 
 Пример №3  использует исходные данные аналогичные примеру №2.
 
+\break
+
 \textbf{Исходные данные:} GEAR обновление пакета \textbf{Пример №4}
 
-Структура:
+\noindent Структура:
 \begin{verbatim}
 .
 ├── .gear
@@ -566,7 +568,7 @@ clear:
 
 \end{verbatim}
 
-\Sys{.gear/HelloUniverse.spec}
+\noindent\underline{\Sys{.gear/HelloUniverse.spec}:}
 \begin{verbatim}
 %define _unpackaged_files_terminate_build 1
 
@@ -610,7 +612,7 @@ install -m 755 HelloUniverse %{buildroot}%_bindir
 \end{verbatim}
 
 
-\Sys{.gear/rules}
+\noindent\underline{\Sys{.gear/rules}:}
 \begin{verbatim}
 tar: v@version@:HelloUniverse/
 spec: .gear/HelloUniverse.spec
@@ -619,19 +621,21 @@ copy?: .gear/*.patch
 
 \end{verbatim}
 
-\Sys{.gear/tags/list}
+\noindent\underline{\Sys{.gear/tags/list}:}
 \begin{verbatim}
 397124774839a4aeede25b281238085716af1b16 v2.0
+
 \end{verbatim}
 
-\Sys{.gear/upstream/remotes}
+\noindent\underline{\Sys{.gear/upstream/remotes}:}
 \begin{verbatim}
 [remote "upstream"]
         url = https://gitlab.basealt.space/alt/ExampleFirstProject.git
         fetch = +refs/heads/*:refs/remotes/origin/*
+
 \end{verbatim}
 
-\Sys{HelloUniverse/HelloUniverse.cpp}
+\noindent\underline{\Sys{HelloUniverse/HelloUniverse.cpp}:}
 \begin{verbatim}
 #include <iostream>
 int main()
@@ -643,7 +647,7 @@ int main()
 
 \end{verbatim}
 
-\Sys{HelloUniverse/Makefile}
+\noindent\underline{\Sys{HelloUniverse/Makefile}:}
 \begin{verbatim}
 HelloUniverse: HelloUniverse.cpp
         g++ ./HelloUniverse.cpp -o HelloUniverse
