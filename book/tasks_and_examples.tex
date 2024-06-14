@@ -264,14 +264,14 @@ $ sed -i '4 s/New/Alt/g' HelloUniverse/HelloUniverse.cpp
 $ gear-hsh ----commit ----lazy-cleanup
 \end{verbatim}
 
-Ознакомимся с автоматически созданным и примененным патчем:
+После завешения сборки ознакомимся с автоматически созданным и примененным патчем:
 \begin{verbatim}
 $ cat ~/hasher/chroot/usr/src/RPM/SOURCES/HelloUniverse-2.0-alt2.patch
 \end{verbatim}
 
 Установим  собранный пакет пакетным менеджером \Sys{apt}:
 \begin{verbatim}
-$ sudo apt-get install ~/RPM/RPMS/x86_64/HelloUniverse-2.0-alt2.x86_64.rpm
+$ sudo apt-get install ~/hasher/repo/x86_64/RPMS.hasher/HelloUniverse-2.0-alt2.x86_64.rpm
 \end{verbatim}
 
 Запустим исполняемый файл пакета:
