@@ -32,7 +32,7 @@
 \begin{itemize}
 	\item Запустить демон \Sys{hasher-priv}(необходимо начиная с версии hasher 2.0):
 	\begin{verbatim}
-		# systemctl enable --now hasher-privd.service
+		# systemctl enable ----now hasher-privd.service
 	\end{verbatim}
 	
 	\item Подготовить учётную запись для работы с \Sys{hasher} можно средствами встроенной утилиты.
@@ -78,7 +78,7 @@
 \end{itemize}
 Если всё сделано верно, мы сможем создать минимальное сборочное окружение, исполнив команду:
 \begin{verbatim}
-	$ hsh --initroot-only
+	$ hsh ----initroot-only
 \end{verbatim}
 По умолчанию сборочное окружение создается в каталоге \Sys{$\sim$/hasher}. Для инициализации окружения
 этот каталог должн существовать. Можно переобозначить путь для сборочного окружения по умолчанию.
@@ -86,7 +86,7 @@
 команду с переобозначенным путем:
 \begin{verbatim}
 	$ mkdir ~/some-new-hasher
-	$ hsh --initroot-only ~/some-new-hasher
+	$ hsh ----initroot-only ~/some-new-hasher
 \end{verbatim}
 Окружение сбрасывается для каждого нового запущенного процесса сборки, и создается заново, если
 не существовало. При необходимости содержимое каталога может быть очищено с правами
@@ -94,7 +94,7 @@
 \\
 Часто используемые параметры конфигурации $\sim$/.hasher/config:
 \begin{itemize}
-	\item \Sys{packager='' ` rpm --eval \%packager ` ''} --- альтернативный варинт указать параметр \Sys{packager} для \Sys{rpm}.
+	\item \Sys{packager='' ` rpm ----eval \%packager ` ''} --- альтернативный варинт указать параметр \Sys{packager} для \Sys{rpm}.
 	(Будет работать если заполнен макрос  \Sys{\%packager} в \Sys{$\sim$/.rpmmacros});
 	\item \Sys{allowed\_mountpoints=/dev/pts,/proc,/dev/shm} --- параметр подключать в корень изолированного сборочного
 	окружения список локальных файловых систем;
@@ -211,7 +211,7 @@
 
 Упрощенный пример команды для создания \Sys{.tar} архива:
 \begin{verbatim}
-	$ tar --create --file=pkg.tar --label=<имя пакета>.spec \
+	$ tar ----create ----file=pkg.tar ----label=<имя пакета>.spec \
 	<имя пакета>-<версия из spec>.tar <имя патча>.patch <имя пакета>.spec
 \end{verbatim}
 

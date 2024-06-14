@@ -18,7 +18,7 @@ $ rpmdev-setuptree
 в рабочий каталог. Для однозначности точно укажем расположение рабочего
 каталога \Sys{~/ExampleFirstProject/} в команде \Sys{git}:
 \begin{verbatim}
-$ git clone --branch=rpmbuild-v1 \
+$ git clone ----branch=rpmbuild-v1 \
  https://gitlab.basealt.space/alt/ExampleFirstProject.git ~/ExampleFirstProject/
 $ cd ~/ExampleFirstProject/
 \end{verbatim}
@@ -65,9 +65,9 @@ $ HelloUniverse
 метаданных. Посмотрим информацию о пакете, список файлов пакета и удалим
 пакет из системы:
 \begin{verbatim}
-$ rpm -qi HelloUniverse
+$ sudo rpm -qi HelloUniverse
 $ rpm -ql HelloUniverse
-$ rpm -e HelloUniverse
+$ sudo rpm -e HelloUniverse
 \end{verbatim}
 
 \section{Hasher \textbf{Пример №2}}
@@ -90,7 +90,12 @@ $ rpm -e HelloUniverse
 Создадим изолированное сборочное окружение \Sys{Hasher}:
 
 \begin{verbatim}
-$ hsh --initroot-only ~/hasher/
+$ hsh ----initroot-only ~/hasher/
+\end{verbatim}
+
+В сборочное окружение необходимые зависимости нужно установить в ручную:
+\begin{verbatim}
+$ hsh-install gcc-c++
 \end{verbatim}
 
 Уже имеющийся архив и \Sys{.spec}-файл поместим в изолированное сборочное
@@ -99,11 +104,6 @@ $ hsh --initroot-only ~/hasher/
 \begin{verbatim}
 $ cp HelloUniverse-1.0.tar ~/hasher/chroot/.in/
 $ cp HelloUniverse.spec  ~/hasher/chroot/.in/
-\end{verbatim}
-
-В сборочное окружение необходимые зависимости нужно установить в ручную:
-\begin{verbatim}
-$ hsh-install gcc-c++
 \end{verbatim}
 
 Войдем в сборочное окружение \Sys{Hasher}:
@@ -160,7 +160,7 @@ $ ls ~/hasher/repo/x86_64/RPMS.hasher/HelloUniverse-1.0-alt1.x86_64.rpm
 Перейдем в рабочий каталог и запустим команду архивирования:
 \begin{verbatim}
 $ cd ~/ExampleFirstProject/
-$ tar -c --file=pkg.tar --label=HelloUniverse.spec HelloUniverse-1.0.tar HelloUniverse.spec
+$ tar -c ----file=pkg.tar ----label=HelloUniverse.spec HelloUniverse-1.0.tar HelloUniverse.spec
 \end{verbatim}
 Использованные ключи команды \Sys{tar}:
 \begin{itemize}
@@ -187,7 +187,7 @@ $ ls ~/hasher/repo/x86_64/RPMS.hasher/HelloUniverse-1.0-alt1.x86_64.rpm
 инструмента \Sys{GEAR} с набором формализованных инструкций.
 
 \begin{verbatim}
-$ git clone --branch=gear-v2 \
+$ git clone ----branch=gear-v2 \
  https://gitlab.basealt.space/alt/ExampleFirstProject.git ~/ExampleFirstProject-v2/
 $ cd ~/ExampleFirstProject-v2/
 \end{verbatim}
@@ -218,10 +218,10 @@ $ rpm -qi ~/RPM/RPMS/x86_64/HelloUniverse-2.0-alt1.x86_64.rpm
 
 \textbf{Пример №3.2 <<Сборка с \Sys{Hasher}>>}:
 Запустим сборку пакета с использованием \Sys{gear-hsh}. Передадим ключи вида
-\Sys{--verbose -- --verbose} для подробного вывода информации о процессе выполнения
+\Sys{----verbose ---- ----verbose} для подробного вывода информации о процессе выполнения
 как для \Sys{gear}, так и для вложенного \Sys{Hasher} инструментов:
 \begin{verbatim}
-gear-hsh --verbose -- --verbose
+gear-hsh ----verbose ---- ----verbose
 \end{verbatim}
 
 \Sys{GEAR} подготовит исходные данные и передаст в необходимом формате на сборку в
@@ -261,7 +261,7 @@ $ sed -i '4 s/New/Alt/g' HelloUniverse/HelloUniverse.cpp
 сохранения файлов после окончания сборки.
 Запустим сборку с перечисленными ключами:
 \begin{verbatim}
-$ gear-hsh --commit --lazy-cleanup
+$ gear-hsh ----commit ----lazy-cleanup
 \end{verbatim}
 
 Ознакомимся с автоматически созданным и примененным патчем:
@@ -304,7 +304,7 @@ $ sudo apt-get remove HelloUniverse
 рабочий источник примера. Скопируем версию примера, подготовленную для
 обновления:
 \begin{verbatim}
-$ git clone --branch=2.0-alt2 \
+$ git clone ----branch=2.0-alt2 \
 https://gitlab.basealt.space/alt/ExampleFirstProject.git ~/ExampleFirstProject-v3/
 $ cd ~/ExampleFirstProject-v3/
 \end{verbatim}

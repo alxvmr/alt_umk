@@ -252,13 +252,13 @@ $ cd package_name
 
 Командная обертка \Sys{gear} для \Sys{rpmbuild} --- \Sys{gear-rpm}. Для сборки пакета используйте команду:
 \begin{verbatim}
-$ gear-rpm --verbose -ba
+$ gear-rpm ----verbose -ba
 \end{verbatim}
 
 
 Собрать пакет при помощи \Sys{hsh}:
 \begin{verbatim}
-$ gear-hsh --verbose
+$ gear-hsh ----verbose
 \end{verbatim}
 
 Команде \Sys{gear-hsh} можно передать как аргументы \Sys{gear}, так и аргументы \Sys{hsh}.
@@ -289,7 +289,7 @@ $ git checkout -b sisyphus upstream/master
 Переместимся на тег (тег --- это ссылка, указывающая на определённый \Sys{git}-коммит в репозитории),
 соответствующий версии, которую мы будем собирать. На момент написания пособия последний тег \Sys{v1.0.7}:
 \begin{verbatim}
-$ git reset --hard v1.0.7
+$ git reset ----hard v1.0.7
 \end{verbatim}
 
 Определим правила экспорта:
@@ -333,7 +333,7 @@ $ git add .gear
 
 Можно попробовать собрать пакет:
 \begin{verbatim}
-$ gear-rpm --verbose --commit -ba
+$ gear-rpm ----verbose ----commit -ba
 \end{verbatim}
 
 При необходимости, можно поправить \Sys{spec}-файл и добавить нужные зависимости.

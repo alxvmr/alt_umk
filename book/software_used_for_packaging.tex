@@ -577,7 +577,7 @@ BuildRequires(pre): rpm-build-pyproject
 \begin{itemize}
 	\item cтандартные макросы предопределены в пакете \Sys{rpmbuild (librpm)}.
 		Информацию о них можно получить из файла \Sys{/usr/lib/rpm/macros} или выполнив
-		команду: \Sys{rpm --showrc};
+		команду: \Sys{rpm ----showrc};
 	 \item макросы можно объявить самостоятельно, добавив в \Sys{SPEC}-файл;
 	 \item макросы можно объявить в отдельных файлах.
 	 	Команда \Sys{\%include} позволяет загрузить специальные файлы с объявленными макросами;
@@ -592,7 +592,7 @@ BuildRequires(pre): rpm-build-pyproject
 	 \Sys{BuildRequires(pre): rpm-build-ruby}.
 \end{itemize}
 
-\marginalia{ex_sign_col}{Команда получения значения макроса: \Sys{rpm --eval {<имя\_макроса>}}}
+\marginalia{ex_sign_col}{Команда получения значения макроса: \Sys{rpm ----eval {<имя\_макроса>}}}
 
 \marginalia{ex_sign_col}{Некоторые макросы могут быть вложенными.}
 
