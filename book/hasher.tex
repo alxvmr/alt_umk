@@ -56,7 +56,7 @@
 	
 	Необходимо добавить имя в указанном формате в конфигурационный файл:
 	\begin{verbatim}
-		$ echo 'packager="Ваше Имя <login@altlinux.org>"' >> ~/.hasher/config
+		$ echo 'packager="Ваше_имя  Ваша_фамилия <my_mail@altlinux.org>"' >> ~/.hasher/config
 	\end{verbatim}
 	Этот параметр важен для встроенных проверок \Sys{hasher}.
 	
@@ -94,11 +94,12 @@
 \\
 Часто используемые параметры конфигурации $\sim$/.hasher/config:
 \begin{itemize}
+	\item \Sys{no\_sisyphus\_check="packager,buildhost,gpg"} --- рекомендуемый параметр для работы с примерами методического поосбия.
+	Отключает проверки излишних значений в условиях обучающего пособия;
 	\item \Sys{packager='' ` rpm ----eval \%packager ` ''} --- альтернативный варинт указать параметр \Sys{packager} для \Sys{rpm}.
 	(Будет работать если заполнен макрос  \Sys{\%packager} в \Sys{$\sim$/.rpmmacros});
 	\item \Sys{allowed\_mountpoints=/dev/pts,/proc,/dev/shm} --- параметр подключать в корень изолированного сборочного
 	окружения список локальных файловых систем;
-	\item \Sys{no\_sisyphus\_check="packager,buildhost,gpg"} ---
 	\item \Sys{lazy\_cleanup=1} --- команда очищать среду сборки перед каждой новой сборкой;
 	\item \Sys{apt\_config="\$HOME/.hasher/apt.conf"} --- параметр позволяет переобозначить конфигурацию источников
 	репозиториев для сборочного окружения.
