@@ -22,12 +22,13 @@ $ rpmdev-setuptree
 каталога \Sys{~/ExampleFirstProject/} в команде \Sys{git}:
 \begin{verbatim}
 $ git clone ----branch=rpmbuild-v1 \
- https://gitlab.basealt.space/alt/edu/ExampleFirstProject.git ~/ExampleFirstProject/
+ https://gitlab.basealt.space/alt/edu/ExampleFirstProject.git \
+ ~/ExampleFirstProject/
 $ cd ~/ExampleFirstProject/
 \end{verbatim}
 
-Сформируем \Sys{.tar} архив с исходными данными проекта. Имя архива должно
-соответствовать инструкциям в \Sys{.spec} файле:
+Сформируем \Sys{.tar}-архив с исходными данными проекта. Имя архива должно
+соответствовать инструкциям в \Sys{.spec}-файле:
 \begin{verbatim}
 $ tar cvf HelloUniverse-1.0.tar HelloUniverse
 \end{verbatim}
@@ -163,13 +164,14 @@ $ ls ~/hasher/repo/x86_64/RPMS.hasher/HelloUniverse-1.0-alt1.x86_64.rpm
 Перейдем в рабочий каталог и запустим команду архивирования:
 \begin{verbatim}
 $ cd ~/ExampleFirstProject/
-$ tar -c ----file=pkg.tar ----label=HelloUniverse.spec HelloUniverse-1.0.tar HelloUniverse.spec
+$ tar -c ----file=pkg.tar ----label=HelloUniverse.spec \
+ HelloUniverse-1.0.tar HelloUniverse.spec
 \end{verbatim}
 Использованные ключи команды \Sys{tar}:
 \begin{itemize}
 	\item \Sys{-c} --- создать архив;
-	\item \Sys{--file=pkg.tar} --- задать имя архива(шаблонное имя архива);
-	\item \Sys{--label=HelloUniverse.spec} --- метка архива(должна совпадать с именем \Sys{.spec}-файла).
+	\item \Sys{--file=pkg.tar} --- задать имя архива (шаблонное имя архива);
+	\item \Sys{--label=HelloUniverse.spec} --- метка архива (должна совпадать с именем \Sys{.spec}-файла).
 \end{itemize}
 
 Созданный архив можно передать на сборку в изолированное сборочное
@@ -178,7 +180,7 @@ $ tar -c ----file=pkg.tar ----label=HelloUniverse.spec HelloUniverse-1.0.tar Hel
 $ hsh ./pkg.tar
 \end{verbatim}
 
-Проверим наличее собранного пакета:
+Проверим наличие собранного пакета:
 \begin{verbatim}
 $ ls ~/hasher/repo/x86_64/RPMS.hasher/HelloUniverse-1.0-alt1.x86_64.rpm
 \end{verbatim}
@@ -191,7 +193,8 @@ $ ls ~/hasher/repo/x86_64/RPMS.hasher/HelloUniverse-1.0-alt1.x86_64.rpm
 
 \begin{verbatim}
 $ git clone ----branch=gear-v2 \
- https://gitlab.basealt.space/alt/edu/ExampleFirstProject.git ~/ExampleFirstProject-v2/
+ https://gitlab.basealt.space/alt/edu/ExampleFirstProject.git \
+ ~/ExampleFirstProject-v2/
 $ cd ~/ExampleFirstProject-v2/
 \end{verbatim}
 
@@ -205,7 +208,7 @@ $ gear pkg.tar
 и \Sys{Hasher}.
 
 \textbf{Пример №3.1 <<Сборка с \Sys{rpmbuild}>>}:
-Выполним сборку с использованием \Sys{gear-rpm} и ключем \Sys{-bb}
+Выполним сборку с использованием \Sys{gear-rpm} и ключом \Sys{-bb}
 для сборки только бинарного {.rpm}-пакета:
 \begin{verbatim}
 $ gear-rpm -bb
@@ -234,7 +237,7 @@ gear-hsh ----verbose ---- ----verbose
 $ ls ~/hasher/repo/x86_64/RPMS.hasher/HelloUniverse-2.0-alt1.x86_64.rpm
 \end{verbatim}
 
-\textbf{Пример №3.3 <<Сборка по тэгу релиза с использованием автогенерируемого патча>>}:
+\textbf{Пример №3.3 <<Сборка по тегу релиза с использованием автогенерируемого патча>>}:
 
 Продемонстрируем сборку пакета по метке, связанной с ключевыми изменениями исходных
 данных. В нашем примере возьмем метку \Sys{v2.0} и дополнительно внесем собственные
@@ -259,22 +262,23 @@ $ sed -i '4 s/New/Alt/g' HelloUniverse/HelloUniverse.cpp
 \end{verbatim}
 
 Нужные изменения подготовлены, но не зафиксированы в истории \Sys{git}. Несмотря на это,
-мы можем применить изменения для локальной сборки, передав \Sys{GEAR} ключ \Sys{--commit}.
-Соберем пакет в изолированном окружении с  дополнительным ключом \Sys{--lazy-cleanup} для
+мы можем применить изменения для локальной сборки, передав \Sys{GEAR} ключ \Sys{----commit}.
+Соберем пакет в изолированном окружении с  дополнительным ключом \Sys{----lazy-cleanup} для
 сохранения файлов после окончания сборки.
 Запустим сборку с перечисленными ключами:
 \begin{verbatim}
 $ gear-hsh ----commit ----lazy-cleanup
 \end{verbatim}
 
-После завешения сборки ознакомимся с автоматически созданным и примененным патчем:
+После завершения сборки ознакомимся с автоматически созданным и примененным патчем:
 \begin{verbatim}
 $ cat ~/hasher/chroot/usr/src/RPM/SOURCES/HelloUniverse-2.0-alt2.patch
 \end{verbatim}
 
-Установим  собранный пакет пакетным менеджером \Sys{apt}:
+Установим  собранный пакет пакетным менеджером \Sys{APT}:
 \begin{verbatim}
-$ sudo apt-get install ~/hasher/repo/x86_64/RPMS.hasher/HelloUniverse-2.0-alt2.x86_64.rpm
+$ sudo apt-get install \
+ ~/hasher/repo/x86_64/RPMS.hasher/HelloUniverse-2.0-alt2.x86_64.rpm
 \end{verbatim}
 
 Запустим исполняемый файл пакета:
@@ -282,7 +286,7 @@ $ sudo apt-get install ~/hasher/repo/x86_64/RPMS.hasher/HelloUniverse-2.0-alt2.x
 $ HelloUniverse
 \end{verbatim}
 
-Можем удалить пакет, используя пакетный менеджер \Sys{apt}:
+Можем удалить пакет, используя пакетный менеджер \Sys{APT}:
 \begin{verbatim}
 $ sudo apt-get remove HelloUniverse
 \end{verbatim}
@@ -303,16 +307,17 @@ $ sudo apt-get remove HelloUniverse
 # apt-get install rpm-utils
 \end{verbatim}
 
-Пример упрощен и объединяет в себе внешний(upstream) источник и
+Пример упрощен и объединяет в себе внешний (upstream) источник и
 рабочий источник примера. Скопируем версию примера, подготовленную для
 обновления:
 \begin{verbatim}
 $ git clone ----branch=2.0-alt2 \
-https://gitlab.basealt.space/alt/edu/ExampleFirstProject.git ~/ExampleFirstProject-v3/
+ https://gitlab.basealt.space/alt/edu/ExampleFirstProject.git \
+ ~/ExampleFirstProject-v3/
 $ cd ~/ExampleFirstProject-v3/
 \end{verbatim}
 
-Назначим наш базовый-рабочий источник(origin) внешним(upstream). Такой вариант
+Назначим наш базовый-рабочий источник (origin) внешним (upstream). Такой вариант
 используется для примера и в обычной рабочей ситуации подразумевает различие источников.
 \begin{verbatim}
 gear-remotes-save origin
@@ -330,8 +335,7 @@ gear-remotes-watch
 git merge v3.0
 \end{verbatim}
 
-Специализированная утилита поможет легко исправить инструкции
-\Sys{.gear/tags/list}.
+Специализированная утилита поможет легко исправить инструкции \Sys{.gear/tags/list}.
 Обновим инструкции для сборки исходных данных с меткой \Sys{v3.0}:
 \begin{verbatim}
 gear-update-tag v3.0
@@ -348,7 +352,7 @@ Summary: Most simple RPM package
 Все остальные поля остаются неизменными.
 
 Утилита \Sys{add\_changelog} дополняет секцию журнала \Sys{.spec}-файла
-списком изменений в утвержденном формате(каждую строку списка принято начинать
+списком изменений в утвержденном формате (каждую строку списка принято начинать
 с символа ''\Sys{-}''). Создадим запись в журнале для \Sys{HelloUniverse.spec}:
 \begin{verbatim}
 add_changelog -e "- Updated to new version v3.0." HelloUniverse.spec
@@ -387,7 +391,7 @@ git push v3.0
 Эльбрус и настроенной операционной системой Альт.
 
 \marginalia{ex_sign_col}{Проверьте права доступа файлов источников для пакетов системы \Sys{/etc/apt/}.
-	Хотябы один источни должен быть доступен на чтение для группы \Sys{hashman}.
+	Хотя бы один источник должен быть доступен на чтение для группы \Sys{hashman}.
 	Для назначения группы на стандартные файлы источников можно выполнить команду:\\
 	\Sys{\# chgrp hashman /etc/apt/sources.list\{,.d/pvt.list\}}
 	}
@@ -401,18 +405,19 @@ git push v3.0
 Со спецификой сборки для процессов Эльбрус можно подробнее познакомиться
 на ALT Linux Wiki%
 \footnote{\href{https://www.altlinux.org/\%D0\%AD\%D0\%BB\%D1\%8C\%D0\%B1\%D1\%80\%D1\%83\%D1\%81/lcc}{https://www.altlinux.org/Эльбрус/lcc}}%
-\footnote{\href{https://www.altlinux.org/\%D0\%AD\%D0\%BB\%D1\%8C\%D0\%B1\%D1\%80\%D1\%83\%D1\%81/\%D0\%BF\%D0\%BE\%D1\%80\%D1\%82\%D0\%B8\%D1\%80\%D0\%BE\%D0\%B2\%D0\%B0\%D0\%BD\%D0\%B8\%D0\%B5}{https://www.altlinux.org/Эльбрус/портирование}}
+\footnote{\href{https://www.altlinux.org/\%D0\%AD\%D0\%BB\%D1\%8C\%D0\%B1\%D1\%80\%D1\%83\%D1\%81/\%D0\%BF\%D0\%BE\%D1\%80\%D1\%82\%D0\%B8\%D1\%80\%D0\%BE\%D0\%B2\%D0\%B0\%D0\%BD\%D0\%B8\%D0\%B5}{https://www.altlinux.org/Эльбрус/портирование}}.
 
-Возмем специально подготовленные исходные данные адаптированные для
+Возьмем специально подготовленные исходные данные адаптированные для
 формирования специфичного вывода доступного только процессорам Эльбрус.
 
 \begin{verbatim}
 $ git clone ----branch=4.0-alt1 \
-https://gitlab.basealt.space/alt/edu/ExampleFirstProject.git ~/ExampleFirstProject-v4/
+ https://gitlab.basealt.space/alt/edu/ExampleFirstProject.git \
+ ~/ExampleFirstProject-v4/
 $ cd ~/ExampleFirstProject-v4/
 \end{verbatim}
 
-Пример подготовлен для сборки средствами GEAR и не несет в себе существенных
+Пример подготовлен для сборки средствами \Sys{GEAR} и не несет в себе существенных
 изменений в сборочных инструкциях. Все изменения касаются версии и релиза.
 Убедиться в этом можно запустив команду:
 \begin{verbatim}
@@ -424,9 +429,10 @@ $ git show
 $ gear-hsh
 \end{verbatim}
 
-Установите пакет(Обратите внимание что версия архитектуры может отличаться и быть равной одному из значений e2kv6, e2kv5, e2kv4, e2k):
+Установите пакет (Обратите внимание что версия архитектуры может отличаться и быть равной одному из значений e2kv6, e2kv5, e2kv4, e2k):
 \begin{verbatim}
-$ sudo apt-get install ~/hasher/repo/e2kv5/RPMS.hasher/HelloUniverse-4.0-alt1.e2kv5.rpm
+$ sudo apt-get install \
+ ~/hasher/repo/e2kv5/RPMS.hasher/HelloUniverse-4.0-alt1.e2kv5.rpm
 \end{verbatim}
 
 Если всё сделано верно то запустив исполняемый файл пакета будет получен вывод:

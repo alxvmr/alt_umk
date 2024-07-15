@@ -5,7 +5,7 @@
 \begin{itemize}
 	\item \textbf{Пример №1. Сборка пакета с помощью \Sys{rpmbuild}}.
 	
-	Подготовьте дерево каталогов для сборки пакета с помощью \Sys{rpmbuild}. Сформируйте \Sys{.tar} архив с исходным кодом программы и загрузите в каталог \Sys{SOURCES}. Назовите архив в соответствии с именем \Sys{SPEC}-файла. В каталог \Sys{SPECS} загрузите \Sys{SPEC}-файл. 
+	Подготовьте дерево каталогов для сборки пакета с помощью \Sys{rpmbuild}. Сформируйте \Sys{.tar}-архив с исходным кодом программы и загрузите в каталог \Sys{SOURCES}. Назовите архив в соответствии с именем \Sys{SPEC}-файла. В каталог \Sys{SPECS} загрузите \Sys{spec}-файл. 
 	
 	\begin{verbatim}
 		$ cd ~/RPM
@@ -23,7 +23,7 @@
 		`-- SRPMS
 	\end{verbatim}
 	
-	Для сборки \Sys{RPM}-пакета выполните команду: 
+	Для сборки \Sys{rpm}-пакета выполните команду: 
 	\begin{verbatim}
 		$ rpmbuild -bb ./SPECS/HelloUniverse.spec 
 		...
@@ -53,7 +53,7 @@
 		$ gear-hsh -v --no-sisyphus-check 
 	\end{verbatim}
 	
-	Результат успешного завершения сборки --- собранный \Sys{RPM}-пакет и \Sys{.src.rpm}:
+	Результат успешного завершения сборки --- собранный \Sys{rpm}-пакет и \Sys{.src.rpm}:
 	\begin{verbatim}
 		$ ls ~/hasher/repo/x86_64/RPMS.hasher/
 		HelloUniverse-1.0-alt1.x86_64.rpm
@@ -87,7 +87,7 @@
 	\item текстовый редактор (Vim, Emacs, MC);
 	\item \Sys{rpmbuild};
 	\item \Sys{Hasher};
-	\item \Sys{Gear}.
+	\item \Sys{GEAR}.
 \end{itemize}
 
 Для работы с \Sys{rpmbuild} установите также сборочные зависимости:
@@ -105,7 +105,7 @@
 \end{enumerate}
 
 
-\section{Написание \Sys{SPEC}-файла и правил \Sys{Gear}}
+\section{Написание \Sys{spec}-файла и правил \Sys{GEAR}}
 Подготовка \Sys{gear}-репозитория.
 
 Перейдите в каталог с исходным кодом и проинициализируйте репозиторий: 
@@ -122,7 +122,7 @@
 	$ touch rules
 \end{verbatim} 
 
-Заполните \Sys{SPEC}-файл \Sys{HelloUniverse.spec}:
+Заполните \Sys{spec}-файл \Sys{HelloUniverse.spec}:
 \begin{verbatim}
 	%define _unpackaged_files_terminate_build 1
 	
@@ -169,7 +169,7 @@
 	$ git commit -m "first commit"
 \end{verbatim}
 
-Теперь у нас есть готовая к сборке в \Sys{RPM}-пакет программа. 
+Теперь у нас есть готовая к сборке в \Sys{rpm}-пакет программа. 
 
 После того, как мы убедимся, что программа собирается в пакет и работает, рекомендуется написать \Sys{changelog}, сделать новый коммит с релизом и поставить тег. 
 
