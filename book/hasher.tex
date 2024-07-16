@@ -54,9 +54,9 @@
 		$ mkdir ~/.hasher
 	\end{verbatim}
 	
-	Необходимо добавить имя в указанном формате в конфигурационный файл:
+	Необходимо добавить ваше имя в указанном формате в конфигурационный файл:
 	\begin{verbatim}
-		$ echo 'packager="Ваше_имя  Ваша_фамилия <my_mail@altlinux.org>"' >> ~/.hasher/config
+		$ echo 'packager="Имя Фамилия <my_mail@altlinux.org>"' >> ~/.hasher/config
 	\end{verbatim}
 	Этот параметр важен для встроенных проверок \Sys{hasher}.
 	
@@ -64,7 +64,7 @@
 	\begin{enumerate}
 		\item права доступа соответствуют \Sys{drwxr-xr-x}, то есть каталог доступен на запись;
 		\item на файловой системе, смонтированной с \Sys{noexec} или \Sys{nodev}, каталог располагать нельзя%
-		\footnote{\href{https://serverfault.com/questions/547237/explanation-of-nodev-and-nosuid-in-fstab}{https://serverfault.com/questions/547237/explanation-of-nodev-and-nosuid-in-fstab}};
+		\footnote{\href{https://serverfault.com/questions/547237/explanation-of-nodev-and-nosuid-in-fstab}{https://serverfault.com/questions/547237/explanation-of-nodev-and-nosuid-in-fstab}}:
 		\begin{itemize}
 			\item \Sys{noexec} устанавливается, если в системе есть файлы с правами \Sys{rwsr-xr-x}
 			(запустить исполняемые файлы с правами владельца или группы) и владельцем \Sys{root}.
@@ -191,8 +191,8 @@
 (см.~раздел 3.3 \hyperlink{rpm-pack-desc}{\mbox{<<Описание \Sys{RPM}-пакета>>}}),
 или специально подготовленного \Sys{tar}-архива.
 
-Для запуска сборки необходим подготовленный \Sys{.src.rpm} (см.~раздел~4
-\hyperlink{rpmbuild-exampl-src}{<<Пример оборки пакета с исходными данными \Sys{.src.rpm}>>}),
+Для запуска сборки необходим подготовленный файл \Sys{.src.rpm} (см.~раздел~4
+\hyperlink{rpmbuild-exampl-src}{<<Пример сборки пакета с исходными данными \Sys{.src.rpm}>>}),
 после чего можно запустить сборку, выполнив команду:
 
 \begin{verbatim}
@@ -207,8 +207,8 @@
 	./
 	├── <имя пакета>.spec
 	├── <имя патча>.patch
-	└── <имя пакета>-<версия из spec>.tar
-	  └── <имя пакета>-<версия из spec> --- Имя каталога с исходными данными для пакета.
+	├── <имя пакета>-<версия из spec>.tar
+	└── <имя пакета>-<версия из spec> - Каталог с исходными данными для пакета.
 \end{verbatim}
 
 Упрощенный пример команды для создания \Sys{tar}-архива:
