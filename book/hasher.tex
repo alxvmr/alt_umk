@@ -71,8 +71,7 @@
 			Запустить файл \Sys{rwxr-xr-x} на такой файловой системе невозможно. а следовательно,
 			и создать корректное сборочное окружение. \Sys{Hasher} не зависит от пользовательского окружения.
 			\item \Sys{nodev} говорит о том, что на файловой системе не будут созданы файлы устройств.
-			Это не соответствует функциональности \Sys{hasher} (см.~раздел 5.3
-			\hyperlink{mount_fs_hasher}{\Sys{fstab}}).
+				Это не соответствует функциональности \Sys{hasher} (см.~стр.\pageref{fstab}. \hyperlink{mount_fs_hasher}{\Sys{fstab}}).
 		\end{itemize}
 	\end{enumerate}
 \end{itemize}
@@ -106,7 +105,7 @@
 	репозиториев для сборочного окружения.
 \end{itemize}
 
-\section{Описание системы Hasher}
+\hypertarget{5.2}{\section{Описание системы Hasher}}
 Переместиться в корень сборочного окружения можно выполнив команду:
 \begin{verbatim}
 	$ hsh-shell
@@ -148,7 +147,7 @@
 	\item \Sys{/etc/hasher-priv/} каталог с конфигурацией для вспомогательной утилиты \Sys{hasher-priv}.
 	\begin{itemize}[$\circ$]
 		\item \Sys{./user.d} --- каталог содержит файлы настроенных пользователей для работы с \Sys{hasher}.
-		\item \hypertarget{mount_fs_hasher}{\Sys{fstab}} --- информация о точках монтирования вспомогательной программы \Sys{hasher-priv}
+		\item \hypertarget{mount_fs_hasher}{\Sys{fstab}}\label{fstab} --- информация о точках монтирования вспомогательной программы \Sys{hasher-priv}
 		\Sys{system} --- конфигурация вспомогательной программы \Sys{hasher-priv}.
 	\end{itemize}
 \end{itemize}
